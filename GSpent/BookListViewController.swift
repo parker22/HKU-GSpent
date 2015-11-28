@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  BookListViewController.swift
 //  GSpent
 //
 //  Created by Jiahe Liu on 28/11/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class BookListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

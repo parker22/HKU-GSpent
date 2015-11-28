@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  PersonalTallyViewController.swift
 //  GSpent
 //
 //  Created by Jiahe Liu on 28/11/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class PersonalTallyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DCE1C09D3560013E1EA /* AppDelegate.swift */; };
-		498D3DD11C09D3560013E1EA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DD01C09D3560013E1EA /* FirstViewController.swift */; };
-		498D3DD31C09D3560013E1EA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DD21C09D3560013E1EA /* SecondViewController.swift */; };
+		498D3DD11C09D3560013E1EA /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DD01C09D3560013E1EA /* BookListViewController.swift */; };
+		498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */; };
 		498D3DD61C09D3560013E1EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498D3DD41C09D3560013E1EA /* Main.storyboard */; };
 		498D3DD81C09D3560013E1EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 498D3DD71C09D3560013E1EA /* Assets.xcassets */; };
 		498D3DDB1C09D3560013E1EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498D3DD91C09D3560013E1EA /* LaunchScreen.storyboard */; };
 		498D3DE61C09D3560013E1EA /* GSpentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DE51C09D3560013E1EA /* GSpentTests.swift */; };
 		498D3DF11C09D3560013E1EA /* GSpentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DF01C09D3560013E1EA /* GSpentUITests.swift */; };
+		498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +38,8 @@
 /* Begin PBXFileReference section */
 		498D3DCB1C09D3560013E1EA /* GSpent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSpent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		498D3DCE1C09D3560013E1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		498D3DD01C09D3560013E1EA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		498D3DD21C09D3560013E1EA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		498D3DD01C09D3560013E1EA /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
+		498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTallyViewController.swift; sourceTree = "<group>"; };
 		498D3DD51C09D3560013E1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		498D3DD71C09D3560013E1EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		498D3DDA1C09D3560013E1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		498D3DEC1C09D3560013E1EA /* GSpentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSpentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		498D3DF01C09D3560013E1EA /* GSpentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSpentUITests.swift; sourceTree = "<group>"; };
 		498D3DF21C09D3560013E1EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSpentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				498D3DCE1C09D3560013E1EA /* AppDelegate.swift */,
-				498D3DD01C09D3560013E1EA /* FirstViewController.swift */,
-				498D3DD21C09D3560013E1EA /* SecondViewController.swift */,
+				498D3DD01C09D3560013E1EA /* BookListViewController.swift */,
+				498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */,
 				498D3DD41C09D3560013E1EA /* Main.storyboard */,
 				498D3DD71C09D3560013E1EA /* Assets.xcassets */,
 				498D3DD91C09D3560013E1EA /* LaunchScreen.storyboard */,
 				498D3DDC1C09D3560013E1EA /* Info.plist */,
+				498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */,
 			);
 			path = GSpent;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				TargetAttributes = {
 					498D3DCA1C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = HNWACE57P8;
 					};
 					498D3DE01C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -259,9 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				498D3DD31C09D3560013E1EA /* SecondViewController.swift in Sources */,
+				498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */,
 				498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */,
-				498D3DD11C09D3560013E1EA /* FirstViewController.swift in Sources */,
+				498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */,
+				498D3DD11C09D3560013E1EA /* BookListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.GSpent;
@@ -412,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.GSpent;
