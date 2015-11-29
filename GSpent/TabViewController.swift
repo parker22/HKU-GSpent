@@ -12,7 +12,12 @@ class TabViewController: RaisedTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Insert empty tab item at center index. In this case we have 5 tabs.
+                self.insertEmptyTabItem("", atIndex: 1)
+        //
+        //        // Raise the center button with image
+                let img = UIImage(named: "add")
+                self.addRaisedButton(img, highlightImage: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -20,32 +25,41 @@ class TabViewController: RaisedTabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Insert empty tab item at center index. In this case we have 5 tabs.
-        self.insertEmptyTabItem("", atIndex: 1)
-        
-        // Raise the center button with image
-        let img = UIImage(named: "icon_camera")
-        self.addRaisedButton(img, highlightImage: nil)
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        // Insert empty tab item at center index. In this case we have 5 tabs.
+//        self.insertEmptyTabItem("", atIndex: 1)
+//        
+//        // Raise the center button with image
+//        let img = UIImage(named: "add")
+//        self.addRaisedButton(img, highlightImage: nil)
+//    }
     
     // Handler for raised button
     override func onRaisedButton(sender: UIButton!) {
-        super.onRaisedButton(sender)
-        
+//        super.onRaisedButton(sender)
+        performSegueWithIdentifier("showNewSpentSegue", sender: self)
         print("Raised button tapped")
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+//        segue.destinationViewController = NewSpentViewController
+        if (segue.identifier == "showNewSpentSegue") {
+            
+            let nav = segue.destinationViewController as! UINavigationController
+            
+            let vc = nav.topViewController as! NewSpentViewController
+            
+            
+        }
     }
-    */
+    
 
 }
