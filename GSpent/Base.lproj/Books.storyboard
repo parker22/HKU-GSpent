@@ -148,7 +148,7 @@
         <scene sceneID="Bzm-VY-g1B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kEX-gv-pY6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Books" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Books" image="tab_books" selectedImage="tab_books_seleceted" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7YF-7W-8XA">
@@ -167,6 +167,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="tab_books" width="32" height="32"/>
+        <image name="tab_books_seleceted" width="32" height="32"/>
     </resources>
 </document>

@@ -70,7 +70,7 @@
         <scene sceneID="AIT-Kl-P13">
             <objects>
                 <viewControllerPlaceholder storyboardName="Books" id="D7L-Hw-RwF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8yc-p1-Gci"/>
+                    <tabBarItem key="tabBarItem" title="Books" image="tab_books" selectedImage="tab_books_seleceted" id="8yc-p1-Gci"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Shm-Z5-6v6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,4 +106,8 @@
             <point key="canvasLocation" x="752" y="1156"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_books" width="32" height="32"/>
+        <image name="tab_books_seleceted" width="32" height="32"/>
+    </resources>
 </document>
