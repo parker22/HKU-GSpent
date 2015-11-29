@@ -8,21 +8,20 @@
 
 import UIKit
 
-class BookIconNamePeople: UITableViewCell {
-
-    @IBOutlet weak var BookIcon: UIImageView!
-    @IBOutlet weak var BookName: UILabel!
-    @IBOutlet weak var BookPeople: UILabel!
+class BookIconNamePeople {
+    var bookIcon: UIImage?
+    var bookName: String
+    var bookPeople: String
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    init?(icon: UIImage?, name: String, people: String) {
+        // Initialize stored properties.
+        self.bookIcon = icon
+        self.bookName = name
+        self.bookPeople = people
+        
+        // Initialization should fail if there is no name or if the rating is negative.
+        if name.isEmpty ||  people.isEmpty {
+            return nil
+        }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
