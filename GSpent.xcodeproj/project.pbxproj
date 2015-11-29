@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4919F0C21C0ACE5C0081E69F /* PersonalTally.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */; };
+		494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */; };
 		498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DCE1C09D3560013E1EA /* AppDelegate.swift */; };
 		498D3DD11C09D3560013E1EA /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DD01C09D3560013E1EA /* BookListViewController.swift */; };
 		498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		4919F0C11C0ACE5C0081E69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PersonalTally.storyboard; sourceTree = "<group>"; };
+		494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaisedTabBarController.swift; sourceTree = "<group>"; };
 		498D3DCB1C09D3560013E1EA /* GSpent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSpent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		498D3DCE1C09D3560013E1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		498D3DD01C09D3560013E1EA /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				498D3DD91C09D3560013E1EA /* LaunchScreen.storyboard */,
 				498D3DDC1C09D3560013E1EA /* Info.plist */,
 				498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */,
+				494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */,
 			);
 			path = GSpent;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */,
 				498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */,
 				498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */,
 				498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */,
