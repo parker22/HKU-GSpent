@@ -1,5 +1,5 @@
 //
-//  bookTblCell.swift
+//  bookTableViewCell.swift
 //  GSpent
 //
 //  Created by Jiahe Liu on 29/11/15.
@@ -8,22 +8,22 @@
 
 import UIKit
 
-class bookTblCell: UITableViewCell {
+class bookTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var imgBookAvatar: UIImageView!
-    @IBOutlet weak var lblBookName: UILabel!
+    @IBOutlet var imgBookAvatar: UIImageView!
     
-    @IBOutlet weak var lblBookMates: UILabel!
-    @IBOutlet weak var lblBookLastUp: UILabel!
-    @IBOutlet weak var lblBookOU: UILabel!
+    @IBOutlet var lblBookLastUp: UILabel!
+    @IBOutlet var lblBookMates: UILabel!
+    @IBOutlet var lblBookName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
