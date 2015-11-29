@@ -18,15 +18,15 @@
                     </tabBar>
                     <connections>
                         <segue destination="D7L-Hw-RwF" kind="relationship" relationship="viewControllers" id="3J7-7W-k5P"/>
-                        <segue destination="IPf-cO-d4s" kind="relationship" relationship="viewControllers" id="RDZ-P0-8d4"/>
                         <segue destination="s5u-Io-2MI" kind="relationship" relationship="viewControllers" id="ubp-3R-uB9"/>
+                        <segue destination="Xj4-p2-uIz" kind="presentation" identifier="showNewSpentSegue" id="Y0f-fg-iEv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="688"/>
+            <point key="canvasLocation" x="-250" y="686"/>
         </scene>
-        <!--New Spent-->
+        <!--Add-->
         <scene sceneID="O5I-Fk-cRl">
             <objects>
                 <viewController id="NyR-zA-5Rx" customClass="NewSpentViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,36 +37,34 @@
                     <view key="view" contentMode="scaleToFill" id="0Gx-DI-a9h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h1s-zq-Jm2">
+                                <rect key="frame" x="213" y="231" width="121" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Spent" id="fsg-hP-mIw"/>
+                    <navigationItem key="navigationItem" title="Add" id="xXc-ro-r2A">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1UC-7R-ab7">
+                            <connections>
+                                <action selector="cancel:" destination="NyR-zA-5Rx" id="t7A-Ha-Oyx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="Close" destination="1UC-7R-ab7" id="MW2-5t-kgp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evb-CF-3ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600" y="1172"/>
-        </scene>
-        <!--New Spent-->
-        <scene sceneID="9f8-Dn-cu7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="IPf-cO-d4s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="New Spent" id="EPh-w4-LoV"/>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="rIc-3u-mEA"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ssX-gy-Obm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="NyR-zA-5Rx" kind="relationship" relationship="rootViewController" id="hhd-dz-WuT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zvl-HV-g8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="788" y="1172"/>
+            <point key="canvasLocation" x="1060" y="798"/>
         </scene>
         <!--Books-->
         <scene sceneID="AIT-Kl-P13">
@@ -87,6 +85,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUc-YM-57r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1222" y="464"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="btM-9p-780">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xj4-p2-uIz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yOZ-IQ-MwD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NyR-zA-5Rx" kind="relationship" relationship="rootViewController" id="fxx-RQ-1Dd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fTC-AM-0tI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="1156"/>
         </scene>
     </scenes>
 </document>

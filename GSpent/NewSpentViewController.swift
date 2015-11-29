@@ -10,6 +10,8 @@ import UIKit
 
 class NewSpentViewController: UIViewController {
 
+    
+    @IBOutlet weak var Close: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,9 @@ class NewSpentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
 
     /*
     // MARK: - Navigation
