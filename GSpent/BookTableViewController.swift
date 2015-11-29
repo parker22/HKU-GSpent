@@ -15,7 +15,7 @@ var books = ["Book 1", "Book 2", "Book 3", "Book 4"]
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        tableView.registerNib(UINib(nibName: "bookTblCell", bundle: nil), forCellReuseIdentifier: "bookTblCell")
+        tableView.registerNib(UINib(nibName: "bookTableViewCell", bundle: nil), forCellReuseIdentifier: "bookTableViewCell")
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -40,7 +40,7 @@ var books = ["Book 1", "Book 2", "Book 3", "Book 4"]
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:bookTblCell = self.tableView.dequeueReusableCellWithIdentifier("bookTblCell") as! bookTblCell
+        let cell:bookTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("bookTableViewCell") as! bookTableViewCell
         cell.lblBookName.text = books[indexPath.row]
         cell.imgBookAvatar.image = UIImage(named: "bookAvatarDefault")
         // Configure the cell...
