@@ -10,10 +10,12 @@
 		1AEFE53C1C0AF6F900966622 /* BookIconNamePeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEFE53A1C0AF6F900966622 /* BookIconNamePeople.swift */; };
 		1AEFE53D1C0AF6F900966622 /* BookIconNamePeople.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEFE53B1C0AF6F900966622 /* BookIconNamePeople.xib */; };
 		4919F0C21C0ACE5C0081E69F /* PersonalTally.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */; };
+		492904531C0B0A3B00DADCC7 /* bookTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904511C0B0A3B00DADCC7 /* bookTblCell.swift */; };
+		492904541C0B0A3B00DADCC7 /* bookTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492904521C0B0A3B00DADCC7 /* bookTblCell.xib */; };
+		492904561C0B145E00DADCC7 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904551C0B145E00DADCC7 /* BookTableViewController.swift */; };
 		494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */; };
 		494FD4F21C0AD65D002C2A12 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4F11C0AD65D002C2A12 /* TabViewController.swift */; };
 		498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DCE1C09D3560013E1EA /* AppDelegate.swift */; };
-		498D3DD11C09D3560013E1EA /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DD01C09D3560013E1EA /* BookListViewController.swift */; };
 		498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */; };
 		498D3DD61C09D3560013E1EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498D3DD41C09D3560013E1EA /* Main.storyboard */; };
 		498D3DD81C09D3560013E1EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 498D3DD71C09D3560013E1EA /* Assets.xcassets */; };
@@ -45,11 +47,13 @@
 		1AEFE53A1C0AF6F900966622 /* BookIconNamePeople.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookIconNamePeople.swift; sourceTree = "<group>"; };
 		1AEFE53B1C0AF6F900966622 /* BookIconNamePeople.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookIconNamePeople.xib; sourceTree = "<group>"; };
 		4919F0C11C0ACE5C0081E69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PersonalTally.storyboard; sourceTree = "<group>"; };
+		492904511C0B0A3B00DADCC7 /* bookTblCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookTblCell.swift; sourceTree = "<group>"; };
+		492904521C0B0A3B00DADCC7 /* bookTblCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bookTblCell.xib; sourceTree = "<group>"; };
+		492904551C0B145E00DADCC7 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaisedTabBarController.swift; sourceTree = "<group>"; };
 		494FD4F11C0AD65D002C2A12 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		498D3DCB1C09D3560013E1EA /* GSpent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSpent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		498D3DCE1C09D3560013E1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		498D3DD01C09D3560013E1EA /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
 		498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTallyViewController.swift; sourceTree = "<group>"; };
 		498D3DD51C09D3560013E1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		498D3DD71C09D3560013E1EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 			children = (
 				1AEFE53A1C0AF6F900966622 /* BookIconNamePeople.swift */,
 				1AEFE53B1C0AF6F900966622 /* BookIconNamePeople.xib */,
+				492904511C0B0A3B00DADCC7 /* bookTblCell.swift */,
+				492904521C0B0A3B00DADCC7 /* bookTblCell.xib */,
 			);
 			name = GSpendUI;
 			sourceTree = "<group>";
@@ -124,11 +130,11 @@
 			children = (
 				1AEFE52F1C0ADCE600966622 /* GSpendUI */,
 				498D3DCE1C09D3560013E1EA /* AppDelegate.swift */,
-				498D3DD01C09D3560013E1EA /* BookListViewController.swift */,
 				498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */,
 				498D3DD41C09D3560013E1EA /* Main.storyboard */,
 				4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */,
 				498D3E021C09EC330013E1EA /* Books.storyboard */,
+				492904551C0B145E00DADCC7 /* BookTableViewController.swift */,
 				498D3DD71C09D3560013E1EA /* Assets.xcassets */,
 				498D3DD91C09D3560013E1EA /* LaunchScreen.storyboard */,
 				498D3DDC1C09D3560013E1EA /* Info.plist */,
@@ -267,6 +273,7 @@
 				498D3DDB1C09D3560013E1EA /* LaunchScreen.storyboard in Resources */,
 				498D3E041C09EC330013E1EA /* Books.storyboard in Resources */,
 				498D3DD81C09D3560013E1EA /* Assets.xcassets in Resources */,
+				492904541C0B0A3B00DADCC7 /* bookTblCell.xib in Resources */,
 				498D3DD61C09D3560013E1EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,12 +300,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				494FD4F21C0AD65D002C2A12 /* TabViewController.swift in Sources */,
+				492904531C0B0A3B00DADCC7 /* bookTblCell.swift in Sources */,
 				494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */,
 				1AEFE53C1C0AF6F900966622 /* BookIconNamePeople.swift in Sources */,
+				492904561C0B145E00DADCC7 /* BookTableViewController.swift in Sources */,
 				498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */,
 				498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */,
 				498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */,
-				498D3DD11C09D3560013E1EA /* BookListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
