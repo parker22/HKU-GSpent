@@ -29,7 +29,7 @@
                             </tableView>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ukd-GF-GGj" customClass="BookIconNamePeople" customModule="GSpent" customModuleProvider="target">
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ukd-GF-GGj" id="o44-jU-Bp3">
-                                    <rect key="frame" x="0.0" y="-1" width="320" height="1"/>
+                                    <rect key="frame" x="0.0" y="-0.5" width="320" height="0.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
