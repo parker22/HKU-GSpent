@@ -16,7 +16,7 @@ class TabViewController: RaisedTabBarController {
                 self.insertEmptyTabItem("", atIndex: 1)
         //
         //        // Raise the center button with image
-                let img = UIImage(named: "add")
+                let img = UIImage(named: "tabbar_item_new_spent")
                 self.addRaisedButton(img, highlightImage: nil)
         // Do any additional setup after loading the view.
     }
