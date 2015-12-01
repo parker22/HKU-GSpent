@@ -66,6 +66,7 @@
                                     <outlet property="lblBookLastUp" destination="WcA-EE-JLS" id="UMR-xs-qSe"/>
                                     <outlet property="lblBookMates" destination="6Gl-2P-wK1" id="1Oc-ZB-eXM"/>
                                     <outlet property="lblBookName" destination="irj-iz-IVz" id="Cwr-4m-LZX"/>
+                                    <segue destination="m2E-iW-8h3" kind="show" id="7kA-Rx-p6j"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -94,10 +95,11 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nZx-ob-YOP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgb-el-rMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2114" y="-1077"/>
+            <point key="canvasLocation" x="2216" y="-1108"/>
         </scene>
         <!--Books-->
         <scene sceneID="qqe-gZ-TxZ">
