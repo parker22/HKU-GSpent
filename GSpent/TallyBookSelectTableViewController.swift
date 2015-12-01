@@ -1,34 +1,32 @@
 //
-//  PersonalTallyBookSelectTableViewController.swift
+//  TallyBookSelectTableViewController.swift
 //  GSpent
 //
-//  Created by HUI ZHAN on 11/29/15.
+//  Created by HUI ZHAN on 12/1/15.
 //  Copyright © 2015 LIU Jiahe. All rights reserved.
 //
 
 import UIKit
 
-class PersonalTallyBookSelectTableViewController: UITableViewController {
-    
-    var books = [BookIconNamePeople]()
+class TallyBookSelectTableViewController: UITableViewController {
 
+    var books = [BookINP]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadBooks()
     }
-    
+
     func loadBooks(){
-        let image1 = UIImage(named: "blue_box")!
-        
-        let book1 = BookIconNamePeople(icon: image1, name: "haha", people: "nobody")!
-        let book2 = BookIconNamePeople(icon: image1, name: "hehe", people: "somebody")!
-        let book3 = BookIconNamePeople(icon: image1, name: "xixi", people: "anybody")!
+        let image1 = UIImage(named: "blue_box")
+        let book1 = BookINP(bookIcon: image1, bookName: "haha", bookPart: "nobody")
+        let book2 = BookINP(bookIcon: image1, bookName: "hehe", bookPart: "somebody")
+        let book3 = BookINP(bookIcon: image1, bookName: "xixi", bookPart: "anybody")
         
         books += [book1, book2, book3]
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,23 +35,24 @@ class PersonalTallyBookSelectTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
         return books.count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "BookIconNamePeople"
+        let cellIdentifier = "BookINPTableCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookINPTableViewCell
         
         let book = books[indexPath.row]
         
         cell.bookIcon.image = book.bookIcon
-        cell.bookName.text = book.bookName
-        cell.bookPeople.text = book.bookPeople
+        cell.bookName.text  = book.bookName
+        cell.bookPart.text  = book.bookPart
 
         return cell
     }
