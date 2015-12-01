@@ -21,28 +21,39 @@ struct BookTally {
     var tallyAmount: Double
 }
 
-class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var bookSelectTableView: UITableView!
-    @IBOutlet weak var bookTallyTableView:  UITableView!
-    @IBOutlet weak var hideButton: UIView!
+class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var bookSelectDisplay = true
+    @IBOutlet weak var bookSelectTableView: UITableView!
+    @IBOutlet weak var bookTallyTableView: UITableView!
+    @IBOutlet weak var bookSelectedView: UIView!
+    @IBOutlet weak var bookSelectedIcon: UIImageView!
+    @IBOutlet weak var bookSelectedName: UILabel!
+    @IBOutlet weak var bookSelectedPart: UILabel!
+    
     var books  = [BookINP]()
     var tallys = [BookTally]()
+    var bookSelected: BookINP!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.bookSelectTableView.delegate = self
         self.bookSelectTableView.dataSource = self
-        self.bookSelectTableView.registerNib(UINib(nibName: "BookINPTableViewCell", bundle: nil), forCellReuseIdentifier: "bookINPTableViewCell")
+        self.bookSelectTableView.registerNib(UINib(nibName: "BookINPTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "bookINPTableViewCell")
+        
         self.bookTallyTableView.delegate = self
         self.bookTallyTableView.dataSource = self
-        self.bookTallyTableView.registerNib(UINib(nibName: "BookTallyTableViewCell", bundle: nil), forCellReuseIdentifier: "bookTallyTableViewCell")
-
+        self.bookTallyTableView.registerNib(UINib(nibName: "BookTallyTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "bookTallyTableViewCell")
+        
         loadData()
+        self.bookSelected = books[0]
+        refreshBookSelected()
+        bookSelectTableViewHide()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,6 +61,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func loadData(){
+        
         let image1 = UIImage(named: "bookAvatarDefault")
         let image2 = UIImage(named: "testImageJin")
         let image3 = UIImage(named: "testImageBa")
@@ -58,20 +70,25 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         let book3  = BookINP(bookIcon: image3, bookName: "我不干了", bookPart: "你、我、他 都不干了")
         books     += [book1, book2, book3]
         
-        let tally1  = BookTally(tallyTimeline: image2, tallyTime: "2015-11-30 14:23", tallyBrief: "买奶粉", tallyAmount: 60.01)
-        let tally2  = BookTally(tallyTimeline: image2, tallyTime: "2015-11-29 20:32", tallyBrief: "吃宵夜", tallyAmount: 700.00)
-        let tally3  = BookTally(tallyTimeline: image2, tallyTime: "2015-11-29 12:01", tallyBrief: "64食堂油鸡髀", tallyAmount: 30.00)
-        let tally4  = BookTally(tallyTimeline: image2, tallyTime: "2015-11-28 23:10", tallyBrief: "羞羞的东西", tallyAmount: 68.00)
+        let image4 = UIImage(named: "testImageJin")
+        let tally1  = BookTally(tallyTimeline: image4, tallyTime: "2015-11-30 14:23", tallyBrief: "买奶粉", tallyAmount: 60.01)
+        let tally2  = BookTally(tallyTimeline: image4, tallyTime: "2015-11-29 20:32", tallyBrief: "吃宵夜", tallyAmount: 700.00)
+        let tally3  = BookTally(tallyTimeline: image4, tallyTime: "2015-11-29 12:01", tallyBrief: "64食堂油鸡髀", tallyAmount: 30.00)
+        let tally4  = BookTally(tallyTimeline: image4, tallyTime: "2015-11-28 23:10", tallyBrief: "羞羞的东西", tallyAmount: 68.00)
         tallys    += [tally1, tally2, tally3, tally4]
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return tableView == self.bookSelectTableView ? self.books.count : self.tallys.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         switch(tableView){
+            
         case self.bookSelectTableView:
+            
             let cellIdentifier = "bookINPTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookINPTableViewCell
             let book = books[indexPath.row]
@@ -79,7 +96,9 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             cell.bookName.text  = book.bookName
             cell.bookPart.text  = book.bookPart
             return cell
+            
         case self.bookTallyTableView:
+            
             let cellIdentifier = "bookTallyTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookTallyTableViewCell
             let tally = tallys[indexPath.row]
@@ -88,25 +107,49 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             cell.tallyBrief.text     = tally.tallyBrief
             cell.tallyAmount.text    = String(tally.tallyAmount)
             return cell
+            
         default: return UITableViewCell()
         }
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if tableView == self.bookSelectTableView {
+            let book = tableView.cellForRowAtIndexPath(indexPath) as! BookINPTableViewCell
+            self.bookSelected.bookIcon = book.bookIcon.image
+            self.bookSelected.bookName = book.bookName.text!
+            self.bookSelected.bookPart = book.bookPart.text!
+            refreshBookSelected()
+            bookSelectTableViewHide()
+        }
+    }
+    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches as Set<UITouch>, withEvent: event)
         if let touch: UITouch = touches.first! {
             let nodeTouched = touch.view
-            if nodeTouched == self.hideButton {
-                if self.bookSelectDisplay {
-                    self.bookSelectTableView.hidden = true
-                    self.bookSelectDisplay = false
-                } else {
-                    self.bookSelectTableView.hidden = false
-                    self.bookSelectDisplay = true
-                }
+            
+            if nodeTouched == self.bookSelectedView {
+                if self.bookSelectTableView.hidden {bookSelectTableViewShow()}
+                else {bookSelectTableViewHide()}
             }
         }
     }
-
+    
+    func bookSelectTableViewShow(){
+        self.bookSelectTableView.hidden = false
+    }
+    
+    func bookSelectTableViewHide(){
+        self.bookSelectTableView.hidden = true
+    }
+    
+    func refreshBookSelected(){
+        self.bookSelectedIcon.image = bookSelected.bookIcon
+        self.bookSelectedName.text  = bookSelected.bookName
+        self.bookSelectedPart.text  = bookSelected.bookPart
+        self.bookSelectedIcon.layer.cornerRadius = self.bookSelectedIcon.frame.size.width/3
+        self.bookSelectedIcon.layer.masksToBounds = true
+    }
 }
 
