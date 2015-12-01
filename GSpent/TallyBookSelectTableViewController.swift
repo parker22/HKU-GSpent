@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct BookINP {
-    var bookIcon: UIImage?
-    var bookName: String
-    var bookPart: String
-}
-
 class TallyBookSelectTableViewController: UITableViewController {
 
     var books = [BookINP]()

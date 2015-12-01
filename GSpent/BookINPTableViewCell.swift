@@ -17,6 +17,8 @@ class BookINPTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        bookIcon.layer.cornerRadius = bookIcon.frame.size.width/3
+        bookIcon.layer.masksToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
