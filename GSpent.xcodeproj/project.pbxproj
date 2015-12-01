@@ -96,14 +96,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1AEFE52F1C0ADCE600966622 /* GSpendUI */ = {
+		1A061C5F1C0D41DC00AE4E2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1A739F2F1C0B0F3300B286CE /* PersonalTallyBookSelectTableViewController.swift */,
 				1A739F311C0B13D400B286CE /* BookIconNamePeopleTableViewCell.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		1AEFE52F1C0ADCE600966622 /* Tally */ = {
+			isa = PBXGroup;
+			children = (
+				1A061C5F1C0D41DC00AE4E2C /* UI */,
+				498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */,
+				4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */,
+				1A739F2F1C0B0F3300B286CE /* PersonalTallyBookSelectTableViewController.swift */,
 				1A739F331C0B155700B286CE /* BookIconNamePeople.swift */,
 			);
-			name = GSpendUI;
+			name = Tally;
 			sourceTree = "<group>";
 		};
 		4929045D1C0B234800DADCC7 /* BooksUI */ = {
@@ -139,11 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				4929045D1C0B234800DADCC7 /* BooksUI */,
-				1AEFE52F1C0ADCE600966622 /* GSpendUI */,
+				1AEFE52F1C0ADCE600966622 /* Tally */,
 				498D3DCE1C09D3560013E1EA /* AppDelegate.swift */,
-				498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */,
 				498D3DD41C09D3560013E1EA /* Main.storyboard */,
-				4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */,
 				498D3E021C09EC330013E1EA /* Books.storyboard */,
 				492904551C0B145E00DADCC7 /* BookTableViewController.swift */,
 				498D3DD71C09D3560013E1EA /* Assets.xcassets */,
@@ -242,7 +250,7 @@
 				TargetAttributes = {
 					498D3DCA1C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = HNWACE57P8;
+						DevelopmentTeam = S9AKP774CP;
 					};
 					498D3DE01C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -475,10 +483,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.GSpent;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -487,10 +497,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.GSpent;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
