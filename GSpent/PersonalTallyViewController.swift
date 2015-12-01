@@ -25,7 +25,9 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
 
     @IBOutlet weak var bookSelectTableView: UITableView!
     @IBOutlet weak var bookTallyTableView:  UITableView!
+    @IBOutlet weak var hideButton: UIView!
     
+    var bookSelectDisplay = true
     var books  = [BookINP]()
     var tallys = [BookTally]()
     
@@ -87,6 +89,22 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             cell.tallyAmount.text    = String(tally.tallyAmount)
             return cell
         default: return UITableViewCell()
+        }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches as Set<UITouch>, withEvent: event)
+        if let touch: UITouch = touches.first! {
+            let nodeTouched = touch.view
+            if nodeTouched == self.hideButton {
+                if self.bookSelectDisplay {
+                    self.bookSelectTableView.hidden = true
+                    self.bookSelectDisplay = false
+                } else {
+                    self.bookSelectTableView.hidden = false
+                    self.bookSelectDisplay = true
+                }
+            }
         }
     }
 
