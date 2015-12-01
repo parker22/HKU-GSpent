@@ -53,9 +53,6 @@ class TabViewController: RaisedTabBarController {
 //        segue.destinationViewController = NewSpentViewController
         if (segue.identifier == "showNewSpentSegue") {
             
-            let nav = segue.destinationViewController as! UINavigationController
-            
-            let vc = nav.topViewController as! NewSpentViewController
             
             
         }
