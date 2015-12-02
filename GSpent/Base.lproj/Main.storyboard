@@ -72,13 +72,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Cancel" id="iks-b8-dSL">
-                            <connections>
-                                <action selector="cancel:" destination="NyR-zA-5Rx" id="sDU-j9-Rec"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Book" id="Eka-xe-FCU">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="F2g-Bj-gh6"/>
                     </navigationItem>
