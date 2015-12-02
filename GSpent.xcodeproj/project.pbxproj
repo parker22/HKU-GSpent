@@ -25,6 +25,7 @@
 		498D3DF11C09D3560013E1EA /* GSpentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DF01C09D3560013E1EA /* GSpentUITests.swift */; };
 		498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */; };
 		498D3E041C09EC330013E1EA /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498D3E021C09EC330013E1EA /* Books.storyboard */; };
+		49B3721E1C0E16A700315A5D /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		498D3DF21C09D3560013E1EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSpentViewController.swift; sourceTree = "<group>"; };
 		498D3E031C09EC330013E1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Books.storyboard; sourceTree = "<group>"; };
+		49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				498D3E021C09EC330013E1EA /* Books.storyboard */,
 				492EAD011C0D9A1800FB69D8 /* UI */,
+				49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */,
 			);
 			name = Books;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				1A061C621C0D49AE00AE4E2C /* BookINPTableViewCell.swift in Sources */,
 				494FD4F21C0AD65D002C2A12 /* TabViewController.swift in Sources */,
 				494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */,
+				49B3721E1C0E16A700315A5D /* BookDetailViewController.swift in Sources */,
 				498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */,
 				492904621C0B247800DADCC7 /* bookTableViewCell.swift in Sources */,
 				1A7846261C0D8E6400A6B416 /* BookTallyTableViewCell.swift in Sources */,
