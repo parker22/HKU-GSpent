@@ -10,6 +10,7 @@ import UIKit
 
 class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var bookSelectTableView: UITableView!
     @IBOutlet weak var bookTallyTableView: UITableView!
     @IBOutlet weak var bookSelectedView: UIView!
@@ -23,8 +24,8 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     var dataRepository = DataRepository()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         self.bookSelectTableView.delegate = self
         self.bookSelectTableView.dataSource = self
         self.bookSelectTableView.registerNib(UINib(nibName: "BookINPTableViewCell", bundle: nil),
@@ -117,6 +118,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     func bookSelectTableViewHide(){self.bookSelectTableView.hidden = true}
     
     func refreshBookSelected(){
+        self.pageTitle.title = bookSelected.name + " Tally"
         self.bookSelectedIcon.image = bookSelected.icon
         self.bookSelectedName.text  = bookSelected.name
         self.bookSelectedPart.text  = bookSelected.part

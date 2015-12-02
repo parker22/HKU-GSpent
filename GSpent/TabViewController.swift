@@ -10,37 +10,64 @@ import UIKit
 
 class TabViewController: RaisedTabBarController {
 
+    @IBOutlet var addBook:  UIButton!
+    @IBOutlet var addSpent: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Insert empty tab item at center index. In this case we have 5 tabs.
-                self.insertEmptyTabItem("", atIndex: 1)
-        //
-        //        // Raise the center button with image
-                let img = UIImage(named: "tabbar_item_new_spent")
-                self.addRaisedButton(img, highlightImage: nil)
-        // Do any additional setup after loading the view.
+
+        addBook = UIButton(frame: CGRect(x: 100, y: 630, width: 50, height: 50))
+        addBook.setImage(UIImage(named: "bookIconSample00"), forState: UIControlState.Normal)
+        addBook.titleLabel?.font = UIFont.boldSystemFontOfSize(30)
+        addBook.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        //addBook.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        addBook.setTitle("图片按钮", forState: UIControlState.Normal)
+        self.view.addSubview(addBook)
+        addBook.hidden = true
+        
+        addSpent = UIButton(frame: CGRect(x: 264, y: 630, width: 50, height: 50))
+        addSpent.setImage(UIImage(named: "bookIconSample00"), forState: UIControlState.Normal)
+        addSpent.titleLabel?.font = UIFont.boldSystemFontOfSize(30)
+        addSpent.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        //addSpent.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        addSpent.setTitle("图片按钮", forState: UIControlState.Normal)
+        self.view.addSubview(addSpent)
+        addSpent.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        // Insert empty tab item at center index. In this case we have 5 tabs.
-//        self.insertEmptyTabItem("", atIndex: 1)
-//        
-//        // Raise the center button with image
-//        let img = UIImage(named: "add")
-//        self.addRaisedButton(img, highlightImage: nil)
-//    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Insert empty tab item at center index. In this case we have 5 tabs.
+        self.insertEmptyTabItem("", atIndex: 1)
+        
+        // Raise the center button with image
+        let img = UIImage(named: "tabbar_item_new_spent")
+        self.addRaisedButton(img, highlightImage: nil)
+    }
     
     // Handler for raised button
     override func onRaisedButton(sender: UIButton!) {
-//        super.onRaisedButton(sender)
-        performSegueWithIdentifier("showNewSpentSegue", sender: self)
+        //performSegueWithIdentifier("showNewSpentSegue", sender: self)
+        
+        if (self.addBook.hidden&&self.addSpent.hidden){
+            self.addBook.hidden  = false
+            self.addSpent.hidden = false
+        } else {
+            self.addBook.hidden  = true
+            self.addSpent.hidden = true
+        }
+        
         print("Raised button tapped")
+    }
+    
+    @IBAction func addBook(sender: UIButton!){
+        performSegueWithIdentifier("showNewSpentSegue", sender: self)
     }
 
     
