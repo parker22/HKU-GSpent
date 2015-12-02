@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="222" y="-258"/>
         </scene>
-        <!--Add-->
+        <!--Add Spent-->
         <scene sceneID="O5I-Fk-cRl">
             <objects>
                 <viewController id="NyR-zA-5Rx" customClass="NewSpentViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,20 +38,10 @@
                     <view key="view" contentMode="scaleToFill" id="0Gx-DI-a9h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h1s-zq-Jm2">
-                                <rect key="frame" x="20" y="77" width="374" height="29"/>
-                                <animations/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add" id="xXc-ro-r2A">
+                    <navigationItem key="navigationItem" title="Add Spent" id="xXc-ro-r2A">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="1UC-7R-ab7">
                             <connections>
                                 <action selector="cancel:" destination="NyR-zA-5Rx" id="t7A-Ha-Oyx"/>
@@ -66,9 +56,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evb-CF-3ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-121" y="1714"/>
+            <point key="canvasLocation" x="578" y="1690"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Book-->
         <scene sceneID="WEh-Q1-6Jz">
             <objects>
                 <viewController id="guS-2y-taD" sceneMemberID="viewController">
@@ -82,12 +72,22 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Eka-xe-FCU"/>
+                    <toolbarItems>
+                        <barButtonItem title="Cancel" id="iks-b8-dSL">
+                            <connections>
+                                <action selector="cancel:" destination="NyR-zA-5Rx" id="sDU-j9-Rec"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Add Book" id="Eka-xe-FCU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="F2g-Bj-gh6"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hht-17-wEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="571" y="1714"/>
+            <point key="canvasLocation" x="-121" y="1690"/>
         </scene>
         <!--Books-->
         <scene sceneID="AIT-Kl-P13">
@@ -126,7 +126,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTC-AM-0tI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-121" y="800"/>
+            <point key="canvasLocation" x="578" y="808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K3P-3v-cgc">
@@ -143,7 +143,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCf-CB-eOT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="571" y="800"/>
+            <point key="canvasLocation" x="-121" y="808"/>
         </scene>
     </scenes>
     <resources>

@@ -23,6 +23,7 @@ class TabViewController: RaisedTabBarController {
         //addBook.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         addBook.setTitle("图片按钮", forState: UIControlState.Normal)
         self.view.addSubview(addBook)
+        addBook.addTarget(self, action: Selector("addBook:"), forControlEvents: UIControlEvents.TouchUpInside)
         addBook.hidden = true
         
         addSpent = UIButton(frame: CGRect(x: 264, y: 630, width: 50, height: 50))
@@ -32,6 +33,7 @@ class TabViewController: RaisedTabBarController {
         //addSpent.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         addSpent.setTitle("图片按钮", forState: UIControlState.Normal)
         self.view.addSubview(addSpent)
+        addSpent.addTarget(self, action: Selector("addSpent:"), forControlEvents: UIControlEvents.TouchUpInside)
         addSpent.hidden = true
     }
 
@@ -66,10 +68,13 @@ class TabViewController: RaisedTabBarController {
         print("Raised button tapped")
     }
     
-    @IBAction func addBook(sender: UIButton!){
+    func addBook(sender: UIButton!){
+        performSegueWithIdentifier("showNewBookSegue", sender: self)
+    }
+    
+    func addSpent(sender: UIButton!){
         performSegueWithIdentifier("showNewSpentSegue", sender: self)
     }
-
     
     // MARK: - Navigation
 
@@ -79,8 +84,6 @@ class TabViewController: RaisedTabBarController {
         // Pass the selected object to the new view controller.
 //        segue.destinationViewController = NewSpentViewController
         if (segue.identifier == "showNewSpentSegue") {
-            
-            
             
         }
     }
