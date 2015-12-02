@@ -8,22 +8,9 @@
 
 import UIKit
 
-struct BookINP {
-    var bookIcon: UIImage?
-    var bookName: String
-    var bookPart: String
-}
-
-struct BookTally {
-    var tallyTimeline: UIImage?
-    var tallyTime:   String
-    var tallyBrief:  String
-    var tallyAmount: Double
-}
-
-
 class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var bookSelectTableView: UITableView!
     @IBOutlet weak var bookTallyTableView: UITableView!
     @IBOutlet weak var bookSelectedView: UIView!
@@ -31,13 +18,14 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var bookSelectedName: UILabel!
     @IBOutlet weak var bookSelectedPart: UILabel!
     
-    var books  = [BookINP]()
-    var tallys = [BookTally]()
-    var bookSelected: BookINP!
+    var books  = [Book]()
+    var tallys = [Tally]()
+    var bookSelected: Book!
+    var dataRepository = DataRepository()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         self.bookSelectTableView.delegate = self
         self.bookSelectTableView.dataSource = self
         self.bookSelectTableView.registerNib(UINib(nibName: "BookINPTableViewCell", bundle: nil),
@@ -48,8 +36,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         self.bookTallyTableView.registerNib(UINib(nibName: "BookTallyTableViewCell", bundle: nil),
             forCellReuseIdentifier: "bookTallyTableViewCell")
         
-        loadData()
-        self.bookSelected = books[0]
+        initData()
         refreshBookSelected()
         bookSelectTableViewHide()
     }
@@ -60,26 +47,14 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         // here
     }
     
-    func loadData(){
-        
-        let image1 = UIImage(named: "bookAvatarDefault")
-        let image2 = UIImage(named: "testImageJin")
-        let image3 = UIImage(named: "testImageBa")
-        let book1  = BookINP(bookIcon: image1, bookName: "毛泽东同志的私人小账本", bookPart: "毛泽东、毛泽西")
-        let book2  = BookINP(bookIcon: image2, bookName: "我叫金三胖", bookPart: "三胖、二胖 等18位胖子")
-        let book3  = BookINP(bookIcon: image3, bookName: "我不干了", bookPart: "你、我、他 都不干了")
-        books     += [book1, book2, book3]
-        
-        let image4 = UIImage(named: "testImageJin")
-        let tally1  = BookTally(tallyTimeline: image4, tallyTime: "2015-11-30 14:23", tallyBrief: "买奶粉", tallyAmount: 60.01)
-        let tally2  = BookTally(tallyTimeline: image4, tallyTime: "2015-11-29 20:32", tallyBrief: "吃宵夜", tallyAmount: 700.00)
-        let tally3  = BookTally(tallyTimeline: image4, tallyTime: "2015-11-29 12:01", tallyBrief: "64食堂油鸡髀", tallyAmount: 30.00)
-        let tally4  = BookTally(tallyTimeline: image4, tallyTime: "2015-11-28 23:10", tallyBrief: "羞羞的东西", tallyAmount: 68.00)
-        tallys    += [tally1, tally2, tally3, tally4]
+    func initData(){
+        books  = self.dataRepository.getBooks()
+        tallys = self.dataRepository.getBookTally(-1)!
+        self.bookSelected = books[0]
+        bookSelected.part = self.dataRepository.getPartStr(bookSelected.part)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return tableView == self.bookSelectTableView ? self.books.count : self.tallys.count
     }
     
@@ -88,24 +63,23 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         switch(tableView){
             
         case self.bookSelectTableView:
-            
             let cellIdentifier = "bookINPTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookINPTableViewCell
             let book = books[indexPath.row]
-            cell.bookIcon.image = book.bookIcon
-            cell.bookName.text  = book.bookName
-            cell.bookPart.text  = book.bookPart
+            cell.bookIcon.image = book.icon
+            cell.bookName.text  = book.name
+            cell.bookPart.text  = self.dataRepository.getPartStr(book.part)
+            cell.bookID.text    = String(book.bid)
             return cell
             
         case self.bookTallyTableView:
-            
             let cellIdentifier = "bookTallyTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookTallyTableViewCell
             let tally = tallys[indexPath.row]
-            cell.tallyTimeline.image = tally.tallyTimeline
-            cell.tallyTime.text      = tally.tallyTime
-            cell.tallyBrief.text     = tally.tallyBrief
-            cell.tallyAmount.text    = String(tally.tallyAmount)
+            cell.tallyTimeline.image = UIImage()
+            cell.tallyTime.text      = tally.time
+            cell.tallyBrief.text     = tally.brief
+            cell.tallyAmount.text    = String(tally.amount)
             return cell
             
         default: return UITableViewCell()
@@ -115,39 +89,38 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == self.bookSelectTableView {
             let book = tableView.cellForRowAtIndexPath(indexPath) as! BookINPTableViewCell
-            self.bookSelected.bookIcon = book.bookIcon.image
-            self.bookSelected.bookName = book.bookName.text!
-            self.bookSelected.bookPart = book.bookPart.text!
+            self.bookSelected.icon = book.bookIcon.image
+            self.bookSelected.name = book.bookName.text!
+            self.bookSelected.part = book.bookPart.text!
             refreshBookSelected()
             bookSelectTableViewHide()
+            tallys = self.dataRepository.getBookTally(Int(book.bookID.text!)!)!
+            bookTallyTableView.reloadData()
         }
     }
-    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches as Set<UITouch>, withEvent: event)
         if let touch: UITouch = touches.first! {
             let nodeTouched = touch.view
-            
             if nodeTouched == self.bookSelectedView {
-                if self.bookSelectTableView.hidden {bookSelectTableViewShow()}
+                if self.bookSelectTableView.hidden {
+                    books = self.dataRepository.getBooks()
+                    bookSelectTableView.reloadData()
+                    bookSelectTableViewShow()}
                 else {bookSelectTableViewHide()}
             }
         }
     }
     
-    func bookSelectTableViewShow(){
-        self.bookSelectTableView.hidden = false
-    }
-    
-    func bookSelectTableViewHide(){
-        self.bookSelectTableView.hidden = true
-    }
+    func bookSelectTableViewShow(){self.bookSelectTableView.hidden = false}
+    func bookSelectTableViewHide(){self.bookSelectTableView.hidden = true}
     
     func refreshBookSelected(){
-        self.bookSelectedIcon.image = bookSelected.bookIcon
-        self.bookSelectedName.text  = bookSelected.bookName
-        self.bookSelectedPart.text  = bookSelected.bookPart
+        self.pageTitle.title = bookSelected.name + " Tally"
+        self.bookSelectedIcon.image = bookSelected.icon
+        self.bookSelectedName.text  = bookSelected.name
+        self.bookSelectedPart.text  = bookSelected.part
         self.bookSelectedIcon.layer.cornerRadius = self.bookSelectedIcon.frame.size.width/3
         self.bookSelectedIcon.layer.masksToBounds = true
     }

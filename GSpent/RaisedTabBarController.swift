@@ -35,7 +35,7 @@ class RaisedTabBarController: UITabBarController {
             button.autoresizingMask = [UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleBottomMargin, UIViewAutoresizing.FlexibleTopMargin]
             
             button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height)
-            button.setBackgroundImage(buttonImage, forState: UIControlState.Normal)
+            button.setBackgroundImage(buttonImage,    forState: UIControlState.Normal)
             button.setBackgroundImage(highlightImage, forState: UIControlState.Highlighted)
             
             let heightDifference = buttonImage.size.height - self.tabBar.frame.size.height
@@ -46,7 +46,6 @@ class RaisedTabBarController: UITabBarController {
             else {
                 var center = self.tabBar.center
                 center.y -= heightDifference / 2.0
-                
                 button.center = center
             }
             

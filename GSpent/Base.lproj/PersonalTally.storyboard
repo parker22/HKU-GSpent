@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="1304" y="463"/>
         </scene>
-        <!--Personal Tally View Controller-->
+        <!--All Tally-->
         <scene sceneID="mUe-d0-qtq">
             <objects>
                 <viewController id="zsq-L3-1wV" customClass="PersonalTallyViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,7 +113,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="npD-Zv-jIs"/>
+                    <navigationItem key="navigationItem" title="All Tally" id="8pa-Bm-Snb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="bookSelectTableView" destination="kgy-Va-Mqq" id="fii-hn-gxN"/>
@@ -122,11 +122,12 @@
                         <outlet property="bookSelectedPart" destination="4S5-kD-UPu" id="7n2-fp-I3G"/>
                         <outlet property="bookSelectedView" destination="2hi-rt-s8F" id="Dqh-je-0Jw"/>
                         <outlet property="bookTallyTableView" destination="LH9-MB-8r9" id="PH5-i0-zhc"/>
+                        <outlet property="pageTitle" destination="8pa-Bm-Snb" id="R3b-jt-JoP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bm3-mZ-MFA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2035" y="488"/>
+            <point key="canvasLocation" x="2038" y="463"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kTa-Lu-6dj">

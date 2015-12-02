@@ -32,6 +32,13 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk2-Gn-BuC">
+                        <rect key="frame" x="364" y="19" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <animations/>
             </tableViewCellContentView>
@@ -41,6 +48,7 @@
                 <outlet property="BookIcon" destination="5vY-LC-vAM" id="Wlt-Nd-bAq"/>
                 <outlet property="BookName" destination="4gH-fy-8Oc" id="OkL-bQ-d3p"/>
                 <outlet property="BookPart" destination="ouJ-OK-FF1" id="2Kc-y0-7vk"/>
+                <outlet property="bookID" destination="Dk2-Gn-BuC" id="aiZ-kB-nyb"/>
                 <outlet property="bookIcon" destination="5vY-LC-vAM" id="jeh-XC-VBt"/>
                 <outlet property="bookName" destination="4gH-fy-8Oc" id="2sp-CO-RjS"/>
                 <outlet property="bookPart" destination="ouJ-OK-FF1" id="8fm-yD-lef"/>
