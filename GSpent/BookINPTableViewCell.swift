@@ -13,6 +13,7 @@ class BookINPTableViewCell: UITableViewCell {
     @IBOutlet weak var bookIcon: UIImageView!
     @IBOutlet weak var bookName: UILabel!
     @IBOutlet weak var bookPart: UILabel!
+    @IBOutlet weak var bookID  : UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
