@@ -99,7 +99,6 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches as Set<UITouch>, withEvent: event)
         if let touch: UITouch = touches.first! {

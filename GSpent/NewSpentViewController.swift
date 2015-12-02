@@ -11,7 +11,7 @@ import UIKit
 class NewSpentViewController: UIViewController {
 
     
-    @IBOutlet weak var Close: UIBarButtonItem!
+    @IBOutlet weak var cancel: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 

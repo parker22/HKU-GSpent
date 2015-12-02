@@ -51,25 +51,32 @@ class TabViewController: RaisedTabBarController {
         super.viewWillAppear(animated)
     }
     
-    // Handler for raised button
     override func onRaisedButton(sender: UIButton!) {
-        //performSegueWithIdentifier("showNewSpentSegue", sender: self)
-        
-        if (self.addBook.hidden&&self.addSpent.hidden){
-            self.addBook.hidden  = false
-            self.addSpent.hidden = false
-        } else {
-            self.addBook.hidden  = true
-            self.addSpent.hidden = true
-        }
-        
+        let ifHide = self.addBook.hidden&&self.addSpent.hidden
+        if (ifHide){ extraButtonSetShow() }
+        else       { extraButtonSetHide() }
         print("Raised button tapped")
     }
 
-    func addBook (sender: UIButton!){performSegueWithIdentifier("showNewBookSegue",  sender: self)}
-    func addSpent(sender: UIButton!){performSegueWithIdentifier("showNewSpentSegue", sender: self)}
-    @IBAction func cancelAddBook (sender: AnyObject){dismissViewControllerAnimated(true, completion: nil)}
-    @IBAction func cancelAddSpent(sender: AnyObject){dismissViewControllerAnimated(true, completion: nil)}
+    func addBook (sender: UIButton!){
+        extraButtonSetHide()
+        performSegueWithIdentifier("showNewBookSegue",  sender: self)
+    }
+    
+    func addSpent(sender: UIButton!){
+        extraButtonSetHide()
+        performSegueWithIdentifier("showNewSpentSegue", sender: self)
+    }
+    
+    func extraButtonSetShow(){
+        self.addBook.hidden  = false
+        self.addSpent.hidden = false
+    }
+    
+    func extraButtonSetHide(){
+        self.addBook.hidden  = true
+        self.addSpent.hidden = true
+    }
     
     // MARK: - Navigation
 
@@ -77,7 +84,7 @@ class TabViewController: RaisedTabBarController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-//        segue.destinationViewController = NewSpentViewController
+        // segue.destinationViewController = NewSpentViewController
         if (segue.identifier == "showNewSpentSegue") {
             
         }

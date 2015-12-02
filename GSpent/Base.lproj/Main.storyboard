@@ -51,7 +51,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="Close" destination="1UC-7R-ab7" id="MW2-5t-kgp"/>
+                        <outlet property="cancel" destination="1UC-7R-ab7" id="1TK-zO-UUa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evb-CF-3ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -61,7 +61,7 @@
         <!--Add Book-->
         <scene sceneID="WEh-Q1-6Jz">
             <objects>
-                <viewController id="guS-2y-taD" sceneMemberID="viewController">
+                <viewController id="guS-2y-taD" customClass="NewBookViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cfi-Ck-Tm4"/>
                         <viewControllerLayoutGuide type="bottom" id="Uen-2I-Q0T"/>
@@ -74,10 +74,17 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Book" id="Eka-xe-FCU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="F2g-Bj-gh6"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="F2g-Bj-gh6">
+                            <connections>
+                                <action selector="cancel:" destination="guS-2y-taD" id="Jtm-YM-fIq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="cancel" destination="F2g-Bj-gh6" id="wfA-h6-w16"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hht-17-wEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
