@@ -61,6 +61,7 @@
 		291153E21C102ED800937D03 /* SettlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettlementViewController.swift; sourceTree = "<group>"; };
 		291153E31C102ED800937D03 /* SettlementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettlementViewController.xib; sourceTree = "<group>"; };
 		491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		491263E41C10312D00E12FDD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		4919F0C11C0ACE5C0081E69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PersonalTally.storyboard; sourceTree = "<group>"; };
 		492904551C0B145E00DADCC7 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		492904601C0B247800DADCC7 /* bookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 				492EAD011C0D9A1800FB69D8 /* UI */,
 				49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */,
 				492904551C0B145E00DADCC7 /* BookTableViewController.swift */,
+				1A26AACF1C0F2CCC00329C3A /* NewBookViewController.swift */,
 				291153E21C102ED800937D03 /* SettlementViewController.swift */,
 			);
 			name = Books;
@@ -182,7 +184,6 @@
 				498D3DD91C09D3560013E1EA /* LaunchScreen.storyboard */,
 				498D3DDC1C09D3560013E1EA /* Info.plist */,
 				498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */,
-				1A26AACF1C0F2CCC00329C3A /* NewBookViewController.swift */,
 				494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */,
 				494FD4F11C0AD65D002C2A12 /* TabViewController.swift */,
 				1A7846221C0D844A00A6B416 /* Assets.xcassets */,
@@ -406,6 +407,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				498D3DD51C09D3560013E1EA /* Base */,
+				491263E41C10312D00E12FDD /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -8,20 +8,25 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class BookDetailViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource {
 
     
     @IBOutlet weak var bookMemberCV: UICollectionView!
     @IBOutlet weak var bookMemberSelected: UIImageView!
     
+    @IBOutlet weak var bookTallyTV: UITableView!
+    
     var members = [Person]()
     var dataRepository = DataRepository()
     
     let bookMemberCellIdentifier = "bookMemberCell"
+    let bookTallyCellIdentifier = "bookTallyCell"
     override func viewDidLoad() {
         super.viewDidLoad()
         bookMemberCV.delegate = self
         bookMemberCV.dataSource = self
+        bookTallyTV.delegate = self
+        bookTallyTV.dataSource = self
         // Do any additional setup after loading the view.
         members = self.dataRepository.getPersons()
         bookMemberSelected.layer.cornerRadius = bookMemberSelected.frame.size.width/2
@@ -50,7 +55,24 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         bookMemberSelected.image = members[indexPath.row].avatar
     }
-
+    
+    
+    
+    //the tabelview displaying detailed tally list for each person
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        return
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:BookTallyTableViewCell = bookTallyTV.dequeueReusableCellWithIdentifier(bookTallyCellIdentifier, forIndexPath: indexPath) as! BookTallyTableViewCell
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
     /*
     // MARK: - Navigation
 
