@@ -14,6 +14,7 @@
 		1A7846261C0D8E6400A6B416 /* BookTallyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846241C0D8E6400A6B416 /* BookTallyTableViewCell.swift */; };
 		1A7846271C0D8E6400A6B416 /* BookTallyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */; };
 		1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846301C0E934A00A6B416 /* DataRepository.swift */; };
+		491263E21C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */; };
 		4919F0C21C0ACE5C0081E69F /* PersonalTally.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */; };
 		492904621C0B247800DADCC7 /* bookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904601C0B247800DADCC7 /* bookTableViewCell.swift */; };
 		492904641C0B284900DADCC7 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904551C0B145E00DADCC7 /* BookTableViewController.swift */; };
@@ -55,6 +56,7 @@
 		1A7846241C0D8E6400A6B416 /* BookTallyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTallyTableViewCell.swift; sourceTree = "<group>"; };
 		1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTallyTableViewCell.xib; sourceTree = "<group>"; };
 		1A7846301C0E934A00A6B416 /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
+		491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		4919F0C11C0ACE5C0081E69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PersonalTally.storyboard; sourceTree = "<group>"; };
 		492904551C0B145E00DADCC7 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		492904601C0B247800DADCC7 /* bookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookTableViewCell.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				498D3E021C09EC330013E1EA /* Books.storyboard */,
 				492EAD011C0D9A1800FB69D8 /* UI */,
 				49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */,
+				492904551C0B145E00DADCC7 /* BookTableViewController.swift */,
 			);
 			name = Books;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				492904601C0B247800DADCC7 /* bookTableViewCell.swift */,
+				491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -169,7 +173,6 @@
 				498D3DCE1C09D3560013E1EA /* AppDelegate.swift */,
 				1A7846301C0E934A00A6B416 /* DataRepository.swift */,
 				498D3DD41C09D3560013E1EA /* Main.storyboard */,
-				492904551C0B145E00DADCC7 /* BookTableViewController.swift */,
 				498D3DD91C09D3560013E1EA /* LaunchScreen.storyboard */,
 				498D3DDC1C09D3560013E1EA /* Info.plist */,
 				498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */,
@@ -340,6 +343,7 @@
 				1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */,
 				1A061C621C0D49AE00AE4E2C /* BookINPTableViewCell.swift in Sources */,
 				494FD4F21C0AD65D002C2A12 /* TabViewController.swift in Sources */,
+				491263E21C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift in Sources */,
 				494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */,
 				49B3721E1C0E16A700315A5D /* BookDetailViewController.swift in Sources */,
 				498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */,

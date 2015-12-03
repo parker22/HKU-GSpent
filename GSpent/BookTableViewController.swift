@@ -9,10 +9,11 @@
 import UIKit
 
 class BookTableViewController: UITableViewController {
-    var books = ["Book 1", "Book 2", "Book 3", "Book 4"]
+    var books = [Book]()
+    var dataRepository = DataRepository()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        books = self.dataRepository.getBooks()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 //        tableView.registerNib(UINib(nibName: "bookTableViewCell", bundle: nil), forCellReuseIdentifier: "bookTableViewCell")
@@ -42,8 +43,11 @@ class BookTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //        let cell:bookTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("bookTableViewCell") as! bookTableViewCell
         let cell = tableView.dequeueReusableCellWithIdentifier("bookListTblViewCell", forIndexPath: indexPath) as! bookTableViewCell
-        cell.lblBookName.text = books[indexPath.row]
-        cell.imgBookAvatar.image = UIImage(named: "bookAvatarDefault")
+        let book = books[indexPath.row]
+
+        cell.lblBookName.text = book.name
+        cell.imgBookAvatar.image = book.icon
+        cell.lblBookMates.text  = self.dataRepository.getPartStr(book.part)
         // Configure the cell...
         return cell
     }
