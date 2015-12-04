@@ -52,7 +52,7 @@ class PersonDatabase {
         Person(name: "Caspar",    pid: 19), Person(name: "Bruce",  pid: 44),
         Person(name: "Quentin",   pid: 20), Person(name: "Eugene", pid: 45),
         Person(name: "Thomas",    pid: 21), Person(name: "Leslie", pid: 46),
-        Person(name: "Lawrence",  pid: 22), Person(name: "Bryan",  pid: 47),
+        Person(name: "Laurence",  pid: 22), Person(name: "Bryan",  pid: 47),
         Person(name: "Abelard",   pid: 23), Person(name: "Joshua", pid: 48),
         Person(name: "George",    pid: 24), Person(name: "Dylan",  pid: 49),
     ]
