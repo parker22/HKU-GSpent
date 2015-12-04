@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource {
+class BookDetailViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
 
     
     @IBOutlet weak var bookMemberCV: UICollectionView!
@@ -73,6 +73,22 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
         return 10
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "bookPopoverIdentifier" {
+            let popoverViewController = segue.destinationViewController
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popoverViewController.popoverPresentationController!.delegate = self
+            // Get the new view controller using segue.destinationViewController.
+            // Pass the selected object to the new view controller.
+            
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+
     /*
     // MARK: - Navigation
 
