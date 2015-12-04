@@ -19,6 +19,8 @@ class bookTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.imgBookAvatar.layer.cornerRadius = self.imgBookAvatar.frame.size.width/10
+        self.imgBookAvatar.clipsToBounds = true
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

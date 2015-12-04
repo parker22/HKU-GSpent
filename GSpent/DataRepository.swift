@@ -18,6 +18,10 @@ class DataRepository {
         return self.bookDatabase.getBooks()
     }
     
+    func getPersons() -> [Person]{
+        return self.personDatabase.getPersons()
+    }
+    
     func getBookTally(bid: Int) -> [Tally]?{
         if self.bookDatabase.bookIDs.contains(bid){return self.tallyDatabase.getBookTally(bid)}
         else {return nil}
@@ -71,6 +75,10 @@ class PersonDatabase {
         else if(part_r.count >  2){part_s = "\(getName(part_r[0])!), \(getName(part_r[1])!), and other \(part_r.count-2) people."}
         else   {part_s = ""}
         return part_s
+    }
+    
+    func getPersons() -> [Person]{
+        return self.peopleData
     }
 }
 
@@ -285,4 +293,5 @@ struct Tally {
 struct Person {
     var name: String
     var pid : Int
+    var avatar : UIImage?
 }
