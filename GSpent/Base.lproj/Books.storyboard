@@ -11,21 +11,21 @@
         <scene sceneID="hbW-b1-v9P">
             <objects>
                 <tableViewController id="HkR-Da-ooL" customClass="BookTableViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tqg-jg-PLd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="90" sectionHeaderHeight="20" sectionFooterHeight="20" id="Tqg-jg-PLd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="搜索账本" id="DMK-LC-95J">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="搜索账本" id="DMK-LC-95J">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <animations/>
+                            <color key="barTintColor" red="0.65490196079999996" green="0.85098039219999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookListTblViewCell" rowHeight="90" id="TmC-GH-5yU" customClass="bookTableViewCell" customModule="GSpent" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="128" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TmC-GH-5yU" id="fyp-tj-kXc">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
@@ -129,23 +129,23 @@
         <scene sceneID="hFj-Jo-41N">
             <objects>
                 <tableViewController id="64l-d4-5fa" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="25" sectionFooterHeight="28" id="KoA-vW-e5P">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="1" sectionFooterHeight="1" id="KoA-vW-e5P">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="Yjj-SO-QXv">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="M9u-go-ZhW" style="IBUITableViewCellStyleDefault" id="2a0-EU-5MV">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" textLabel="M9u-go-ZhW" style="IBUITableViewCellStyleDefault" id="2a0-EU-5MV">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2a0-EU-5MV" id="OVM-Gb-anp">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="修改成员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M9u-go-ZhW">
-                                                    <rect key="frame" x="15" y="0.0" width="120" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="120" height="39.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -156,12 +156,13 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="I8P-1X-S7z">
-                                        <rect key="frame" x="0.0" y="44" width="150" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" id="I8P-1X-S7z">
+                                        <rect key="frame" x="0.0" y="40" width="150" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I8P-1X-S7z" id="Ap7-yW-km2">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="分享账单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gct-UD-18i">
@@ -174,13 +175,14 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="Gct-UD-18i" firstAttribute="centerX" secondItem="Ap7-yW-km2" secondAttribute="centerX" id="A0v-CC-yjB"/>
-                                                <constraint firstItem="Gct-UD-18i" firstAttribute="centerY" secondItem="Ap7-yW-km2" secondAttribute="centerY" id="OpU-4b-HXe"/>
-                                                <constraint firstItem="Gct-UD-18i" firstAttribute="leading" secondItem="Ap7-yW-km2" secondAttribute="leadingMargin" constant="7" id="Sgf-YO-Qel"/>
-                                                <constraint firstItem="Gct-UD-18i" firstAttribute="top" secondItem="Ap7-yW-km2" secondAttribute="top" id="Y3d-m3-WNb"/>
+                                                <constraint firstItem="Gct-UD-18i" firstAttribute="centerX" secondItem="Ap7-yW-km2" secondAttribute="centerX" id="eiw-GY-Oa7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Gct-UD-18i" secondAttribute="bottom" constant="-12.5" id="gcN-Yx-8yy"/>
+                                                <constraint firstItem="Gct-UD-18i" firstAttribute="leading" secondItem="Ap7-yW-km2" secondAttribute="leadingMargin" constant="7" id="rxf-WK-BTS"/>
+                                                <constraint firstItem="Gct-UD-18i" firstAttribute="top" secondItem="Ap7-yW-km2" secondAttribute="top" id="vdQ-y8-Sbl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -190,10 +192,10 @@
                             <outlet property="delegate" destination="64l-d4-5fa" id="DSm-TL-Lop"/>
                         </connections>
                     </tableView>
-                    <value key="contentSizeForViewInPopover" type="size" width="150" height="100"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="150" height="80"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="150" height="100"/>
+                    <size key="freeformSize" width="150" height="80"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1e-1S-ohr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,12 +210,16 @@
                         <viewControllerLayoutGuide type="bottom" id="mbC-UE-MHU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Ws-8y-HtK">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRm-51-dcV">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="GcF-li-bbD"/>
+                                    <constraint firstAttribute="height" constant="80" id="xlX-8K-wXG"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="64l-d4-5fa" kind="embed" id="0iA-XY-M79"/>
                                 </connections>
@@ -228,10 +234,10 @@
                             <constraint firstItem="dRm-51-dcV" firstAttribute="bottom" secondItem="mbC-UE-MHU" secondAttribute="top" id="z21-4q-JYI"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="150" height="100"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="150" height="80"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="150" height="100"/>
+                    <size key="freeformSize" width="150" height="80"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tf-p6-XtA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -437,13 +443,25 @@
         <scene sceneID="qqe-gZ-TxZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ocp-ex-Vep" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Books" image="tab_books" id="rKf-9s-U8w"/>
+                    <tabBarItem key="tabBarItem" title="Books" image="tab_books" selectedImage="tab_books_selected" id="rKf-9s-U8w">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.5490196078431373" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="Color">
+                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y0B-gK-Rtb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -507,5 +525,6 @@
     <resources>
         <image name="bookAvatarDefault" width="170" height="198"/>
         <image name="tab_books" width="32" height="32"/>
+        <image name="tab_books_selected" width="32" height="32"/>
     </resources>
 </document>

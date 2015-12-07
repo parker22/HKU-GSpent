@@ -10,8 +10,6 @@ import UIKit
 
 class TabViewController: RaisedTabBarController {
 
-    @IBOutlet var addBook:  UIButton!
-    @IBOutlet var addSpent: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +17,7 @@ class TabViewController: RaisedTabBarController {
         self.insertEmptyTabItem("", atIndex: 1)
         let img = UIImage(named: "tabbar_item_new_spent")
         self.addRaisedButton(img, highlightImage: nil)
+        
 
 //        addBook = UIButton(frame: CGRect(x: 100, y: 630, width: 50, height: 50))
 //        addBook.setImage(UIImage(named: "bookIconSample00"), forState: UIControlState.Normal)
@@ -59,25 +58,25 @@ class TabViewController: RaisedTabBarController {
         print("Raised button tapped")
     }
 
-    func addBook (sender: UIButton!){
-        extraButtonSetHide()
-        performSegueWithIdentifier("showNewBookSegue",  sender: self)
-    }
+//    func addBook (sender: UIButton!){
+//        extraButtonSetHide()
+//        performSegueWithIdentifier("showNewBookSegue",  sender: self)
+//    }
     
-    func addSpent(sender: UIButton!){
-        extraButtonSetHide()
-        performSegueWithIdentifier("showNewSpentSegue", sender: self)
-    }
+//    func addSpent(sender: UIButton!){
+//        extraButtonSetHide()
+//        performSegueWithIdentifier("showNewSpentSegue", sender: self)
+//    }
     
-    func extraButtonSetShow(){
-        self.addBook.hidden  = false
-        self.addSpent.hidden = false
-    }
-    
-    func extraButtonSetHide(){
-        self.addBook.hidden  = true
-        self.addSpent.hidden = true
-    }
+//    func extraButtonSetShow(){
+//        self.addBook.hidden  = false
+//        self.addSpent.hidden = false
+//    }
+//    
+//    func extraButtonSetHide(){
+//        self.addBook.hidden  = true
+//        self.addSpent.hidden = true
+//    }
     
     // MARK: - Navigation
 
