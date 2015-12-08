@@ -13,7 +13,11 @@ class DataRepository {
     let personDatabase = PersonDatabase()
     let bookDatabase   = BookDatabase()
     let tallyDatabase  = TallyDatabase()
+    let categoryDatabase = CategoryDatabase()
     
+    func getCategory() -> [Category]{
+        return self.categoryDatabase.getCategory()
+    }
     func getBooks() -> [Book]{
         return self.bookDatabase.getBooks()
     }
@@ -34,31 +38,31 @@ class DataRepository {
 
 class PersonDatabase {
     let peopleData = [
-        Person(name: "Donald",    pid: 0),  Person(name: "Edison", pid: 25),
-        Person(name: "August",    pid: 1),  Person(name: "Aaron",  pid: 26),
-        Person(name: "Benson",    pid: 2),  Person(name: "Charles",pid: 27),
-        Person(name: "Arnold",    pid: 3),  Person(name: "Jesse",  pid: 28),
-        Person(name: "Apollo",    pid: 4),  Person(name: "Isaac",  pid: 29),
-        Person(name: "Christophe",pid: 5),  Person(name: "Owen",   pid: 30),
-        Person(name: "Darwin",    pid: 6),  Person(name: "Matthew",pid: 31),
-        Person(name: "Nicholas",  pid: 7),  Person(name: "Wisky",  pid: 32),
-        Person(name: "Randy",     pid: 8),  Person(name: "Adrian", pid: 33),
-        Person(name: "Brown",     pid: 9),  Person(name: "Lee",    pid: 34),
-        Person(name: "Peter",     pid: 10), Person(name: "Gafield",pid: 35),
-        Person(name: "Jason",     pid: 11), Person(name: "Solomon",pid: 36),
-        Person(name: "Marcus",    pid: 12), Person(name: "Robert", pid: 37),
-        Person(name: "Elijah",    pid: 13), Person(name: "Victor", pid: 38),
-        Person(name: "Anthony",   pid: 14), Person(name: "Terence",pid: 39),
-        Person(name: "Parker",    pid: 15), Person(name: "Wesley", pid: 40),
-        Person(name: "Cody",      pid: 16), Person(name: "Zachary",pid: 41),
-        Person(name: "Howard",    pid: 17), Person(name: "Abraham",pid: 42),
-        Person(name: "Samuel",    pid: 18), Person(name: "Harry",  pid: 43),
-        Person(name: "Caspar",    pid: 19), Person(name: "Bruce",  pid: 44),
-        Person(name: "Quentin",   pid: 20), Person(name: "Eugene", pid: 45),
-        Person(name: "Thomas",    pid: 21), Person(name: "Leslie", pid: 46),
-        Person(name: "Laurence",  pid: 22), Person(name: "Bryan",  pid: 47),
-        Person(name: "Abelard",   pid: 23), Person(name: "Joshua", pid: 48),
-        Person(name: "George",    pid: 24), Person(name: "Dylan",  pid: 49),
+        Person(name: "Donald",    pid: 0,   avatar: UIImage(named: "user1")),  Person(name: "Edison", pid: 25,   avatar: UIImage(named: "user6")),
+        Person(name: "August",    pid: 1,   avatar: UIImage(named: "user5")),  Person(name: "Aaron",  pid: 26,   avatar: UIImage(named: "user9")),
+        Person(name: "Benson",    pid: 2,   avatar: UIImage(named: "user4")),  Person(name: "Charles",pid: 27,   avatar: UIImage(named: "user4")),
+        Person(name: "Arnold",    pid: 3,   avatar: UIImage(named: "user3")),  Person(name: "Jesse",  pid: 28,   avatar: UIImage(named: "user6")),
+        Person(name: "Apollo",    pid: 4,   avatar: UIImage(named: "user2")),  Person(name: "Isaac",  pid: 29,   avatar: UIImage(named: "user7")),
+        Person(name: "Christophe",pid: 5,   avatar: UIImage(named: "user1")),  Person(name: "Owen",   pid: 30,   avatar: UIImage(named: "user8")),
+        Person(name: "Darwin",    pid: 6,   avatar: UIImage(named: "user1")),  Person(name: "Matthew",pid: 31,   avatar: UIImage(named: "user1")),
+        Person(name: "Nicholas",  pid: 7,   avatar: UIImage(named: "user1")),  Person(name: "Wisky",  pid: 32,   avatar: UIImage(named: "user1")),
+        Person(name: "Randy",     pid: 8,   avatar: UIImage(named: "user1")),  Person(name: "Adrian", pid: 33,   avatar: UIImage(named: "user1")),
+        Person(name: "Brown",     pid: 9,   avatar: UIImage(named: "user1")),  Person(name: "Lee",    pid: 34,   avatar: UIImage(named: "user1")),
+        Person(name: "Peter",     pid: 10,   avatar: UIImage(named: "user1")), Person(name: "Gafield",pid: 35,   avatar: UIImage(named: "user1")),
+        Person(name: "Jason",     pid: 11,   avatar: UIImage(named: "user1")), Person(name: "Solomon",pid: 36,   avatar: UIImage(named: "user1")),
+        Person(name: "Marcus",    pid: 12,   avatar: UIImage(named: "user1")), Person(name: "Robert", pid: 37,   avatar: UIImage(named: "user1")),
+        Person(name: "Elijah",    pid: 13,   avatar: UIImage(named: "user1")), Person(name: "Victor", pid: 38,   avatar: UIImage(named: "user1")),
+        Person(name: "Anthony",   pid: 14,   avatar: UIImage(named: "user1")), Person(name: "Terence",pid: 39,   avatar: UIImage(named: "user1")),
+        Person(name: "Parker",    pid: 15,   avatar: UIImage(named: "user1")), Person(name: "Wesley", pid: 40,   avatar: UIImage(named: "user1")),
+        Person(name: "Cody",      pid: 16,   avatar: UIImage(named: "user1")), Person(name: "Zachary",pid: 41,   avatar: UIImage(named: "user1")),
+        Person(name: "Howard",    pid: 17,   avatar: UIImage(named: "user1")), Person(name: "Abraham",pid: 42,   avatar: UIImage(named: "user1")),
+        Person(name: "Samuel",    pid: 18,   avatar: UIImage(named: "user1")), Person(name: "Harry",  pid: 43,   avatar: UIImage(named: "user1")),
+        Person(name: "Caspar",    pid: 19,   avatar: UIImage(named: "user1")), Person(name: "Bruce",  pid: 44,   avatar: UIImage(named: "user1")),
+        Person(name: "Quentin",   pid: 20,   avatar: UIImage(named: "user1")), Person(name: "Eugene", pid: 45,   avatar: UIImage(named: "user1")),
+        Person(name: "Thomas",    pid: 21,   avatar: UIImage(named: "user1")), Person(name: "Leslie", pid: 46,   avatar: UIImage(named: "user1")),
+        Person(name: "Laurence",  pid: 22,   avatar: UIImage(named: "user1")), Person(name: "Bryan",  pid: 47,   avatar: UIImage(named: "user1")),
+        Person(name: "Abelard",   pid: 23,   avatar: UIImage(named: "user1")), Person(name: "Joshua", pid: 48,   avatar: UIImage(named: "user1")),
+        Person(name: "George",    pid: 24,   avatar: UIImage(named: "user1")), Person(name: "Dylan",  pid: 49,   avatar: UIImage(named: "user1")),
     ]
     
     func getName(pid: String) -> String? {
@@ -79,6 +83,27 @@ class PersonDatabase {
     
     func getPersons() -> [Person]{
         return self.peopleData
+    }
+}
+class CategoryDatabase {
+    let categoryData=[
+        Category(name: "交通", cid: 1, icon: UIImage(named: "transportation")!),
+        Category(name: "购物", cid: 2, icon: UIImage(named: "shopping")!),
+        Category(name: "娱乐", cid: 3, icon: UIImage(named: "movie")!),
+        Category(name: "健身", cid: 4, icon: UIImage(named: "fitness")!),
+        Category(name: "餐饮", cid: 5, icon: UIImage(named: "food")!),
+        Category(name: "酒店", cid: 6, icon: UIImage(named: "hotel")!),
+        Category(name: "房租", cid: 7, icon: UIImage(named: "rent")!),
+        Category(name: "宝贝", cid: 8, icon: UIImage(named: "baby")!),
+        Category(name: "宠物", cid: 9, icon: UIImage(named: "pet")!),
+        Category(name: "修车", cid: 10, icon: UIImage(named: "auto_repair")!),
+        Category(name: "教育", cid: 11, icon: UIImage(named: "education")!),
+        Category(name: "酒吧", cid: 12, icon: UIImage(named: "bar")!),
+        Category(name: "医疗", cid: 13, icon: UIImage(named: "doctor")!),
+        Category(name: "停车", cid: 14, icon: UIImage(named: "parking")!),
+    ]
+    func getCategory() -> [Category]{
+        return self.categoryData
     }
 }
 
@@ -294,4 +319,10 @@ struct Person {
     var name: String
     var pid : Int
     var avatar : UIImage?
+}
+
+struct Category {
+    var name: String
+    var cid : Int
+    var icon : UIImage
 }

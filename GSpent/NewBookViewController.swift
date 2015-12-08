@@ -10,7 +10,8 @@ import UIKit
 
 class NewBookViewController: UIViewController {
     
-    @IBOutlet weak var cancel: UIBarButtonItem!
+
+    @IBOutlet weak var cancelAddBook: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,8 +22,11 @@ class NewBookViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func cancel(sender: AnyObject) {
+    
+    @IBAction func cancelAddBook(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil);
+
     }
+    
     
 }

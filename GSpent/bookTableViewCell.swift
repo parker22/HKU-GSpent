@@ -20,6 +20,8 @@ class bookTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.imgBookAvatar.layer.cornerRadius = self.imgBookAvatar.frame.size.width/10
+//        self.imgBookAvatar.layer.borderWidth = 10
+//        self.imgBookAvatar.layer.borderColor = UIColor.whiteColor().CGColor
         self.imgBookAvatar.clipsToBounds = true
     }
     
