@@ -86,7 +86,7 @@ class PersonDatabase {
         return self.peopleData
     }
     
-    // use userSignup first and then use the booksInsert
+    // use userSignup first and then use the addBooks
     func userSignup(){
         for tmp in peopleData {
             let user = PFUser()
@@ -98,6 +98,12 @@ class PersonDatabase {
                 if error == nil {print("Well done bro! Amazing!")}
                 else            {print("You suck.")}
             }
+        }
+    }
+    
+    func addBooks(){
+        for tmp in peopleData {
+        
         }
     }
 }
@@ -157,9 +163,7 @@ class BookDatabase {
     }
     
     func insertBook(){
-        
-        // only insert one book
-        for(var i = 1; i < 2; i++){
+        for(var i = 1; i < 10; i++){
             
             let tmp = bookData[i]
 
@@ -169,17 +173,8 @@ class BookDatabase {
             for p_id in p_ids{
                 let query = PFQuery(className: "_User")
                 query.whereKey("u_id", equalTo: Int(p_id)!)
-                query.getFirstObjectInBackgroundWithBlock {
-                    (object: PFObject?, error: NSError?) -> Void in
-                    if error != nil || object == nil {
-                        print("The getFirstObject request failed.")
-                    } else {
-                        // The find succeeded.
-                        b_part.append(object!)
-                        print(b_part)
-                        // in this step the b_part has value
-                    }
-                }
+                do { b_part += try query.findObjects() }
+                catch {print("Master indicated me to do nothing.")}
             }
             
             // generate a new book object
@@ -194,10 +189,6 @@ class BookDatabase {
                 if error == nil {print("Well done bro! Amazing!")}
                 else            {print("You suck.")}
             }
-            
-            // however, in the database the b_participant is an empty list
-            // it seems that the program do the generate new book object first
-            // and then query user objects
         }
     }
 }
