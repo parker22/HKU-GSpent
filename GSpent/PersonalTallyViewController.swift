@@ -8,6 +8,8 @@
 
 import UIKit
 
+let USER_ID = 22 // this HERO is Laurence
+
 class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var pageTitle: UINavigationItem!
@@ -48,8 +50,8 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func initData(){
-        books  = self.dataRepository.getBooks()
-        tallys = self.dataRepository.getBookTally(-1)!
+        books  = self.dataRepository.getBooks(USER_ID)
+        tallys = self.dataRepository.getBookTally(USER_ID, b_id: -1)!
         self.bookSelected = books[0]
         bookSelected.part = self.dataRepository.getPartStr(bookSelected.part)
     }
@@ -94,7 +96,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             self.bookSelected.part = book.bookPart.text!
             refreshBookSelected()
             bookSelectTableViewHide()
-            tallys = self.dataRepository.getBookTally(Int(book.bookID.text!)!)!
+            tallys = self.dataRepository.getBookTally(USER_ID, b_id: Int(book.bookID.text!)!)!
             bookTallyTableView.reloadData()
         }
     }
@@ -105,7 +107,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             let nodeTouched = touch.view
             if nodeTouched == self.bookSelectedView {
                 if self.bookSelectTableView.hidden {
-                    books = self.dataRepository.getBooks()
+                    books = self.dataRepository.getBooks(USER_ID)
                     bookSelectTableView.reloadData()
                     bookSelectTableViewShow()}
                 else {bookSelectTableViewHide()}
