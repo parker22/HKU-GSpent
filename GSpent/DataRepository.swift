@@ -86,14 +86,15 @@ class PersonDatabase {
         return self.peopleData
     }
     
-    func insertPerson(){
-        for(var i = 0; i < 50; i++){
-            let tmp = peopleData[i]
-            let user = PFObject(className: "User")
+    // use userSignup first and then use the booksInsert
+    func userSignup(){
+        for tmp in peopleData {
+            let user = PFUser()
             user.setObject(tmp.pid, forKey: "u_id")
-            user.setObject(tmp.name, forKey: "username")
+            user.username = tmp.name
+            user.password = "666666"
             user.setObject(PFFile(data:UIImagePNGRepresentation(tmp.avatar!)!)!, forKey: "u_icon")
-            user.saveInBackgroundWithBlock { (success, error) -> Void in
+            user.signUpInBackgroundWithBlock { (success, error) -> Void in
                 if error == nil {print("Well done bro! Amazing!")}
                 else            {print("You suck.")}
             }
@@ -153,6 +154,51 @@ class BookDatabase {
     
     func getBooks() -> [Book]{
         return self.bookData
+    }
+    
+    func insertBook(){
+        
+        // only insert one book
+        for(var i = 1; i < 2; i++){
+            
+            let tmp = bookData[i]
+
+            // get user object array
+            var b_part = [PFObject]()
+            let p_ids = tmp.part.componentsSeparatedByString(";")
+            for p_id in p_ids{
+                let query = PFQuery(className: "_User")
+                query.whereKey("u_id", equalTo: Int(p_id)!)
+                query.getFirstObjectInBackgroundWithBlock {
+                    (object: PFObject?, error: NSError?) -> Void in
+                    if error != nil || object == nil {
+                        print("The getFirstObject request failed.")
+                    } else {
+                        // The find succeeded.
+                        b_part.append(object!)
+                        print(b_part)
+                        // in this step the b_part has value
+                    }
+                }
+            }
+            
+            // generate a new book object
+            let book = PFObject(className: "Book")
+            book["b_id"] = tmp.bid
+            book["b_name"] = tmp.name
+            book["b_icon"] = PFFile(data:UIImagePNGRepresentation(tmp.icon!)!)!
+            book["b_participant"] = b_part
+            
+            // save the object
+            book.saveInBackgroundWithBlock { (success, error) -> Void in
+                if error == nil {print("Well done bro! Amazing!")}
+                else            {print("You suck.")}
+            }
+            
+            // however, in the database the b_participant is an empty list
+            // it seems that the program do the generate new book object first
+            // and then query user objects
+        }
     }
 }
 

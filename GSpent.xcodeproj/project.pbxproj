@@ -377,7 +377,7 @@
 				TargetAttributes = {
 					498D3DCA1C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = HNWACE57P8;
+						DevelopmentTeam = S9AKP774CP;
 					};
 					498D3DE01C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -629,7 +629,7 @@
 				);
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
+				PRODUCT_BUNDLE_IDENTIFIER = CURME.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -647,7 +647,7 @@
 				);
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
+				PRODUCT_BUNDLE_IDENTIFIER = CURME.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
