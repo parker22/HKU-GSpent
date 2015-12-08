@@ -94,6 +94,7 @@ class PersonDatabase {
             user.username = tmp.name
             user.password = "666666"
             user.setObject(PFFile(data:UIImagePNGRepresentation(tmp.avatar!)!)!, forKey: "u_icon")
+            user.setObject([PFObject](), forKey: "u_books")
             user.signUpInBackgroundWithBlock { (success, error) -> Void in
                 if error == nil {print("Well done bro! Amazing!")}
                 else            {print("You suck.")}
@@ -101,12 +102,25 @@ class PersonDatabase {
         }
     }
     
-    func addBooks(){
+    func updateBooks(){
+        let bookDatabase = BookDatabase()
         for tmp in peopleData {
-        
+            do {try PFUser.logInWithUsername(tmp.name, password:"666666")
+                if let currentUser = PFUser.currentUser(){
+                    print(currentUser["username"])
+                    let books = bookDatabase.getBooks(currentUser["u_id"].integerValue)
+                    print(books)
+                    currentUser["u_books"] = books
+                    do { try currentUser.save() }
+                    catch {print("Master indicated me to do nothing.")}
+                }
+                PFUser.logOut()
+            }
+            catch {print("Master indicated me to do nothing.")}
         }
     }
 }
+
 class CategoryDatabase {
     let categoryData=[
         Category(name: "交通", cid: 1, icon: UIImage(named: "transportation")!),
@@ -145,15 +159,15 @@ class CategoryDatabase {
 class BookDatabase {
     let bookData = [
         Book(bid: -1, icon: UIImage(named: "bookIconSample00"), name: "All books", part: "-1"),
-        Book(bid: 0,  icon: UIImage(named: "bookIconSample01"), name: "My family", part: "0;1;2;3"),
-        Book(bid: 1,  icon: UIImage(named: "bookIconSample02"), name: "Happy hiking", part: "4;5;6;7;8;9;10;11;12;13;14;15;16"),
-        Book(bid: 2,  icon: UIImage(named: "bookIconSample03"), name: "Ladies party", part: "17;18;19;20;21"),
-        Book(bid: 3,  icon: UIImage(named: "bookIconSample04"), name: "7-days Sanya shirt trip", part: "22;23;24"),
-        Book(bid: 4,  icon: UIImage(named: "bookIconSample05"), name: "Pilgrimage to Guanyin", part: "25;26"),
-        Book(bid: 5,  icon: UIImage(named: "bookIconSample06"), name: "TFBoys hardcore-fans Republic", part: "27;28;29;30;31;32;33"),
-        Book(bid: 6,  icon: UIImage(named: "bookIconSample07"), name: "Movies watching plan", part: "34;35;36;37;38;39"),
-        Book(bid: 7,  icon: UIImage(named: "bookIconSample08"), name: "Picnic prepare", part: "40;41;42;43"),
-        Book(bid: 8,  icon: UIImage(named: "bookIconSample09"), name: "HKU 6A Flat", part: "45;46;47;48"),
+        Book(bid: 0,  icon: UIImage(named: "bookIconSample01"), name: "My family", part: "22;0;1;2;3"),
+        Book(bid: 1,  icon: UIImage(named: "bookIconSample02"), name: "Happy hiking", part: "22;4;5;6;7;8;9;10;11;12;13;14;15;16"),
+        Book(bid: 2,  icon: UIImage(named: "bookIconSample03"), name: "Ladies party", part: "22;17;18;19;20;21"),
+        Book(bid: 3,  icon: UIImage(named: "bookIconSample04"), name: "7-days Sanya short trip", part: "22;23;24"),
+        Book(bid: 4,  icon: UIImage(named: "bookIconSample05"), name: "Pilgrimage to Guanyin", part: "22;25;26"),
+        Book(bid: 5,  icon: UIImage(named: "bookIconSample06"), name: "TFBoys hardcore-fans Republic", part: "22;27;28;29;30;31;32;33"),
+        Book(bid: 6,  icon: UIImage(named: "bookIconSample07"), name: "Movies watching plan", part: "22;34;35;36;37;38;39"),
+        Book(bid: 7,  icon: UIImage(named: "bookIconSample08"), name: "Picnic prepare", part: "22;40;41;42;43"),
+        Book(bid: 8,  icon: UIImage(named: "bookIconSample09"), name: "HKU 6A Flat", part: "22;45;46;47;48;49"),
         Book(bid: 9,  icon: UIImage(named: "bookIconSample10"), name: "GSpent International, Ltd.", part: "15;22;26;32")
     ]
     let bookIDs = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -162,20 +176,42 @@ class BookDatabase {
         return self.bookData
     }
     
+    func getBooks(p_id: Int) -> [PFObject]{
+        var books = [PFObject]()
+        var b_ids = [Int]()
+        for book in bookData {
+            let parts = book.part.componentsSeparatedByString(";")
+            if parts.contains(String(p_id)) { b_ids.append(book.bid) }
+        }
+        let bookQuery = PFQuery(className: "Book")
+        bookQuery.whereKey("b_id", containedIn: b_ids)
+        do { books += try bookQuery.findObjects() }
+        catch {print("Master indicated me to do nothing.")}
+        
+        return books
+    }
+    
     func insertBook(){
-        for(var i = 1; i < 10; i++){
-            
+        for(var i = 1; i < bookData.count; i++){
             let tmp = bookData[i]
 
             // get user object array
             var b_part = [PFObject]()
-            let p_ids = tmp.part.componentsSeparatedByString(";")
+            var p_ids = [Int]()
+            print(tmp.part.componentsSeparatedByString(";"))
+            for p_id_string in tmp.part.componentsSeparatedByString(";"){ p_ids.append(Int(p_id_string)!) }
+            let query = PFQuery(className: "_User")
+            query.whereKey("u_id", containedIn: p_ids)
+            do { b_part += try query.findObjects() }
+            catch {print("Master indicated me to do nothing.")}
+
+            /* A simple bad solution
             for p_id in p_ids{
                 let query = PFQuery(className: "_User")
                 query.whereKey("u_id", equalTo: Int(p_id)!)
                 do { b_part += try query.findObjects() }
                 catch {print("Master indicated me to do nothing.")}
-            }
+            }*/
             
             // generate a new book object
             let book = PFObject(className: "Book")
@@ -188,6 +224,34 @@ class BookDatabase {
             book.saveInBackgroundWithBlock { (success, error) -> Void in
                 if error == nil {print("Well done bro! Amazing!")}
                 else            {print("You suck.")}
+            }
+        }
+    }
+    
+    func updateUserbooks(){
+        for(var i = 1; i < bookData.count; i++){
+            let tmp = bookData[i]
+            let book: PFObject
+            let bookQuery = PFQuery(className: "Book")
+            bookQuery.whereKey("b_id", equalTo: tmp.bid)
+            do { book = try bookQuery.findObjects()[0] }
+            catch {print("Master indicated me to do nothing."); return}
+            
+            var users = [PFObject]()
+            var p_ids = [Int]()
+            for p_id_string in tmp.part.componentsSeparatedByString(";"){ p_ids.append(Int(p_id_string)!) }
+            let userQuery = PFQuery(className: "_User")
+            userQuery.whereKey("u_id", containedIn: p_ids)
+            do { users += try userQuery.findObjects() }
+            catch {print("Master indicated me to do nothing.")}
+            print(users)
+            
+            for user in users{
+                user["u_books"] = [PFObject]()
+                user.saveInBackgroundWithBlock { (success, error) -> Void in
+                    if error == nil {print("Well done bro! Amazing!")}
+                    else            {print("You suck.")}
+                }
             }
         }
     }
@@ -357,12 +421,49 @@ class TallyDatabase {
             return tallys
         }
     }
+    
+    func insertTally(){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let user: PFObject
+        let userQuery = PFQuery(className: "_User")
+        userQuery.whereKey("u_id", equalTo: 22)
+        do { user = try userQuery.findObjects()[0] }
+        catch {print("Master indicated me to do nothing."); return;}
+        
+        for tmp in tallyData {
+            let tally = PFObject(className: "Tally")
+            tally["t_id"]    = tmp.tid
+            tally["t_brief"] = tmp.brief
+            tally["t_time"]  = dateFormatter.dateFromString(tmp.time)
+            tally["t_type"]  = rTallyType()
+            
+            let book: PFObject
+            let bookQuery = PFQuery(className: "Book")
+            bookQuery.whereKey("b_id", equalTo: tmp.bid)
+            do { book = try bookQuery.findObjects()[0] }
+            catch {print("Master indicated me to do nothing."); return;}
+            tally["book"]    = book
+            tally["user"]    = user
+            
+            tally.saveInBackgroundWithBlock { (success, error) -> Void in
+                if error == nil {print("Well done bro! Amazing!")}
+                else            {print("You suck.")}
+            }
+        }
+    }
 }
 
 func rAmount() -> Double {
     let max = 100000
     let min = 0
     return Double(arc4random_uniform(UInt32(max-min)) + UInt32(min))/pow(10.0, 2)
+}
+
+func rTallyType() -> Int {
+    let max = 14
+    let min = 1
+    return Int(arc4random_uniform(UInt32(max-min)) + UInt32(min))
 }
 
 struct Book {
