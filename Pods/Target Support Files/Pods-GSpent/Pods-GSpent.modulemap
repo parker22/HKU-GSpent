@@ -1,6 +1,0 @@
-framework module Pods_GSpent {
-  umbrella header "Pods-GSpent-umbrella.h"
-
-  export *
-  module * { export * }
-}
