@@ -12,7 +12,7 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" customClass="TabViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg" shadowImage="A0D75244-959A-45B7-B5DF-9A7A578D93FF" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg" shadowImage="B3B6593B-E662-4A8A-960F-40FCA6E82AF2" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <animations/>
@@ -156,7 +156,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="camera" id="m1I-BQ-KSn"/>
+                            <barButtonItem systemItem="camera" id="m1I-BQ-KSn">
+                                <connections>
+                                    <segue destination="DvQ-FZ-1NX" kind="show" id="48x-xV-RPa"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="time" id="DfB-yf-3Xh">
                                 <connections>
                                     <action selector="addSpentDatetime:" destination="NyR-zA-5Rx" id="LSh-oC-KLE"/>
@@ -298,9 +302,66 @@
             </objects>
             <point key="canvasLocation" x="578" y="808"/>
         </scene>
+        <!--附上收据-->
+        <scene sceneID="uJD-uU-SEt">
+            <objects>
+                <viewController id="DvQ-FZ-1NX" customClass="TakePicViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J48-Se-IWB"/>
+                        <viewControllerLayoutGuide type="bottom" id="O5t-Qk-kzV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EmL-w8-oTF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-UW-ne1">
+                                <rect key="frame" x="20" y="72" width="374" height="409"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lX-Tw-OsX">
+                                <rect key="frame" x="113" y="649" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="拍照"/>
+                                <connections>
+                                    <action selector="useCamera:" destination="DvQ-FZ-1NX" eventType="touchUpInside" id="MxX-q9-b3y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0x-YT-Nu7">
+                                <rect key="frame" x="226" y="649" width="75" height="30"/>
+                                <animations/>
+                                <state key="normal" title="从相册选择"/>
+                                <connections>
+                                    <action selector="useCameraRoll:" destination="DvQ-FZ-1NX" eventType="touchUpInside" id="WH0-PZ-b2y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NF7-UW-ne1" firstAttribute="top" secondItem="J48-Se-IWB" secondAttribute="bottom" constant="8" symbolic="YES" id="0Gw-Hu-NAm"/>
+                            <constraint firstItem="C0x-YT-Nu7" firstAttribute="leading" secondItem="3lX-Tw-OsX" secondAttribute="trailing" constant="83" id="ICQ-Rz-XHL"/>
+                            <constraint firstItem="NF7-UW-ne1" firstAttribute="trailing" secondItem="EmL-w8-oTF" secondAttribute="trailingMargin" id="LoL-Iv-16D"/>
+                            <constraint firstItem="NF7-UW-ne1" firstAttribute="leading" secondItem="EmL-w8-oTF" secondAttribute="leadingMargin" id="W7U-SG-ff7"/>
+                            <constraint firstItem="C0x-YT-Nu7" firstAttribute="baseline" secondItem="3lX-Tw-OsX" secondAttribute="baseline" id="clb-y9-a0B"/>
+                            <constraint firstItem="3lX-Tw-OsX" firstAttribute="leading" secondItem="EmL-w8-oTF" secondAttribute="leadingMargin" constant="93" id="lnl-03-zAb"/>
+                            <constraint firstItem="O5t-Qk-kzV" firstAttribute="top" secondItem="NF7-UW-ne1" secondAttribute="bottom" constant="206" id="pin-ji-59u"/>
+                            <constraint firstItem="O5t-Qk-kzV" firstAttribute="top" secondItem="3lX-Tw-OsX" secondAttribute="bottom" constant="8" id="rOR-Ne-sSh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="附上收据" id="S4C-LO-p2T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="nKO-mI-LVp"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="NF7-UW-ne1" id="Fgz-u0-sNR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="muX-ZB-d0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1164" y="1196"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="A0D75244-959A-45B7-B5DF-9A7A578D93FF" width="375" height="6">
+        <image name="B3B6593B-E662-4A8A-960F-40FCA6E82AF2" width="375" height="6">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

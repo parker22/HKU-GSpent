@@ -1,30 +1,114 @@
-////
-////  TakePicViewController.swift
-////  GSpent
-////
-////  Created by Jiahe Liu on 8/12/15.
-////  Copyright © 2015年 LIU Jiahe. All rights reserved.
-////
 //
-//import UIKit
+//  TakePicViewController.swift
+//  GSpent
 //
-//class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//  Created by Jiahe Liu on 8/12/15.
+//  Copyright © 2015年 LIU Jiahe. All rights reserved.
+//
+
+import UIKit
+import MobileCoreServices
+
+class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    var newMedia: Bool?
+    // 初始化图片选择控制器
+    let imagePickerController: UIImagePickerController = UIImagePickerController()
+    var isFullScreen: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.imageView.frame = CGRectMake(100, 100, 128, 128)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func useCamera(sender: AnyObject) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.Camera) {
+                
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType =
+                    UIImagePickerControllerSourceType.Camera
+                imagePicker.mediaTypes = [kUTTypeImage as NSString as String]
+                imagePicker.allowsEditing = false
+                
+                self.presentViewController(imagePicker, animated: true, 
+                    completion: nil)
+                newMedia = true
+        }
+    }
+    @IBAction func useCameraRoll(sender: AnyObject) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.SavedPhotosAlbum) {
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType =
+                    UIImagePickerControllerSourceType.PhotoLibrary
+                imagePicker.mediaTypes = [kUTTypeImage as NSString as String]
+                imagePicker.allowsEditing = false
+                self.presentViewController(imagePicker, animated: true,
+                    completion: nil)
+                newMedia = false
+        }
+    }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+     
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if mediaType == (kUTTypeImage as String) {
+            let image = info[UIImagePickerControllerOriginalImage]
+                as! UIImage
+            
+            imageView.image = image
+            
+            if (newMedia == true) {
+                UIImageWriteToSavedPhotosAlbum(image, self,
+                    "image:didFinishSavingWithError:contextInfo:", nil)
+            } else if mediaType==(kUTTypeMovie as String) {
+                // Code to support video here
+            }
+            
+        }
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
+        
+        if error != nil {
+            let alert = UIAlertController(title: "Save Failed",
+                message: "Failed to save image",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let cancelAction = UIAlertAction(title: "OK",
+                style: .Cancel, handler: nil)
+            
+            alert.addAction(cancelAction)
+            self.presentViewController(alert, animated: true,
+                completion: nil)
+        }
+    }
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
+    
+    
 //    
-//    @IBOutlet weak var imageView: UIImageView!
-//    // 初始化图片选择控制器
-//    let imagePickerController: UIImagePickerController = UIImagePickerController()
-//    var isFullScreen: Bool = false
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view, typically from a nib.
-//        self.imageView.frame = CGRectMake(100, 100, 128, 128)
-//    }
-//    
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
 //    
 //    @IBAction func chooseImage(sender: UIButton) {
 //        // 设置代理
@@ -99,7 +183,7 @@
 //    }
 //    
 //    //实现ImagePicker delegate 事件
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
 //        picker.dismissViewControllerAnimated(true, completion: nil)
 //        var image: UIImage!
 //        // 判断，图片是否允许修改
@@ -121,9 +205,10 @@
 //        */
 //        // 保存图片至本地，方法见下文
 //        self.saveImage(image, newSize: CGSize(width: 256, height: 256), percent: 0.5, imageName: "currentImage.png")
-//        let fullPath: String = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent("currentImage.png")
-//        print("fullPath=\(fullPath)")
-//        let savedImage: UIImage = UIImage(contentsOfFile: fullPath)!
+//        
+//        let fullPath  = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("Documents").URLByAppendingPathComponent("currentImage.png")
+//        
+//        let savedImage: UIImage = UIImage(contentsOfFile: fullPath as NSString)!
 //        self.isFullScreen = false
 //        self.imageView.image = savedImage
 //        //在这里调用网络通讯方法，上传头像至服务器...
@@ -142,18 +227,18 @@
 //        UIGraphicsEndImageContext()
 //        //高保真压缩图片质量
 //        //UIImageJPEGRepresentation此方法可将图片压缩，但是图片质量基本不变，第二个参数即图片质量参数。
-//        let imageData: NSData = UIImageJPEGRepresentation(newImage, percent)
+//        let imageData: NSData = UIImageJPEGRepresentation(newImage, percent)!
 //        // 获取沙盒目录,这里将图片放在沙盒的documents文件夹中
-//        let fullPath: String = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(imageName)
+//        let fullPath  = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("Documents").URLByAppendingPathComponent(imageName)
 //        // 将图片写入文件
-//        imageData.writeToFile(fullPath, atomically: false)
+//        imageData.writeToURL(fullPath, atomically: false)
 //    }
 //    
 //    //实现点击图片预览功能，滑动放大缩小，带动画
-//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        self.isFullScreen = !self.isFullScreen
 //        
-//        let touch: UITouch = touches.first as! UITouch
+//        let touch: UITouch = touches.first! as UITouch
 //        let touchPoint: CGPoint  = touch.locationInView(self.view)
 //        let imagePoint: CGPoint = self.imageView.frame.origin
 //        //touchPoint.x ，touchPoint.y 就是触点的坐标
@@ -176,4 +261,4 @@
 //            UIView.commitAnimations()
 //        }
 //    }
-//}
+}
