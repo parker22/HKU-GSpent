@@ -5,7 +5,7 @@
 //  Created by Jiahe Liu on 29/11/15.
 //  Copyright © 2015年 LIU Jiahe. All rights reserved.
 //
-
+import Parse
 import UIKit
 
 class BookTableViewController: UITableViewController {
@@ -45,8 +45,45 @@ class BookTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("bookListTblViewCell", forIndexPath: indexPath) as! bookTableViewCell
         let book = books[indexPath.row]
 
+        
+        let query = PFQuery(className:"TestObject")
+        query.getObjectInBackgroundWithId("m7lhJgzeop") {
+            (testObject: PFObject?, error: NSError?) -> Void in
+            if error == nil && testObject != nil {
+                print(testObject)
+                let userImageFile = testObject!["image"] as! PFFile
+                userImageFile.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            let image = UIImage(data:imageData)
+                            cell.imgBookAvatar.image = image
+                        }
+                    }
+                }
+                    
+                
+                
+                
+            } else {
+                print(error)
+            }
+        }
+        
+        
+//        let userImageFile = userPhoto["bookAvatarDefault.png"] as! PFFile
+//        userImageFile.getDataInBackgroundWithBlock {
+//            (imageData: NSData?, error: NSError?) -> Void in
+//            if error == nil {
+//                if let imageData = imageData {
+//                    let image = UIImage(data:imageData)
+//                    
+//                    cell.imgBookAvatar.image = image
+//                }
+//            }
+//        }
         cell.lblBookName.text = book.name
-        cell.imgBookAvatar.image = book.icon
+//        cell.imgBookAvatar.image = book.icon
         cell.lblBookMates.text  = self.dataRepository.getPartStr(book.part)
         // Configure the cell...
         return cell

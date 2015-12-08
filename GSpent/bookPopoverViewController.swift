@@ -8,8 +8,9 @@
 
 import UIKit
 
-class bookPopoverViewController: UIViewController{
+class bookPopoverViewController: UITableViewController{
 
+    @IBOutlet var bookPopoverTV: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +22,10 @@ class bookPopoverViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let vc = SettlementViewController()
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
 
     
     // MARK: - Navigation

@@ -95,9 +95,18 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     @IBAction func submitNewSpent(sender: AnyObject) {
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+//        let testObject = PFObject(className: "TestObject")
+        let imageee = UIImage(named: "bookAvatarDefault")
+        let imageData = UIImagePNGRepresentation(imageee!)
+        let imageFile = PFFile(name:"bookAvatarDefault.png", data:imageData!)
+        
+        let userPhoto = PFObject(className:"TestObject")
+        userPhoto["name"] = "Chairman Guo"
+        userPhoto["image"] = imageFile
+        userPhoto.saveInBackground()
+        
+//        testObject["foo"] = "bar"
+        userPhoto.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             print("Object has been saved.")
         }
     }

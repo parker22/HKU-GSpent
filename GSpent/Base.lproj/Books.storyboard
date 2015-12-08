@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="1410" y="-1077"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Book Popover View Controller-->
         <scene sceneID="hFj-Jo-41N">
             <objects>
-                <tableViewController id="64l-d4-5fa" sceneMemberID="viewController">
+                <tableViewController id="64l-d4-5fa" customClass="bookPopoverViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="1" sectionFooterHeight="1" id="KoA-vW-e5P">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,15 +196,18 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="150" height="80"/>
+                    <connections>
+                        <outlet property="bookPopoverTV" destination="KoA-vW-e5P" id="QGP-xH-ykD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1e-1S-ohr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2224" y="-1941"/>
         </scene>
-        <!--Book Popover View Controller-->
+        <!--View Controller-->
         <scene sceneID="Ejt-uP-kek">
             <objects>
-                <viewController id="DOG-Ce-iDd" customClass="bookPopoverViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DOG-Ce-iDd" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rYf-94-NqZ"/>
                         <viewControllerLayoutGuide type="bottom" id="mbC-UE-MHU"/>
