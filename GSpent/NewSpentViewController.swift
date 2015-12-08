@@ -5,8 +5,9 @@
 //  Created by Jiahe Liu on 28/11/15.
 //  Copyright © 2015年 LIU Jiahe. All rights reserved.
 //
-
+import Parse
 import UIKit
+
 
 class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIPopoverPresentationControllerDelegate{
     
@@ -90,6 +91,15 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     @IBAction func addSpentDatetime(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func submitNewSpent(sender: AnyObject) {
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            print("Object has been saved.")
+        }
     }
     
     
