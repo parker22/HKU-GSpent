@@ -629,7 +629,7 @@
 				);
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -647,7 +647,7 @@
 				);
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
