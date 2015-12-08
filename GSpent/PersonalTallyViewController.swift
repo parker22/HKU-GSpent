@@ -39,6 +39,9 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         initData()
         refreshBookSelected()
         bookSelectTableViewHide()
+        
+        let person = PersonDatabase()
+        person.insertPerson()
     }
     
     override func didReceiveMemoryWarning() {

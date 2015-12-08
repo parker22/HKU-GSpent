@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import Parse
 
 class DataRepository {
-    let personDatabase = PersonDatabase()
-    let bookDatabase   = BookDatabase()
-    let tallyDatabase  = TallyDatabase()
+    let personDatabase   = PersonDatabase()
+    let bookDatabase     = BookDatabase()
+    let tallyDatabase    = TallyDatabase()
     let categoryDatabase = CategoryDatabase()
     
     func getCategory() -> [Category]{
@@ -84,6 +85,20 @@ class PersonDatabase {
     func getPersons() -> [Person]{
         return self.peopleData
     }
+    
+    func insertPerson(){
+        for(var i = 0; i < 50; i++){
+            let tmp = peopleData[i]
+            let user = PFObject(className: "User")
+            user.setObject(tmp.pid, forKey: "u_id")
+            user.setObject(tmp.name, forKey: "username")
+            user.setObject(PFFile(data:UIImagePNGRepresentation(tmp.avatar!)!)!, forKey: "u_icon")
+            user.saveInBackgroundWithBlock { (success, error) -> Void in
+                if error == nil {print("Well done bro! Amazing!")}
+                else            {print("You suck.")}
+            }
+        }
+    }
 }
 class CategoryDatabase {
     let categoryData=[
@@ -104,6 +119,19 @@ class CategoryDatabase {
     ]
     func getCategory() -> [Category]{
         return self.categoryData
+    }
+    
+    func insertCategory(){
+        for tmp in categoryData {
+            let cate = PFObject(className: "Category")
+            cate.setObject(tmp.cid, forKey: "c_id")
+            cate.setObject(tmp.name, forKey: "c_name")
+            cate.setObject(PFFile(data:UIImagePNGRepresentation(tmp.icon)!)!, forKey: "c_icon")
+            cate.saveInBackgroundWithBlock { (success, error) -> Void in
+                if error == nil {print("Well done bro! Amazing!")}
+                else            {print("You suck.")}
+            }
+        }
     }
 }
 
