@@ -9,15 +9,19 @@ import Parse
 import UIKit
 
 
-class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIPopoverPresentationControllerDelegate{
+class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIPopoverPresentationControllerDelegate,sendSpentBookBack{
     
     
+    @IBOutlet weak var spentBookSelectionBtn: UIButton!
     @IBOutlet weak var addSpentDescription: UIBarButtonItem!
     @IBOutlet weak var cancelAddSpent: UIBarButtonItem!
-    
     @IBOutlet weak var spentCategoryCV: UICollectionView!
+    
     var categories = [Category]()
     var dataRepository = DataRepository()
+    var bookID: Int?
+
+    
     let spentCategoryCellIdentifier = "spentCategoryCellIdentifier"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +134,23 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
             // Pass the selected object to the new view controller.
             
         }
+        if segue.identifier == "spentBookSelectionIdentifier" {
+            let bookSelectionViewController = segue.destinationViewController as! SpentBookSelectionTableViewController
+            print("yes")
+            bookSelectionViewController.mDelegate = self
+            // Get the new view controller using segue.destinationViewController.
+            // Pass the selected object to the new view controller.
+            
+        }
     }
+    
+    func sendBookToPreviousVC(selectedBookID: Int) {
+        print(selectedBookID)
+        
+        spentBookSelectionBtn.setTitle("已选择账本: "+String(selectedBookID), forState: UIControlState.Normal)
+    }
+    
+    
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }

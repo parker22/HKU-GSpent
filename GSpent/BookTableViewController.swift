@@ -50,7 +50,6 @@ class BookTableViewController: UITableViewController {
         query.getObjectInBackgroundWithId("m7lhJgzeop") {
             (testObject: PFObject?, error: NSError?) -> Void in
             if error == nil && testObject != nil {
-                print(testObject)
                 let userImageFile = testObject!["image"] as! PFFile
                 userImageFile.getDataInBackgroundWithBlock {
                     (imageData: NSData?, error: NSError?) -> Void in

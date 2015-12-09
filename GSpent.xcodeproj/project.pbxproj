@@ -46,6 +46,8 @@
 		498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */; };
 		498D3E041C09EC330013E1EA /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498D3E021C09EC330013E1EA /* Books.storyboard */; };
 		49B3721E1C0E16A700315A5D /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */; };
+		49C3839D1C185870006A44BF /* SpentBookSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3839C1C185870006A44BF /* SpentBookSelectionTableViewController.swift */; };
+		49C3839F1C18867E006A44BF /* BookMemberSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3839E1C18867E006A44BF /* BookMemberSelectionTableViewController.swift */; };
 		49CD51F11C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD51F01C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift */; };
 		49CD51F31C15B94600B9FB13 /* customTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CD51F21C15B94600B9FB13 /* customTextField.xib */; };
 		49CD51F51C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD51F41C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift */; };
@@ -92,7 +94,6 @@
 		490C834A1C16841800AA11C7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		490C834C1C16842000AA11C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookMemberCollectionViewCell.swift; sourceTree = "<group>"; };
-		491263E41C10312D00E12FDD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		491263E51C10AD5100E12FDD /* bookPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookPopoverViewController.swift; sourceTree = "<group>"; };
 		4919F0C11C0ACE5C0081E69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PersonalTally.storyboard; sourceTree = "<group>"; };
 		492904551C0B145E00DADCC7 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +116,8 @@
 		498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSpentViewController.swift; sourceTree = "<group>"; };
 		498D3E031C09EC330013E1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Books.storyboard; sourceTree = "<group>"; };
 		49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		49C3839C1C185870006A44BF /* SpentBookSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpentBookSelectionTableViewController.swift; sourceTree = "<group>"; };
+		49C3839E1C18867E006A44BF /* BookMemberSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMemberSelectionTableViewController.swift; sourceTree = "<group>"; };
 		49CD51F01C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = spentCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		49CD51F21C15B94600B9FB13 /* customTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customTextField.xib; sourceTree = "<group>"; };
 		49CD51F41C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = spentDescriptionTextFieldView.swift; sourceTree = "<group>"; };
@@ -205,10 +208,11 @@
 			children = (
 				498D3E021C09EC330013E1EA /* Books.storyboard */,
 				492EAD011C0D9A1800FB69D8 /* UI */,
+				1A26AACF1C0F2CCC00329C3A /* NewBookViewController.swift */,
 				49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */,
 				492904551C0B145E00DADCC7 /* BookTableViewController.swift */,
-				1A26AACF1C0F2CCC00329C3A /* NewBookViewController.swift */,
 				291153E21C102ED800937D03 /* SettlementViewController.swift */,
+				49C3839E1C18867E006A44BF /* BookMemberSelectionTableViewController.swift */,
 			);
 			name = Books;
 			sourceTree = "<group>";
@@ -295,6 +299,7 @@
 			children = (
 				498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */,
 				49CD51EF1C1591D200B9FB13 /* UI */,
+				49C3839C1C185870006A44BF /* SpentBookSelectionTableViewController.swift */,
 			);
 			name = Spent;
 			sourceTree = "<group>";
@@ -377,7 +382,7 @@
 				TargetAttributes = {
 					498D3DCA1C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = S9AKP774CP;
+						DevelopmentTeam = HNWACE57P8;
 					};
 					498D3DE01C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -454,9 +459,11 @@
 				494FD4F21C0AD65D002C2A12 /* TabViewController.swift in Sources */,
 				491263E21C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift in Sources */,
 				49CD51F51C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift in Sources */,
+				49C3839F1C18867E006A44BF /* BookMemberSelectionTableViewController.swift in Sources */,
 				494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */,
 				291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */,
 				49B3721E1C0E16A700315A5D /* BookDetailViewController.swift in Sources */,
+				49C3839D1C185870006A44BF /* SpentBookSelectionTableViewController.swift in Sources */,
 				498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */,
 				492904621C0B247800DADCC7 /* bookTableViewCell.swift in Sources */,
 				4974DC371C166B9000F6B239 /* TakePicViewController.swift in Sources */,
@@ -512,7 +519,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				498D3DD51C09D3560013E1EA /* Base */,
-				491263E41C10312D00E12FDD /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -629,8 +635,7 @@
 				);
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent;
-				PRODUCT_BUNDLE_IDENTIFIER = CURME.jiaheliu.gspent1;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -648,8 +653,7 @@
 				);
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent;
-				PRODUCT_BUNDLE_IDENTIFIER = CURME.jiaheliu.gspent1;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
