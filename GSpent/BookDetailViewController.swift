@@ -64,8 +64,8 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:BookTallyTableViewCell = bookTallyTV.dequeueReusableCellWithIdentifier(bookTallyCellIdentifier, forIndexPath: indexPath) as! BookTallyTableViewCell
-        
+        let cell:bookDetailTallyTableViewCell = bookTallyTV.dequeueReusableCellWithIdentifier(bookTallyCellIdentifier, forIndexPath: indexPath) as! bookDetailTallyTableViewCell
+        cell.bookTallyAvatarIV.image = members[indexPath.row].avatar
         return cell
     }
     

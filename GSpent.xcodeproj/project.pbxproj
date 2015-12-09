@@ -48,6 +48,7 @@
 		49B3721E1C0E16A700315A5D /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */; };
 		49C3839D1C185870006A44BF /* SpentBookSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3839C1C185870006A44BF /* SpentBookSelectionTableViewController.swift */; };
 		49C3839F1C18867E006A44BF /* BookMemberSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3839E1C18867E006A44BF /* BookMemberSelectionTableViewController.swift */; };
+		49C383A11C1892F1006A44BF /* bookDetailTallyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C383A01C1892F1006A44BF /* bookDetailTallyTableViewCell.swift */; };
 		49CD51F11C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD51F01C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift */; };
 		49CD51F31C15B94600B9FB13 /* customTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CD51F21C15B94600B9FB13 /* customTextField.xib */; };
 		49CD51F51C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CD51F41C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift */; };
@@ -118,6 +119,7 @@
 		49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		49C3839C1C185870006A44BF /* SpentBookSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpentBookSelectionTableViewController.swift; sourceTree = "<group>"; };
 		49C3839E1C18867E006A44BF /* BookMemberSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMemberSelectionTableViewController.swift; sourceTree = "<group>"; };
+		49C383A01C1892F1006A44BF /* bookDetailTallyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookDetailTallyTableViewCell.swift; sourceTree = "<group>"; };
 		49CD51F01C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = spentCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		49CD51F21C15B94600B9FB13 /* customTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customTextField.xib; sourceTree = "<group>"; };
 		49CD51F41C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = spentDescriptionTextFieldView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				492904601C0B247800DADCC7 /* bookTableViewCell.swift */,
 				491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */,
 				491263E51C10AD5100E12FDD /* bookPopoverViewController.swift */,
+				49C383A01C1892F1006A44BF /* bookDetailTallyTableViewCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				494FD4F21C0AD65D002C2A12 /* TabViewController.swift in Sources */,
 				491263E21C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift in Sources */,
 				49CD51F51C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift in Sources */,
+				49C383A11C1892F1006A44BF /* bookDetailTallyTableViewCell.swift in Sources */,
 				49C3839F1C18867E006A44BF /* BookMemberSelectionTableViewController.swift in Sources */,
 				494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */,
 				291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */,
