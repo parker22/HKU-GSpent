@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        WXApi.registerApp("xxxxxx")
+        WXApi.registerApp("wxa50e138039c93c79")
         
         // ...
         return true
