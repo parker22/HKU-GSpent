@@ -42,12 +42,16 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
         if indexPath.row == 0 {
             
             let cell:NameCell = tableView.dequeueReusableCellWithIdentifier("SettlementNameList") as! NameCell
-            cell.NameLabel.text = "DumpFirstRow"
+            cell.NameLabel.text = relationships.allDebtors()[indexPath.section]
             returnableCell = cell
         }
         else {
            let cell:RecordCell = tableView.dequeueReusableCellWithIdentifier("SettlementSingleOweRecord")! as! RecordCell
-            cell.recordLabel.text = "DumpSecondRow"
+            var certainPerson:String
+            certainPerson=relationships.allDebtors()[indexPath.section]
+            let records:[OweRecord]=relationships.recordsRelatedToCertainDebtor(who: certainPerson)
+            
+            cell.recordLabel.text = records[indexPath.row].toHalfString()
             returnableCell = cell
         }
         return returnableCell
@@ -56,13 +60,12 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         let num=relationships.allCreditors().count
-        print (num)
         return num
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var certainPerson:String
-        certainPerson=relationships.allCreditors()[section]
+        certainPerson=relationships.allDebtors()[section]
         let records:[OweRecord]=relationships.recordsRelatedToCertainDebtor(who: certainPerson)
         return records.count
     }

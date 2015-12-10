@@ -110,7 +110,12 @@ class OweRecord {
     }
     
     func toString() -> String{
-        let string="\(creditor.name) owes \(debtor.name) \(amount) HKD; "
+        let string="\(debtor.name) owes \(creditor.name) \(amount) \(currency); "
+        return string
+    }
+    
+    func toHalfString() -> String{
+        let string="owes \(creditor.name) \(amount) \(currency); "
         return string
     }
 }
