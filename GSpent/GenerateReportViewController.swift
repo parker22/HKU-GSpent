@@ -28,7 +28,7 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     
     func sendText() {
         let req = SendMessageToWXReq()
-        req.text = "文字标题"
+        req.text = "Send some sample test which should be replaced by the records"
         req.bText = true
         WXApi.sendReq(req)
     }
