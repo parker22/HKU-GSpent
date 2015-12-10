@@ -11,7 +11,7 @@ import Parse
 import Bolts
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
     var window: UIWindow?
 
@@ -26,9 +26,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        WXApi.registerApp("xxxxxx")
         
         // ...
         return true
+    }
+    
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        return WXApi.handleOpenURL(url, delegate: self)
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return WXApi.handleOpenURL(url, delegate: self)
+    }
+    
+    func onReq(req: BaseReq!) {
+        
+    }
+    
+    func onResp(resp: BaseResp!) {
+        
+    }
+    
+    func sendText() {
+        let req = SendMessageToWXReq()
+        req.text = "hahahahahhahahahhahah"
+        req.bText = true
+        WXApi.sendReq(req)
     }
     
 
