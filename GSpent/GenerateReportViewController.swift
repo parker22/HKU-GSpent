@@ -9,8 +9,6 @@
 import UIKit
 
 class GenerateReportViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    //
-    
     
     @IBOutlet var outputValue: UILabel!
     
@@ -28,7 +26,7 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     
     func sendText() {
         let req = SendMessageToWXReq()
-        req.text = "Send some sample test which should be replaced by the records"
+        req.text = relationships.toString()
         req.bText = true
         WXApi.sendReq(req)
     }
