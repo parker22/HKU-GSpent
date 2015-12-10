@@ -15,7 +15,6 @@
 		1A7846271C0D8E6400A6B416 /* BookTallyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */; };
 		1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846301C0E934A00A6B416 /* DataRepository.swift */; };
 		291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291153E21C102ED800937D03 /* SettlementViewController.swift */; };
-		291153E51C102ED800937D03 /* SettlementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291153E31C102ED800937D03 /* SettlementViewController.xib */; };
 		490C83371C1682D900AA11C7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83341C1682D900AA11C7 /* Bolts.framework */; };
 		490C83381C1682D900AA11C7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83351C1682D900AA11C7 /* Parse.framework */; };
 		490C83391C1682D900AA11C7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83361C1682D900AA11C7 /* ParseUI.framework */; };
@@ -83,7 +82,6 @@
 		1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTallyTableViewCell.xib; sourceTree = "<group>"; };
 		1A7846301C0E934A00A6B416 /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		291153E21C102ED800937D03 /* SettlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettlementViewController.swift; sourceTree = "<group>"; };
-		291153E31C102ED800937D03 /* SettlementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettlementViewController.xib; sourceTree = "<group>"; };
 		490C83341C1682D900AA11C7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		490C83351C1682D900AA11C7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		490C83361C1682D900AA11C7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 		492EAD011C0D9A1800FB69D8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				291153E31C102ED800937D03 /* SettlementViewController.xib */,
 				492904601C0B247800DADCC7 /* bookTableViewCell.swift */,
 				491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */,
 				491263E51C10AD5100E12FDD /* bookPopoverViewController.swift */,
@@ -433,7 +430,6 @@
 			files = (
 				49CD51F31C15B94600B9FB13 /* customTextField.xib in Resources */,
 				4919F0C21C0ACE5C0081E69F /* PersonalTally.storyboard in Resources */,
-				291153E51C102ED800937D03 /* SettlementViewController.xib in Resources */,
 				498D3DDB1C09D3560013E1EA /* LaunchScreen.storyboard in Resources */,
 				1A061C631C0D49AE00AE4E2C /* BookINPTableViewCell.xib in Resources */,
 				49ADCFC71C197AAD00CA2494 /* Settlement.storyboard in Resources */,
