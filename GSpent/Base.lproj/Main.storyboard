@@ -12,7 +12,7 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" customClass="TabViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg" shadowImage="D9DB316F-3D88-4106-9845-3851A298FD8A" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg" shadowImage="91B80681-44EE-4D3E-AACA-E78181EE3A34" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -192,7 +192,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wh7-RD-yCj" id="v1H-87-BeI">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -342,7 +342,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D9DB316F-3D88-4106-9845-3851A298FD8A" width="375" height="6">
+        <image name="91B80681-44EE-4D3E-AACA-E78181EE3A34" width="375" height="6">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

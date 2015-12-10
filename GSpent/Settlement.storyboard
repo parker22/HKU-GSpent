@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bev-R7-5XT">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="eQw-pU-oLc">
+            <objects>
+                <viewController id="bev-R7-5XT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Hy-IQ-UEU"/>
+                        <viewControllerLayoutGuide type="bottom" id="MXb-25-bnt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ux8-bW-F8I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MJ-7c-Dh2">
+                                <rect key="frame" x="20" y="41" width="75" height="30"/>
+                                <state key="normal" title="生成清算表"/>
+                                <connections>
+                                    <segue destination="PUy-p7-phj" kind="show" id="dIa-Ak-Gvr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahk-Yc-Eu8">
+                                <rect key="frame" x="550" y="48" width="30" height="30"/>
+                                <state key="normal" title="分享"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8MJ-7c-Dh2" firstAttribute="top" secondItem="9Hy-IQ-UEU" secondAttribute="bottom" constant="21" id="BEE-Ku-sNV"/>
+                            <constraint firstItem="Ahk-Yc-Eu8" firstAttribute="top" secondItem="9Hy-IQ-UEU" secondAttribute="bottom" constant="28" id="Pbg-A6-wcV"/>
+                            <constraint firstItem="8MJ-7c-Dh2" firstAttribute="leading" secondItem="Ux8-bW-F8I" secondAttribute="leadingMargin" id="caQ-mD-aZ3"/>
+                            <constraint firstItem="Ahk-Yc-Eu8" firstAttribute="trailing" secondItem="Ux8-bW-F8I" secondAttribute="trailingMargin" id="n0B-dm-Afi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8E-an-sAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="170" y="19"/>
+        </scene>
+        <!--Generate Report View Controller-->
+        <scene sceneID="VdV-Yz-pNZ">
+            <objects>
+                <viewController id="PUy-p7-phj" customClass="GenerateReportViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yl9-zq-HpN"/>
+                        <viewControllerLayoutGuide type="bottom" id="5aD-iA-pYA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="86W-X0-4cg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="haT-4R-gfu">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettlementNameList" id="jHr-5S-hmY">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jHr-5S-hmY" id="jtZ-Zi-gnu">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettlementSingleOweRecord" id="3qR-36-hka">
+                                        <rect key="frame" x="0.0" y="72" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3qR-36-hka" id="pS6-ak-18s">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="haT-4R-gfu" firstAttribute="trailing" secondItem="86W-X0-4cg" secondAttribute="trailingMargin" id="H8m-Bz-Cfa"/>
+                            <constraint firstItem="haT-4R-gfu" firstAttribute="top" secondItem="Yl9-zq-HpN" secondAttribute="bottom" id="Mnl-MI-VGR"/>
+                            <constraint firstItem="haT-4R-gfu" firstAttribute="bottom" secondItem="5aD-iA-pYA" secondAttribute="top" id="etJ-YV-2t9"/>
+                            <constraint firstItem="haT-4R-gfu" firstAttribute="leading" secondItem="86W-X0-4cg" secondAttribute="leadingMargin" id="fRd-qZ-sAm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="settleTV" destination="haT-4R-gfu" id="j63-69-9s1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Nb-hY-eLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="-20"/>
+        </scene>
+    </scenes>
+</document>

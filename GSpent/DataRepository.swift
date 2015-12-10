@@ -559,6 +559,21 @@ struct Person {
     var name: String
     var pid : Int
     var avatar : UIImage?
+    
+    static func randomPerson() -> Person{
+        let nameList:[String]=["Adam","Bob","Claudia","David","Eva"]
+        let nameCount = Int(arc4random_uniform(UInt32(nameList.count)))
+        let newPerson:Person=self.init(name: nameList[nameCount], pid: 2, avatar: UIImage(named: "user1"))
+        return newPerson
+    }
+    
+    static func isSame(person1:Person, and person2:Person) -> Bool{
+        if (person1.name == person2.name) && (person1.pid==person2.pid){
+            return true
+        }
+        return false
+    }
+
 }
 
 struct Category {
