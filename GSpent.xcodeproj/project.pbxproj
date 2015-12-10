@@ -18,6 +18,8 @@
 		29617F091C19986500709171 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F081C19986500709171 /* NameCell.swift */; };
 		29617F0B1C19991400709171 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F0A1C19991400709171 /* RecordCell.swift */; };
 		29617F101C199E1B00709171 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29617F0C1C199E1B00709171 /* libWeChatSDK.a */; };
+		29EB60F81C19C7A1000E11CE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB60F61C19C611000E11CE /* CoreTelephony.framework */; };
+		29EB60F91C19C7A4000E11CE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB60F41C19C5CA000E11CE /* libc++.tbd */; };
 		490C83371C1682D900AA11C7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83341C1682D900AA11C7 /* Bolts.framework */; };
 		490C83381C1682D900AA11C7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83351C1682D900AA11C7 /* Parse.framework */; };
 		490C83391C1682D900AA11C7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83361C1682D900AA11C7 /* ParseUI.framework */; };
@@ -92,6 +94,8 @@
 		29617F0E1C199E1B00709171 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		29617F0F1C199E1B00709171 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		29617F111C19A23E00709171 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		29EB60F41C19C5CA000E11CE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		29EB60F61C19C611000E11CE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		490C83341C1682D900AA11C7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		490C83351C1682D900AA11C7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		490C83361C1682D900AA11C7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29EB60F81C19C7A1000E11CE /* CoreTelephony.framework in Frameworks */,
+				29EB60F91C19C7A4000E11CE /* libc++.tbd in Frameworks */,
 				29617F101C199E1B00709171 /* libWeChatSDK.a in Frameworks */,
 				490C834D1C16842000AA11C7 /* libsqlite3.tbd in Frameworks */,
 				490C834B1C16841800AA11C7 /* libz.tbd in Frameworks */,
@@ -202,6 +208,8 @@
 		490C83331C16826000AA11C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29EB60F61C19C611000E11CE /* CoreTelephony.framework */,
+				29EB60F41C19C5CA000E11CE /* libc++.tbd */,
 				490C834C1C16842000AA11C7 /* libsqlite3.tbd */,
 				490C834A1C16841800AA11C7 /* libz.tbd */,
 				490C83481C16841100AA11C7 /* SystemConfiguration.framework */,
@@ -612,9 +620,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -650,8 +659,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -671,10 +682,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GSpent",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/Laurence/Documents/iOS/GSpent/GSpent/Header.h;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -694,10 +707,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GSpent",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/Laurence/Documents/iOS/GSpent/GSpent/Header.h;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
