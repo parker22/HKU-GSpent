@@ -17,6 +17,7 @@
 		291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291153E21C102ED800937D03 /* SettlementViewController.swift */; };
 		29617F091C19986500709171 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F081C19986500709171 /* NameCell.swift */; };
 		29617F0B1C19991400709171 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F0A1C19991400709171 /* RecordCell.swift */; };
+		29617F101C199E1B00709171 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29617F0C1C199E1B00709171 /* libWeChatSDK.a */; };
 		490C83371C1682D900AA11C7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83341C1682D900AA11C7 /* Bolts.framework */; };
 		490C83381C1682D900AA11C7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83351C1682D900AA11C7 /* Parse.framework */; };
 		490C83391C1682D900AA11C7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83361C1682D900AA11C7 /* ParseUI.framework */; };
@@ -86,6 +87,10 @@
 		291153E21C102ED800937D03 /* SettlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettlementViewController.swift; sourceTree = "<group>"; };
 		29617F081C19986500709171 /* NameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameCell.swift; sourceTree = "<group>"; };
 		29617F0A1C19991400709171 /* RecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		29617F0C1C199E1B00709171 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		29617F0D1C199E1B00709171 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		29617F0E1C199E1B00709171 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		29617F0F1C199E1B00709171 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		490C83341C1682D900AA11C7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		490C83351C1682D900AA11C7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		490C83361C1682D900AA11C7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -138,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29617F101C199E1B00709171 /* libWeChatSDK.a in Frameworks */,
 				490C834D1C16842000AA11C7 /* libsqlite3.tbd in Frameworks */,
 				490C834B1C16841800AA11C7 /* libz.tbd in Frameworks */,
 				490C83491C16841100AA11C7 /* SystemConfiguration.framework in Frameworks */,
@@ -275,6 +281,10 @@
 		498D3DCD1C09D3560013E1EA /* GSpent */ = {
 			isa = PBXGroup;
 			children = (
+				29617F0C1C199E1B00709171 /* libWeChatSDK.a */,
+				29617F0D1C199E1B00709171 /* WechatAuthSDK.h */,
+				29617F0E1C199E1B00709171 /* WXApi.h */,
+				29617F0F1C199E1B00709171 /* WXApiObject.h */,
 				4974DC351C166B6700F6B239 /* Universal */,
 				49CD51EE1C1591C700B9FB13 /* Spent */,
 				4929045D1C0B234800DADCC7 /* Books */,
@@ -655,6 +665,10 @@
 				);
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GSpent",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -673,6 +687,10 @@
 				);
 				INFOPLIST_FILE = GSpent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GSpent",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

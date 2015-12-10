@@ -105,7 +105,7 @@ class OweRecord {
     }
     
     class func randomRecord() -> OweRecord{
-        let newRecord=self.init(Person.randomPerson(),owes: Person.randomPerson())
+        let newRecord=self.init(Person.randomPerson(),owes: Person.randomPerson(),Int(arc4random())%1000)
         return newRecord
     }
     
