@@ -28,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
         // ...
+        
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+            handleShortcutItem(shortcutItem)
+        }
         return true
     }
     
@@ -52,6 +56,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        handleShortcutItem(shortcutItem)
+    }
+    
+    private func handleShortcutItem(shortcutItem: UIApplicationShortcutItem) {
+        if let rootViewController = window?.rootViewController {
+            rootViewController.dismissViewControllerAnimated(false, completion: nil)
+            let alertController = UIAlertController(title: "", message: shortcutItem.localizedTitle, preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//            let newSpentVC = NewSpentViewController()
+//            rootViewController.presentViewController(newSpentVC, animated: true, completion: nil)
+        }
     }
 
 
