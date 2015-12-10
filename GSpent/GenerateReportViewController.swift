@@ -22,7 +22,15 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     let relationships=AllOweingRelationships.init()
     
     @IBAction func share(sender: AnyObject) {
-        
+        self.sendText()
+        print("发送给朋友")
+    }
+    
+    func sendText() {
+        let req = SendMessageToWXReq()
+        req.text = "Send some sample test which should be replaced by the records"
+        req.bText = true
+        WXApi.sendReq(req)
     }
     
     override func viewDidLoad() {

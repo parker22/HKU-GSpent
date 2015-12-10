@@ -91,6 +91,7 @@
 		29617F0D1C199E1B00709171 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		29617F0E1C199E1B00709171 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		29617F0F1C199E1B00709171 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		29617F111C19A23E00709171 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		490C83341C1682D900AA11C7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		490C83351C1682D900AA11C7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		490C83361C1682D900AA11C7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -285,6 +286,7 @@
 				29617F0D1C199E1B00709171 /* WechatAuthSDK.h */,
 				29617F0E1C199E1B00709171 /* WXApi.h */,
 				29617F0F1C199E1B00709171 /* WXApiObject.h */,
+				29617F111C19A23E00709171 /* Header.h */,
 				4974DC351C166B6700F6B239 /* Universal */,
 				49CD51EE1C1591C700B9FB13 /* Spent */,
 				4929045D1C0B234800DADCC7 /* Books */,
@@ -672,6 +674,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/Laurence/Documents/iOS/GSpent/GSpent/Header.h;
 			};
 			name = Debug;
 		};
@@ -694,6 +697,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/Laurence/Documents/iOS/GSpent/GSpent/Header.h;
 			};
 			name = Release;
 		};
