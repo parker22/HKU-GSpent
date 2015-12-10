@@ -18,8 +18,8 @@
 		29617F091C19986500709171 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F081C19986500709171 /* NameCell.swift */; };
 		29617F0B1C19991400709171 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F0A1C19991400709171 /* RecordCell.swift */; };
 		29617F101C199E1B00709171 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29617F0C1C199E1B00709171 /* libWeChatSDK.a */; };
-		29EB60F51C19C5CA000E11CE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB60F41C19C5CA000E11CE /* libc++.tbd */; };
-		29EB60F71C19C611000E11CE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB60F61C19C611000E11CE /* CoreTelephony.framework */; };
+		29EB60F81C19C7A1000E11CE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB60F61C19C611000E11CE /* CoreTelephony.framework */; };
+		29EB60F91C19C7A4000E11CE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB60F41C19C5CA000E11CE /* libc++.tbd */; };
 		490C83371C1682D900AA11C7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83341C1682D900AA11C7 /* Bolts.framework */; };
 		490C83381C1682D900AA11C7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83351C1682D900AA11C7 /* Parse.framework */; };
 		490C83391C1682D900AA11C7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83361C1682D900AA11C7 /* ParseUI.framework */; };
@@ -148,8 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29EB60F71C19C611000E11CE /* CoreTelephony.framework in Frameworks */,
-				29EB60F51C19C5CA000E11CE /* libc++.tbd in Frameworks */,
+				29EB60F81C19C7A1000E11CE /* CoreTelephony.framework in Frameworks */,
+				29EB60F91C19C7A4000E11CE /* libc++.tbd in Frameworks */,
 				29617F101C199E1B00709171 /* libWeChatSDK.a in Frameworks */,
 				490C834D1C16842000AA11C7 /* libsqlite3.tbd in Frameworks */,
 				490C834B1C16841800AA11C7 /* libz.tbd in Frameworks */,
