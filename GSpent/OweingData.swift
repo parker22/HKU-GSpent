@@ -15,7 +15,7 @@ class AllOweingRelationships{
     var debtorRecords:[String]=[]
     
     required init(){
-        for var index=0;index<100;index++ {
+        for var index=0;index<19;index++ {
             oweRecords.append(OweRecord.randomRecord())
         }
     }

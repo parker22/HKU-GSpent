@@ -39,14 +39,14 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //write some code to control the cell here
         var cell :UITableViewCell
-        if indexPath.row == 1 {
-            cell  = tableView.dequeueReusableCellWithIdentifier("SettlementNameList")!
-            
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCellWithIdentifier("SettlementNameList")!
+            cell.textLabel?.text = "DumpFirstRow"
             
         }
         else {
             cell = tableView.dequeueReusableCellWithIdentifier("SettlementSingleOweRecord")!
-            
+            cell.textLabel?.text = "DumpSecondRow"
         }
         return cell
     }
@@ -54,6 +54,7 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         let num=relationships.allCreditors().count
+        print (num)
         return num
     }
     
