@@ -15,7 +15,7 @@
 		1A7846271C0D8E6400A6B416 /* BookTallyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */; };
 		1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846301C0E934A00A6B416 /* DataRepository.swift */; };
 		291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291153E21C102ED800937D03 /* SettlementViewController.swift */; };
-		29617F031C1995CD00709171 /* dumbfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F021C1995CD00709171 /* dumbfile.swift */; };
+		29617F051C19961B00709171 /* hjhj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F041C19961B00709171 /* hjhj.swift */; };
 		490C83371C1682D900AA11C7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83341C1682D900AA11C7 /* Bolts.framework */; };
 		490C83381C1682D900AA11C7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83351C1682D900AA11C7 /* Parse.framework */; };
 		490C83391C1682D900AA11C7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C83361C1682D900AA11C7 /* ParseUI.framework */; };
@@ -83,7 +83,7 @@
 		1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTallyTableViewCell.xib; sourceTree = "<group>"; };
 		1A7846301C0E934A00A6B416 /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		291153E21C102ED800937D03 /* SettlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettlementViewController.swift; sourceTree = "<group>"; };
-		29617F021C1995CD00709171 /* dumbfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dumbfile.swift; sourceTree = "<group>"; };
+		29617F041C19961B00709171 /* hjhj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hjhj.swift; sourceTree = "<group>"; };
 		490C83341C1682D900AA11C7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		490C83351C1682D900AA11C7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		490C83361C1682D900AA11C7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 				491263E51C10AD5100E12FDD /* bookPopoverViewController.swift */,
 				49C383A01C1892F1006A44BF /* bookDetailTallyTableViewCell.swift */,
 				49ADCFC61C197AAD00CA2494 /* Settlement.storyboard */,
-				29617F021C1995CD00709171 /* dumbfile.swift */,
+				29617F041C19961B00709171 /* hjhj.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -465,7 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A26AAD01C0F2CCC00329C3A /* NewBookViewController.swift in Sources */,
-				29617F031C1995CD00709171 /* dumbfile.swift in Sources */,
+				29617F051C19961B00709171 /* hjhj.swift in Sources */,
 				49ADCFC31C1979CB00CA2494 /* GenerateReportViewController.swift in Sources */,
 				492904641C0B284900DADCC7 /* BookTableViewController.swift in Sources */,
 				1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */,
