@@ -38,17 +38,19 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //write some code to control the cell here
-        var cell :UITableViewCell
+        var returnableCell :UITableViewCell
         if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCellWithIdentifier("SettlementNameList")!
-            cell.textLabel?.text = "DumpFirstRow"
             
+            let cell:NameCell = tableView.dequeueReusableCellWithIdentifier("SettlementNameList") as! NameCell
+            cell.NameLabel.text = "DumpFirstRow"
+            returnableCell = cell
         }
         else {
-            cell = tableView.dequeueReusableCellWithIdentifier("SettlementSingleOweRecord")!
-            cell.textLabel?.text = "DumpSecondRow"
+           let cell:RecordCell = tableView.dequeueReusableCellWithIdentifier("SettlementSingleOweRecord")! as! RecordCell
+            cell.recordLabel.text = "DumpSecondRow"
+            returnableCell = cell
         }
-        return cell
+        return returnableCell
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
