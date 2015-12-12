@@ -20,14 +20,53 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     let relationships=AllOweingRelationships.init()
     
     @IBAction func share(sender: AnyObject) {
-        self.sendText()
+        self.sendPic()
         print("发送给朋友")
     }
-    
     func sendText() {
         let req = SendMessageToWXReq()
         req.text = relationships.toString()
         req.bText = true
+        WXApi.sendReq(req)
+    }
+    
+    func sendPic(){
+        var message =  WXMediaMessage()
+        
+        //发送的图片
+       
+        
+        
+        let view = self.settleTV
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.contentSize.width, view.contentSize.height), false, 0.0)
+        let context:CGContextRef = UIGraphicsGetCurrentContext()!
+        var previousFrame:CGRect = view.frame
+        view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.contentSize.width, view.contentSize.height)
+       view.layer.renderInContext(context)
+        view.frame = previousFrame;
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        var imageObject =  WXImageObject()
+        
+        
+        
+        imageObject.imageData = UIImagePNGRepresentation(image)
+        message.mediaObject = imageObject
+        
+        
+        //图片缩略图
+        var width = 240.0 as CGFloat
+        var height = width*image.size.height/image.size.width
+        UIGraphicsBeginImageContext(CGSizeMake(width, height))
+        image.drawInRect(CGRectMake(0, 0, width, height))
+        message.setThumbImage(UIGraphicsGetImageFromCurrentImageContext())
+            ()
+        
+        var req =  SendMessageToWXReq()
+        req.text = "您的账单"
+        req.bText = false
+        req.message = message
         WXApi.sendReq(req)
     }
     

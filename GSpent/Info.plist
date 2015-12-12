@@ -53,6 +53,17 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tabbar_item_new_spent</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>记一笔</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>NEWSPENT</string>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
