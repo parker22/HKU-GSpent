@@ -10,6 +10,7 @@ import UIKit
 
 class BookTableViewController: UITableViewController {
     var books = [Book]()
+    var bookData = [PFObject]()
     var dataRepository = DataRepository()
     override func viewDidLoad() {
         super.viewDidLoad()
