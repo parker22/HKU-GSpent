@@ -25,15 +25,15 @@ class DataRepository {
     }
     
     // used in Tally: to get book list by user ID
-    func getBooks(u_id: Int) -> [Book]{return self.bookDatabase.getUserBookList(u_id)}
+    func getBooks(u_id: Int, tableView: UITableView, activity: String){
+        self.bookDatabase.getUserBookList(u_id, tableView: tableView, activity: activity)}
     
     // used in Tally: parse u_id list to participent description string
     func getPersons() -> [Person]{return self.personDatabase.getPersons()}
     
     // used in Tally: to get tally by user ID and book ID
-    func getBookTally(u_id: Int, b_id: Int) -> [Tally]?{
-        if self.bookDatabase.bookIDs.contains(b_id){return self.tallyDatabase.getBookTally(u_id, b_id: b_id)}
-        else {return nil}
+    func getBookTally(u_id: Int, b_id: Int, tableView: UITableView, activity: String){
+        self.tallyDatabase.getBookTally(u_id, b_id: b_id, tableView: tableView, activity: activity)
     }
     
     func getPartStr(raw_s: String) -> String {
@@ -177,39 +177,36 @@ class BookDatabase {
     ]
     let bookIDs = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     
-    func getUserBookList(u_id: Int) -> [Book]{
-        var user = [PFObject]()
-        let query = PFQuery(className: "_User")
-        query.whereKey("u_id", equalTo: u_id)
-        query.includeKey("u_books")
-        do { user += try query.findObjects()}
-        catch {print("Master indicated me to do nothing."); return [Book]()}
+    func getUserBookList(u_id: Int, tableView: UITableView, activity: String){
+        let userQuery = PFQuery(className: "_User")
+        userQuery.whereKey("u_id", equalTo: u_id)
+        userQuery.includeKey("u_books")
+        userQuery.includeKey("u_books.b_participant")
         
-        var bookList = [bookData[0]]
-        for bItem in user[0]["u_books"] as! [PFObject] {
-            let b_id = bItem["b_id"].integerValue!
-            let b_name = bItem["b_name"] as! String
-            let b_part: String
-            let b_icon: UIImage
-            
-            var p_ids = [String]()
-            let book: PFObject
-            let bookQuery = PFQuery(className: "Book")
-            bookQuery.whereKey("b_id", equalTo: b_id)
-            bookQuery.includeKey("b_participant")
-            do { book = try bookQuery.findObjects()[0] }
-            catch {print("Master indicated me to do nothing."); return [Book]();}
-            for pItem in book["b_participant"] as! [PFObject] {p_ids.append(String(pItem["u_id"].integerValue!))}
-            b_part = p_ids.joinWithSeparator(";")
-            
-            let imageFile = bItem["b_icon"] as! PFFile
-            do { let imageData = try imageFile.getData(); b_icon = UIImage(data:imageData)!}
-            catch {print("Master indicated me to do nothing."); return [Book]()}
-            
-            bookList.append(Book(bid: b_id, icon: b_icon, name: b_name, part: b_part))
+        userQuery.getFirstObjectInBackgroundWithBlock {
+            (object: PFObject?, error: NSError?) -> Void in
+            if error != nil || object == nil { print("Find user error.")}
+            else {
+                var bookList = [self.bookData[0]]
+                for bItem in object!["u_books"] as! [PFObject]{
+                    let b_id = bItem["b_id"].integerValue!
+                    let b_name = bItem["b_name"] as! String
+                    let b_part: String
+                    let b_icon = UIImage()
+                    
+                    var p_ids = [String]()
+                    for pItem in bItem["b_participant"] as! [PFObject]{p_ids.append(String(pItem["u_id"].integerValue!))}
+                    b_part = p_ids.joinWithSeparator(";")
+                    
+                    bookList.append(Book(bid: b_id, icon: b_icon, name: b_name, part: b_part))
+                }
+                
+                switch(activity){
+                case "PersonalTally" : PersonalTallyViewController.books = bookList; tableView.reloadData(); break;
+                default: break;
+                }
+            }
         }
-        
-        return bookList
     }
     
     func getBooks() -> [Book]{
@@ -451,41 +448,39 @@ class TallyDatabase {
 //        Tally(bid: 9, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Novel",                      amount: rAmount())
 //    ]
     
-    func getBookTally(u_id: Int, b_id: Int) -> [Tally]{
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        
+    func getBookTally(u_id: Int, b_id: Int, tableView: UITableView, activity: String){
         var tallys = [Tally]()
-        var rawTally = [PFObject]()
-        let bookQuery = PFQuery(className: "Tally")
-        bookQuery.whereKey("u_id", equalTo: u_id)
-        if b_id != -1 {bookQuery.whereKey("b_id", equalTo: b_id)}
-        do { rawTally = try bookQuery.findObjects() }
-        catch {print("Master indicated me to do nothing."); return [Tally]();}
+        let tallyQuery = PFQuery(className: "Tally")
+        tallyQuery.whereKey("u_id", equalTo: u_id)
+        if b_id != -1 {tallyQuery.whereKey("b_id", equalTo: b_id)}
         
-        for tItem in rawTally {
-            let bid     = tItem["b_id"].integerValue
-            let tid     = tItem["t_id"].integerValue
-            let uid     = tItem["u_id"].integerValue
-            let time    = dateFormatter.stringFromDate(tItem["t_time"] as! NSDate)
-            let brief   = tItem["t_brief"] as! String
-            let amount  = tItem["t_amount"].doubleValue
-//            let icon: UIImage
-//            
-//            let type    = tItem["t_type"].integerValue
-//            let cate: PFObject
-//            let cateQuery = PFQuery(className: "Category")
-//            cateQuery.whereKey("c_id", equalTo: type)
-//            do { cate = try cateQuery.findObjects()[0] }
-//            catch {print("Master indicated me to do nothing."); return [Tally]();}
-//            let imageFile = cate["c_icon"] as! PFFile
-//            do { let imageData = try imageFile.getData(); icon = UIImage(data:imageData)!}
-//            catch {print("Master indicated me to do nothing."); return [Tally]();}
+        tallyQuery.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
             
-            tallys.append(Tally(bid: bid, uid: uid, tid: tid, time: time, brief: brief, amount: amount))
+            if error == nil {
+                // Do something with the found objects
+                if let objects = objects {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+                    
+                    for tItem in objects {
+                        let bid     = tItem["b_id"].integerValue
+                        let tid     = tItem["t_id"].integerValue
+                        let uid     = tItem["u_id"].integerValue
+                        let time    = dateFormatter.stringFromDate(tItem["t_time"] as! NSDate)
+                        let brief   = tItem["t_brief"] as! String
+                        let amount  = tItem["t_amount"].doubleValue
+                        tallys.append(Tally(bid: bid, uid: uid, tid: tid, time: time, brief: brief, amount: amount))
+                    }
+                    
+                    switch(activity){
+                    case "PersonalTally": PersonalTallyViewController.tallys = tallys; tableView.reloadData(); break;
+                    default: break;
+                    }
+                }
+            }
+            else { print("Error: \(error!) \(error!.userInfo)") }
         }
-        
-        return tallys
     }
     
     /*

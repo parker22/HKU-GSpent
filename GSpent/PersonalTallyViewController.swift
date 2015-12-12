@@ -20,8 +20,8 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var bookSelectedName: UILabel!
     @IBOutlet weak var bookSelectedPart: UILabel!
     
-    var books  = [Book]()
-    var tallys = [Tally]()
+    static var books  = [Book]()
+    static var tallys = [Tally]()
     var bookSelected: Book!
     var dataRepository = DataRepository()
     
@@ -50,14 +50,14 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func initData(){
-        books  = self.dataRepository.getBooks(USER_ID)
-        tallys = self.dataRepository.getBookTally(USER_ID, b_id: -1)!
-        self.bookSelected = books[0]
+        self.dataRepository.getBooks(USER_ID, tableView: bookSelectTableView, activity: "PersonalTally")
+        self.dataRepository.getBookTally(USER_ID, b_id: -1, tableView: bookTallyTableView, activity: "PersonalTally")
+        self.bookSelected = dataRepository.bookDatabase.bookData[0]
         bookSelected.part = self.dataRepository.getPartStr(bookSelected.part)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableView == self.bookSelectTableView ? self.books.count : self.tallys.count
+        return tableView == self.bookSelectTableView ? PersonalTallyViewController.books.count : PersonalTallyViewController.tallys.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -67,7 +67,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         case self.bookSelectTableView:
             let cellIdentifier = "bookINPTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookINPTableViewCell
-            let book = books[indexPath.row]
+            let book = PersonalTallyViewController.books[indexPath.row]
             cell.bookIcon.image = book.icon
             cell.bookName.text  = book.name
             cell.bookPart.text  = self.dataRepository.getPartStr(book.part)
@@ -77,7 +77,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         case self.bookTallyTableView:
             let cellIdentifier = "bookTallyTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookTallyTableViewCell
-            let tally = tallys[indexPath.row]
+            let tally = PersonalTallyViewController.tallys[indexPath.row]
             cell.tallyTimeline.image = UIImage()
             cell.tallyTime.text      = tally.time
             cell.tallyBrief.text     = tally.brief
@@ -96,8 +96,8 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             self.bookSelected.part = book.bookPart.text!
             refreshBookSelected()
             bookSelectTableViewHide()
-            tallys = self.dataRepository.getBookTally(USER_ID, b_id: Int(book.bookID.text!)!)!
-            bookTallyTableView.reloadData()
+            self.dataRepository.getBookTally(USER_ID, b_id: Int(book.bookID.text!)!, tableView: bookTallyTableView, activity: "PersonalTally")
+            //bookTallyTableView.reloadData()
         }
     }
     
@@ -107,8 +107,8 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             let nodeTouched = touch.view
             if nodeTouched == self.bookSelectedView {
                 if self.bookSelectTableView.hidden {
-                    books = self.dataRepository.getBooks(USER_ID)
-                    bookSelectTableView.reloadData()
+                    self.dataRepository.getBooks(USER_ID, tableView: bookSelectTableView, activity: "PersonalTally")
+                    //bookSelectTableView.reloadData()
                     bookSelectTableViewShow()}
                 else {bookSelectTableViewHide()}
             }
