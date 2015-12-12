@@ -122,7 +122,7 @@
                 <viewControllerPlaceholder storyboardName="Settlement" id="BWb-Tl-Duj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfB-UN-W1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2306.5" y="-2082"/>
+            <point key="canvasLocation" x="2654.5" y="-907"/>
         </scene>
         <!--Book Popover View Controller-->
         <scene sceneID="hFj-Jo-41N">
@@ -197,7 +197,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1e-1S-ohr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="-1897"/>
+            <point key="canvasLocation" x="2490" y="-907"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ejt-uP-kek">
@@ -237,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tf-p6-XtA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2392" y="-1597"/>
+            <point key="canvasLocation" x="2490" y="-1082"/>
         </scene>
         <!--Book Detail View Controller-->
         <scene sceneID="zlU-zT-znW">
@@ -447,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgb-el-rMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="-1164"/>
+            <point key="canvasLocation" x="2064" y="-1082"/>
         </scene>
         <!--Books-->
         <scene sceneID="qqe-gZ-TxZ">
@@ -479,7 +479,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zmh-BP-RoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="-1077"/>
+            <point key="canvasLocation" x="766" y="-1077"/>
         </scene>
         <!--Add Book-->
         <scene sceneID="tO0-Sc-zVO">
@@ -515,6 +515,7 @@
                                 <rect key="frame" x="270" y="115" width="60" height="30"/>
                                 <state key="normal" title="选择成员"/>
                                 <connections>
+                                    <action selector="chooseMembers:" destination="q1b-Nd-GbE" eventType="touchUpInside" id="NbD-66-Lil"/>
                                     <segue destination="0tg-r6-pX6" kind="show" identifier="bookMemberSelectionIdentifier" id="vnU-Vv-93x"/>
                                 </connections>
                             </button>
@@ -548,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFW-6W-Kjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2770" y="-90"/>
+            <point key="canvasLocation" x="2064" y="-372"/>
         </scene>
         <!--选择账本参与者-->
         <scene sceneID="Apb-EM-z8G">
@@ -583,7 +584,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asU-BI-OxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3567" y="-143"/>
+            <point key="canvasLocation" x="2715" y="-372"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="STF-z4-hSc">
@@ -601,7 +602,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJS-ql-eJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="-90"/>
+            <point key="canvasLocation" x="1410" y="-372"/>
         </scene>
     </scenes>
     <resources>
