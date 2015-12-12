@@ -111,6 +111,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookListTV" destination="Tqg-jg-PLd" id="Mxd-af-ETw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7S-iK-Wvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

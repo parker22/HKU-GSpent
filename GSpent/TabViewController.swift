@@ -12,7 +12,7 @@ class TabViewController: RaisedTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Utility.getCurrentUser()
         self.insertEmptyTabItem("", atIndex: 1)
         let img = UIImage(named: "tabbar_item_new_spent")
         self.addRaisedButton(img, highlightImage: nil)

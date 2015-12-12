@@ -79,7 +79,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
                 pPart_Str.append(pPart["username"] as! String)
             }
             
-            cell.bookPart.text = pPart_Str.description
+            cell.bookPart.text = Utility.getStrMates(pPart_Str)
 //            print((book["b_participant"]).description)
 //
 //            for pItem in book["b_participant"] as! [PFUser]{
