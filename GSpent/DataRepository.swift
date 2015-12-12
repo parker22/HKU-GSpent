@@ -33,11 +33,14 @@ class DataRepository {
     
     // used in Tally: to get tally by user ID and book ID
     func getBookTally(u_id: Int, b_id: Int, tableView: UITableView, activity: String){
-        self.tallyDatabase.getBookTally(u_id, b_id: b_id, tableView: tableView, activity: activity)
-    }
+        self.tallyDatabase.getBookTally(u_id, b_id: b_id, tableView: tableView, activity: activity)}
     
-    func getPartStr(raw_s: String) -> String {
-        return self.personDatabase.getPartStr(raw_s)
+    // used in Tally: to convert participant string
+    func getPartStr(raw_s: String) -> String { return self.personDatabase.getPartStr(raw_s) }
+    
+    // used in Add Spent: to add a new spent(tally)
+    func addSpent(t_brief: String, user: PFObject, u_id: Int, book: PFObject, b_id: Int, t_pic: UIImage?, t_time: NSDate, t_type: Int, t_amount: Double) {
+        self.tallyDatabase.addTally(t_brief, user: user, u_id: u_id, book: book, b_id: b_id, t_pic: t_pic, t_time: t_time, t_type: t_type, t_amount: t_amount)
     }
 }
 
@@ -195,7 +198,11 @@ class BookDatabase {
                     let b_icon = UIImage()
                     
                     var p_ids = [String]()
-                    for pItem in bItem["b_participant"] as! [PFObject]{p_ids.append(String(pItem["u_id"].integerValue!))}
+                    print(bItem["b_name"])
+                    for pItem in bItem["b_participant"] as! [PFObject]{
+                        print(pItem["username"])
+                        p_ids.append(String(pItem["u_id"].integerValue!))
+                    }
                     b_part = p_ids.joinWithSeparator(";")
                     
                     bookList.append(Book(bid: b_id, icon: b_icon, name: b_name, part: b_part))
@@ -520,6 +527,24 @@ class TallyDatabase {
         }
     }
     */
+    
+    func addTally(t_brief: String, user: PFObject, u_id: Int, book: PFObject, b_id: Int, t_pic: UIImage?, t_time: NSDate, t_type: Int, t_amount: Double){
+        let tally = PFObject(className: "Tally")
+        tally["t_brief"] = t_brief
+        tally["user"]    = user
+        tally["u_id"]    = u_id
+        tally["book"]    = book
+        tally["b_id"]    = b_id
+        tally["t_time"]  = t_time
+        tally["t_type"]  = t_type
+        tally["t_amount"] = t_amount
+        if let t_pic = t_pic { tally["t_pic"]   = PFFile(data:UIImagePNGRepresentation(t_pic)!) }
+        
+        tally.saveInBackgroundWithBlock { (success, error) -> Void in
+            if error == nil {print("Well done bro! Amazing!")}
+            else            {print("You suck.")}
+        }
+    }
 }
 
 func rAmount() -> Double {

@@ -14,6 +14,7 @@
 		1A7846261C0D8E6400A6B416 /* BookTallyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846241C0D8E6400A6B416 /* BookTallyTableViewCell.swift */; };
 		1A7846271C0D8E6400A6B416 /* BookTallyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */; };
 		1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846301C0E934A00A6B416 /* DataRepository.swift */; };
+		1A8709CC1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8709CB1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift */; };
 		291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291153E21C102ED800937D03 /* SettlementViewController.swift */; };
 		29617F091C19986500709171 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F081C19986500709171 /* NameCell.swift */; };
 		29617F0B1C19991400709171 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F0A1C19991400709171 /* RecordCell.swift */; };
@@ -86,6 +87,7 @@
 		1A7846241C0D8E6400A6B416 /* BookTallyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTallyTableViewCell.swift; sourceTree = "<group>"; };
 		1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTallyTableViewCell.xib; sourceTree = "<group>"; };
 		1A7846301C0E934A00A6B416 /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
+		1A8709CB1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpentDatetimePickerViewController.swift; sourceTree = "<group>"; };
 		291153E21C102ED800937D03 /* SettlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettlementViewController.swift; sourceTree = "<group>"; };
 		29617F081C19986500709171 /* NameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameCell.swift; sourceTree = "<group>"; };
 		29617F0A1C19991400709171 /* RecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
@@ -334,7 +336,6 @@
 			children = (
 				498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */,
 				49CD51EF1C1591D200B9FB13 /* UI */,
-				49C3839C1C185870006A44BF /* SpentBookSelectionTableViewController.swift */,
 			);
 			name = Spent;
 			sourceTree = "<group>";
@@ -342,7 +343,9 @@
 		49CD51EF1C1591D200B9FB13 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				49C3839C1C185870006A44BF /* SpentBookSelectionTableViewController.swift */,
 				49CD51F01C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift */,
+				1A8709CB1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift */,
 				49CD51F41C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift */,
 				49CD51F21C15B94600B9FB13 /* customTextField.xib */,
 			);
@@ -507,6 +510,7 @@
 				491263E61C10AD5100E12FDD /* bookPopoverViewController.swift in Sources */,
 				29617F091C19986500709171 /* NameCell.swift in Sources */,
 				29617F0B1C19991400709171 /* RecordCell.swift in Sources */,
+				1A8709CC1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift in Sources */,
 				1A7846261C0D8E6400A6B416 /* BookTallyTableViewCell.swift in Sources */,
 				498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */,
 				498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */,
