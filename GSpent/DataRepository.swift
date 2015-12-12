@@ -200,24 +200,22 @@ class BookDatabase {
             (object: PFObject?, error: NSError?) -> Void in
             if error != nil || object == nil { print("Find user error.")}
             else {
-                var bookList = [self.bookData[0]]
-                for bItem in object!["u_books"] as! [PFObject]{
-                    let b_id = bItem["b_id"].integerValue!
-                    let b_name = bItem["b_name"] as! String
-                    let b_part: String
-                    let b_icon = UIImage()
-                    
-                    var p_ids = [String]()
-                    print(bItem["b_name"])
-                    for pItem in bItem["b_participant"] as! [PFObject]{
-                        print(pItem["username"])
-                        p_ids.append(String(pItem["u_id"].integerValue!))
-                    }
-                    b_part = p_ids.joinWithSeparator(";")
-                    
-                    bookList.append(Book(bid: b_id, icon: b_icon, name: b_name, part: b_part))
-                }
-                
+                //                var bookList = [self.bookData[0]]
+                //                print(object!["u_books"])
+                //                for bItem in object!["u_books"] as! [PFObject]{
+                //                    print (bItem["b_participant"])
+                //                }
+                //                    let b_id = bItem["b_id"].integerValue!
+                //                    let b_name = bItem["b_name"] as! String
+                //                    let b_part: String
+                //                    let b_icon = UIImage()
+                //
+                //                    var p_ids = [String]()
+                //                    for pItem in bItem["b_participant"] as! [PFObject]{p_ids.append(String(pItem["u_id"].integerValue!))}
+                //                    b_part = p_ids.joinWithSeparator(";")
+                //
+                //                    bookList.append(Book(bid: b_id, icon: b_icon, name: b_name, part: b_part))
+                //                }
                 switch(activity){
                 case "PersonalTally" :
                     PersonalTallyViewController.books = object!["u_books"] as! [PFObject]
