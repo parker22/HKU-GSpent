@@ -544,6 +544,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cancelAddBook" destination="2Ci-E4-M8f" id="dwt-vm-yQk"/>
+                        <outlet property="newBookNameTF" destination="MgT-Lz-cUb" id="kdr-qF-aZw"/>
                         <outlet property="selectBookMemberBtn" destination="cH8-SJ-bmh" id="KbC-vJ-OH9"/>
                     </connections>
                 </viewController>
@@ -555,18 +556,47 @@
         <scene sceneID="Apb-EM-z8G">
             <objects>
                 <tableViewController id="0tg-r6-pX6" customClass="BookMemberSelectionTableViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bH8-Ee-o9y">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" id="bH8-Ee-o9y">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BookMemberSelectionCellIdentifier" id="9qo-Zj-5FB">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BookMemberSelectionCellIdentifier" rowHeight="94" id="9qo-Zj-5FB" customClass="SelectionSingleMemberTVCell" customModule="GSpent" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9qo-Zj-5FB" id="dcA-cC-SI8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xyb-0q-hdw">
+                                            <rect key="frame" x="31" y="9" width="75" height="75"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="jcn-gM-1Vx"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amj-NQ-fkB">
+                                            <rect key="frame" x="123" y="12" width="350" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="350" id="yqM-sJ-CHN"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Xyb-0q-hdw" firstAttribute="leading" secondItem="dcA-cC-SI8" secondAttribute="leadingMargin" constant="23" id="00s-QZ-ruc"/>
+                                        <constraint firstItem="Xyb-0q-hdw" firstAttribute="top" secondItem="dcA-cC-SI8" secondAttribute="topMargin" constant="1" id="3WT-i3-rJI"/>
+                                        <constraint firstItem="amj-NQ-fkB" firstAttribute="top" secondItem="dcA-cC-SI8" secondAttribute="topMargin" constant="4" id="Ybi-yf-9W2"/>
+                                        <constraint firstItem="amj-NQ-fkB" firstAttribute="centerY" secondItem="Xyb-0q-hdw" secondAttribute="centerY" id="dkc-aW-FFf"/>
+                                        <constraint firstItem="amj-NQ-fkB" firstAttribute="leading" secondItem="Xyb-0q-hdw" secondAttribute="trailing" constant="17" id="sGi-XH-ter"/>
+                                        <constraint firstItem="amj-NQ-fkB" firstAttribute="centerY" secondItem="dcA-cC-SI8" secondAttribute="centerY" id="sev-Ai-hAc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="MemberAvatar" destination="Xyb-0q-hdw" id="v5B-WP-BEk"/>
+                                    <outlet property="NameLabel" destination="amj-NQ-fkB" id="j7s-Uq-JUp"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

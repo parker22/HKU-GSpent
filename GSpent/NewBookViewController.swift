@@ -16,6 +16,7 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     
     @IBOutlet weak var selectBookMemberBtn: UIButton!
 
+    @IBOutlet weak var newBookNameTF: UITextField!
     @IBOutlet weak var cancelAddBook: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
         //do some thing
         var newBook = PFObject(className:"Book")
         
-        newBook["b_average"] = 1000
+//        newBook["b_average"] = 1000
         newBook["u_id"] = 9996
         newBook["b_icon"] = PFFile(data:UIImagePNGRepresentation(UIImage(named: "bookAvatarDefault")!)!)//File
         if participantsObjects.count == 0{
@@ -47,8 +48,19 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
             self.presentViewController(alertController, animated: true, completion:nil)
             return
         }
-        
-        newBook["b_name"]="HKU CS 4"
+        if self.newBookNameTF.text==""{
+            //popup a window : please select member
+            let alertController = UIAlertController(title: "No Name", message: "You didn't name your book, please specify a name", preferredStyle: .Alert)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+                print("you have pressed OK button");
+            }
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
+            return
+        }
+        newBook["b_name"]=self.newBookNameTF.text
         newBook["b_participant"] = participantsObjects
         newBook["b_id"]=1000
         
@@ -87,14 +99,15 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     }
     
     
-    func sendMemberToPreviousVC(selectedMemberIDs: [Int]) {
-        selectBookMemberBtn.setTitle("已选择成员"+selectedMemberIDs.description, forState: UIControlState.Normal)
-        print(selectedMemberIDs)
+    func sendMemberToPreviousVC(selectedMembers: [PFObject]) {
+        selectBookMemberBtn.setTitle("已选择成员", forState: UIControlState.Normal)
+        print(selectedMembers)
         
-        let query = PFQuery(className: "_User")
-        query.whereKey("u_id", containedIn: selectedMemberIDs)
-        do { participantsObjects += try query.findObjects() }
-        catch {print("didnt find object")}
+//        let query = PFQuery(className: "_User")
+//        query.whereKey("u_id", containedIn: selectedMemberIDs)
+//        do { participantsObjects += try query.findObjects() }
+//        catch {print("didnt find object")}
+        participantsObjects = selectedMembers
     }
     
     
