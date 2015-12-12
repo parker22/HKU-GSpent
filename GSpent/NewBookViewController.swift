@@ -34,17 +34,18 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
         newBook["b_average"] = 1337
         newBook["u_id"] = 25
         //newBook["ACL"] = "Public Read + Write"//ACL
-        newBook["b_icon"] = UIImage()//File
+        newBook["b_icon"] = PFFile(data:UIImagePNGRepresentation(UIImage(named: "bookAvatarDefault")!)!)//File
         if members.count == 0{
             //popup a window : please select member
         }
+        newBook["b_name"]="HKU CS"
         newBook["b_participant"] = [PFObject]()//Array {"objectId":"DfOI3qgAh9"}
         newBook["b_id"]=9
         
         newBook.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-                // The object has been saved.
+                 self.dismissViewControllerAnimated(true, completion: nil);// The object has been saved.
             } else {
                 // There was a problem, check error.description
             }
