@@ -42,6 +42,9 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
         self.dismissViewControllerAnimated(true, completion: nil);
         
     }
+    
+    
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
@@ -53,6 +56,8 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
         
         return cell
     }
+    
+    
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.spentCategoryCV.cellForItemAtIndexPath(indexPath)?.backgroundColor = UIColor.greenColor()

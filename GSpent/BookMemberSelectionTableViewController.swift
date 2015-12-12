@@ -33,7 +33,9 @@ class BookMemberSelectionTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -47,11 +49,13 @@ class BookMemberSelectionTableViewController: UITableViewController {
     }
     
     
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BookMemberSelectionCellIdentifier", forIndexPath: indexPath)
         
         //         Configure the cell...
         cell.textLabel?.text = p_ids[indexPath.row].description
+        self.tableView.sizeToFit()
         return cell
     }
     

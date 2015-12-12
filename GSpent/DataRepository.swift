@@ -86,6 +86,17 @@ class PersonDatabase {
         return part_s
     }
     
+    
+    func newgetPartStr(raw_s: String) -> String {
+        var part_r = raw_s.componentsSeparatedByString(";")
+        var part_s: String!
+        if     (part_r.count == 1){if(part_r[0] == "-1"){ part_s = "All people."} else {part_s = "\(getName(part_r[0])!)."}}
+        else if(part_r.count == 2){part_s = "\(getName(part_r[0])!), \(getName(part_r[1])!)."}
+        else if(part_r.count >  2){part_s = "\(getName(part_r[0])!), \(getName(part_r[1])!), and other \(part_r.count-2) people."}
+        else   {part_s = ""}
+        return part_s
+    }
+    
     func getPersons() -> [Person]{
         return self.peopleData
     }
@@ -187,22 +198,27 @@ class BookDatabase {
             (object: PFObject?, error: NSError?) -> Void in
             if error != nil || object == nil { print("Find user error.")}
             else {
-                var bookList = [self.bookData[0]]
-                for bItem in object!["u_books"] as! [PFObject]{
-                    let b_id = bItem["b_id"].integerValue!
-                    let b_name = bItem["b_name"] as! String
-                    let b_part: String
-                    let b_icon = UIImage()
-                    
-                    var p_ids = [String]()
-                    for pItem in bItem["b_participant"] as! [PFObject]{p_ids.append(String(pItem["u_id"].integerValue!))}
-                    b_part = p_ids.joinWithSeparator(";")
-                    
-                    bookList.append(Book(bid: b_id, icon: b_icon, name: b_name, part: b_part))
-                }
-                
+//                var bookList = [self.bookData[0]]
+//                print(object!["u_books"])
+//                for bItem in object!["u_books"] as! [PFObject]{
+//                    print (bItem["b_participant"])
+//                }
+//                    let b_id = bItem["b_id"].integerValue!
+//                    let b_name = bItem["b_name"] as! String
+//                    let b_part: String
+//                    let b_icon = UIImage()
+//                    
+//                    var p_ids = [String]()
+//                    for pItem in bItem["b_participant"] as! [PFObject]{p_ids.append(String(pItem["u_id"].integerValue!))}
+//                    b_part = p_ids.joinWithSeparator(";")
+//                    
+//                    bookList.append(Book(bid: b_id, icon: b_icon, name: b_name, part: b_part))
+//                }
                 switch(activity){
-                case "PersonalTally" : PersonalTallyViewController.books = bookList; tableView.reloadData(); break;
+                case "PersonalTally" :
+                    PersonalTallyViewController.books = object!["u_books"] as! [PFObject]
+                    tableView.reloadData()
+                    break
                 default: break;
                 }
             }
