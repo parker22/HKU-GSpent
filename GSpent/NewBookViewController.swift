@@ -37,6 +37,20 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
         newBook["b_icon"] = PFFile(data:UIImagePNGRepresentation(UIImage(named: "bookAvatarDefault")!)!)//File
         if members.count == 0{
             //popup a window : please select member
+            let alertController = UIAlertController(title: "No Member", message: "You didn't select a single member, please specify at least one member", preferredStyle: .Alert)
+//            
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
+//                print("you have pressed the Cancel button");
+//            }
+//            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+                print("you have pressed OK button");
+            }
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
+            return
         }
         newBook["b_name"]="HKU CS"
         newBook["b_participant"] = [PFObject]()//Array {"objectId":"DfOI3qgAh9"}
