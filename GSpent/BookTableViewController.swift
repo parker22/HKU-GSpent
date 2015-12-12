@@ -8,19 +8,36 @@
 import Parse
 import UIKit
 
-class BookTableViewController: UITableViewController {
+
+
+class BookTableViewController: UITableViewController,RefreshBookTableViewControllerDelegate {
+    
+    
+    @IBOutlet var bookListTV: UITableView!
     var books = [Book]()
-    var bookData = [PFObject]()
+    static var bookData = [PFObject]()
     var dataRepository = DataRepository()
     override func viewDidLoad() {
         super.viewDidLoad()
-        books = self.dataRepository.getBooks()
+        Utility.mDelegate = self
+        self.initData()
+//        books = self.dataRepository.getBooks()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 //        tableView.registerNib(UINib(nibName: "bookTableViewCell", bundle: nil), forCellReuseIdentifier: "bookTableViewCell")
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    
+     func initData(){
+        if Utility.hasCurrentUser{
+            print(Utility.currentUser)
+            self.dataRepository.bookDatabase.getBookPFObjects(Utility.currentUser, tableView: self.bookListTV, activity: "BookList" )
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,54 +54,53 @@ class BookTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.books.count
+        return BookTableViewController.bookData.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //        let cell:bookTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("bookTableViewCell") as! bookTableViewCell
         let cell = tableView.dequeueReusableCellWithIdentifier("bookListTblViewCell", forIndexPath: indexPath) as! bookTableViewCell
-        let book = books[indexPath.row]
-
+//        let book = books[indexPath.row]
+let book = BookTableViewController.bookData[indexPath.row]
         
-        let query = PFQuery(className:"TestObject")
-        query.getObjectInBackgroundWithId("m7lhJgzeop") {
-            (testObject: PFObject?, error: NSError?) -> Void in
-            if error == nil && testObject != nil {
-                let userImageFile = testObject!["image"] as! PFFile
-                userImageFile.getDataInBackgroundWithBlock {
-                    (imageData: NSData?, error: NSError?) -> Void in
-                    if error == nil {
-                        if let imageData = imageData {
-                            let image = UIImage(data:imageData)
-                            cell.imgBookAvatar.image = image
-                        }
-                    }
-                }
-                    
-                
-                
-                
-            } else {
-                print(error)
-            }
-        }
-        
-        
-//        let userImageFile = userPhoto["bookAvatarDefault.png"] as! PFFile
-//        userImageFile.getDataInBackgroundWithBlock {
-//            (imageData: NSData?, error: NSError?) -> Void in
-//            if error == nil {
-//                if let imageData = imageData {
-//                    let image = UIImage(data:imageData)
-//                    
-//                    cell.imgBookAvatar.image = image
+//        let query = PFQuery(className:"TestObject")
+//        query.getObjectInBackgroundWithId("m7lhJgzeop") {
+//            (testObject: PFObject?, error: NSError?) -> Void in
+//            if error == nil && testObject != nil {
+//                let userImageFile = testObject!["image"] as! PFFile
+//                userImageFile.getDataInBackgroundWithBlock {
+//                    (imageData: NSData?, error: NSError?) -> Void in
+//                    if error == nil {
+//                        if let imageData = imageData {
+//                            let image = UIImage(data:imageData)
+//                            cell.imgBookAvatar.image = image
+//                        }
+//                    }
 //                }
+//                
+//                
+//            } else {
+//                print(error)
 //            }
 //        }
-        cell.lblBookName.text = book.name
-//        cell.imgBookAvatar.image = book.icon
-        cell.lblBookMates.text  = self.dataRepository.getPartStr(book.part)
+        
+        
+        let userImageFile = book["b_icon"] as! PFFile
+        userImageFile.getDataInBackgroundWithBlock {
+            (imageData: NSData?, error: NSError?) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    cell.imgBookAvatar.image = image
+                }
+            }
+        }
+//        cell.lblBookName.text = book.name
+        cell.lblBookName.text = book["b_name"] as? String
+        cell.lblBookMates.text  = Utility.getStrMatesFromObjects(book["b_participant"] as! [PFObject])
+        //        cell.imgBookAvatar.image = book.icon
+//        cell.lblBookMates.text  = self.dataRepository.getPartStr(book.part)
         // Configure the cell...
         return cell
     }
@@ -133,5 +149,7 @@ class BookTableViewController: UITableViewController {
     // Pass the selected object to the new view controller.
     }
     */
-    
+    func refreshBookTableViewController() {
+        initData()
+    }
 }
