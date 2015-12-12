@@ -36,6 +36,8 @@
 		490C834D1C16842000AA11C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C834C1C16842000AA11C7 /* libsqlite3.tbd */; };
 		491263E21C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */; };
 		491263E61C10AD5100E12FDD /* bookPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491263E51C10AD5100E12FDD /* bookPopoverViewController.swift */; };
+		49155AF91C1C2DA1005AFCDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155AF81C1C2DA1005AFCDF /* Constants.swift */; };
+		49155AFB1C1C7438005AFCDF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155AFA1C1C7438005AFCDF /* Utility.swift */; };
 		4919F0C21C0ACE5C0081E69F /* PersonalTally.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */; };
 		492904621C0B247800DADCC7 /* bookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904601C0B247800DADCC7 /* bookTableViewCell.swift */; };
 		492904641C0B284900DADCC7 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904551C0B145E00DADCC7 /* BookTableViewController.swift */; };
@@ -113,6 +115,8 @@
 		490C834C1C16842000AA11C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		491263E11C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		491263E51C10AD5100E12FDD /* bookPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookPopoverViewController.swift; sourceTree = "<group>"; };
+		49155AF81C1C2DA1005AFCDF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		49155AFA1C1C7438005AFCDF /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		4919F0C11C0ACE5C0081E69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PersonalTally.storyboard; sourceTree = "<group>"; };
 		492904551C0B145E00DADCC7 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		492904601C0B247800DADCC7 /* bookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookTableViewCell.swift; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				4974DC361C166B9000F6B239 /* TakePicViewController.swift */,
+				49155AF81C1C2DA1005AFCDF /* Constants.swift */,
+				49155AFA1C1C7438005AFCDF /* Utility.swift */,
 			);
 			name = Universal;
 			sourceTree = "<group>";
@@ -415,7 +421,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "LIU Jiahe";
 				TargetAttributes = {
 					498D3DCA1C09D3560013E1EA = {
@@ -497,6 +503,7 @@
 				1A061C621C0D49AE00AE4E2C /* BookINPTableViewCell.swift in Sources */,
 				494FD4F21C0AD65D002C2A12 /* TabViewController.swift in Sources */,
 				491263E21C0FF16C00E12FDD /* bookMemberCollectionViewCell.swift in Sources */,
+				49155AF91C1C2DA1005AFCDF /* Constants.swift in Sources */,
 				49CD51F51C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift in Sources */,
 				49C383A11C1892F1006A44BF /* bookDetailTallyTableViewCell.swift in Sources */,
 				49C3839F1C18867E006A44BF /* BookMemberSelectionTableViewController.swift in Sources */,
@@ -509,6 +516,7 @@
 				4974DC371C166B9000F6B239 /* TakePicViewController.swift in Sources */,
 				491263E61C10AD5100E12FDD /* bookPopoverViewController.swift in Sources */,
 				29617F091C19986500709171 /* NameCell.swift in Sources */,
+				49155AFB1C1C7438005AFCDF /* Utility.swift in Sources */,
 				29617F0B1C19991400709171 /* RecordCell.swift in Sources */,
 				1A8709CC1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift in Sources */,
 				1A7846261C0D8E6400A6B416 /* BookTallyTableViewCell.swift in Sources */,
@@ -624,7 +632,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "armv7 armv7s";

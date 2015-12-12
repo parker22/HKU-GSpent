@@ -89,6 +89,16 @@ class PersonDatabase {
         return part_s
     }
     
+    
+    func getStrMates(raw_s: [String]) -> String {
+        var part_s: String!
+        if     (raw_s.count == 1) {part_s = "\(raw_s)."}
+        else if(raw_s.count == 2){part_s = "\(raw_s[0]), \(raw_s[1])."}
+        else if(raw_s.count >  2){part_s = "\(raw_s[0]), \(raw_s[1]), and other \(raw_s.count-2) people."}
+        else   {part_s = ""}
+        return part_s
+    }
+    
     func getPersons() -> [Person]{
         return self.peopleData
     }
@@ -209,7 +219,10 @@ class BookDatabase {
                 }
                 
                 switch(activity){
-                case "PersonalTally" : PersonalTallyViewController.books = bookList; tableView.reloadData(); break;
+                case "PersonalTally" :
+                    PersonalTallyViewController.books = object!["u_books"] as! [PFObject]
+                    tableView.reloadData()
+                    break
                 default: break;
                 }
             }
@@ -219,6 +232,35 @@ class BookDatabase {
     func getBooks() -> [Book]{
         return self.bookData
     }
+    
+    func getBookPFObjects(user: PFUser, tableView: UITableView, activity: String){
+        let bookQuery = PFQuery(className: "Book")
+        print([user])
+        bookQuery.whereKey("b_participant", containsAllObjectsInArray: [user])
+        bookQuery.includeKey("b_participant")
+        bookQuery.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // Do something with the found objects
+                
+                switch(activity){
+                case "BookList":
+                    BookTableViewController.bookData = objects!
+                    print(objects)
+                    tableView.reloadData()
+                    break
+                default: break;
+                }
+            }
+            else {
+                
+                
+                print("Error: \(error!) \(error!.userInfo)") }
+        }
+    }
+    
+    
     
     func getBooks(p_id: Int) -> [PFObject]{
         var books = [PFObject]()
@@ -238,7 +280,7 @@ class BookDatabase {
     func insertBook(){
         for(var i = 1; i < bookData.count; i++){
             let tmp = bookData[i]
-
+            
             // get user object array
             var b_part = [PFObject]()
             var p_ids = [Int]()
@@ -248,13 +290,13 @@ class BookDatabase {
             query.whereKey("u_id", containedIn: p_ids)
             do { b_part += try query.findObjects() }
             catch {print("Master indicated me to do nothing.")}
-
+            
             /* A simple bad solution
             for p_id in p_ids{
-                let query = PFQuery(className: "_User")
-                query.whereKey("u_id", equalTo: Int(p_id)!)
-                do { b_part += try query.findObjects() }
-                catch {print("Master indicated me to do nothing.")}
+            let query = PFQuery(className: "_User")
+            query.whereKey("u_id", equalTo: Int(p_id)!)
+            do { b_part += try query.findObjects() }
+            catch {print("Master indicated me to do nothing.")}
             }*/
             
             // generate a new book object
@@ -302,158 +344,158 @@ class BookDatabase {
 }
 
 class TallyDatabase {
-//    let tallyData = [
-//        Tally(bid: 0, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "The Three-Body Problem",     amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "is a science",               amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "fiction",                    amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "novel",                      amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "by the Chinese",             amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "writer",                     amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "Liu Cixin",                  amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "It is the first",            amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "of a trilogy",               amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "titled",                     amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "Remembrance of Earth’s Past",amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "but",                        amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "Chinese readers",            amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "generally refer ",           amount: rAmount()),
-//        Tally(bid: 0, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "to the series",              amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "by the title",               amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "of the first novel",         amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "The title",                  amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "refers to",                  amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "the three-body",             amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "problem",                    amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "in orbital",                 amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "mechanics",                  amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "The work was",               amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "serialized",                 amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "in",                         amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Science Fiction World",      amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "in 2006",                    amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "published",                  amount: rAmount()),
-//        Tally(bid: 1, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "as a book",                  amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "in 2008",                    amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "and",                        amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "became",                     amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "one of",                     amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "the most ",                  amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "popular",                    amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "science fiction",            amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "novels",                     amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "in China",                   amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "It received",                amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "the Chinese",                amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Science",                    amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "Fiction",                    amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "Galaxy",                     amount: rAmount()),
-//        Tally(bid: 2, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Award",                      amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "in 2006",                    amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "A film",                     amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "adaptation",                 amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "of the ",                    amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "same name",                  amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "is scheduled",               amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "for release",                amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "in July",                    amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "2016",                       amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "An English",                 amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "translation",                amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "by Ken Liu",                 amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "was published",              amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "by Tor Books",               amount: rAmount()),
-//        Tally(bid: 3, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "in 2014",                    amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "It won",                     amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "the 2015",                   amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "Hugo",                       amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "Award",                      amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "for",                        amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "Best",                       amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "Novel",                      amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "and was",                    amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "nominated",                  amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "for the 2014",               amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "Nebula",                     amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Award",                      amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "for",                        amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "Best",                       amount: rAmount()),
-//        Tally(bid: 4, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Novel",                      amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "The Three-Body Problem",     amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "is a science",               amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "fiction",                    amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "novel",                      amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "by the Chinese",             amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "writer",                     amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "Liu Cixin",                  amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "It is the first",            amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "of a trilogy",               amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "titled",                     amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "Remembrance of Earth’s Past",amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "but",                        amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "Chinese readers",            amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "generally refer ",           amount: rAmount()),
-//        Tally(bid: 5, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "to the series",              amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "by the title",               amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "of the first novel",         amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "The title",                  amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "refers to",                  amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "the three-body",             amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "problem",                    amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "in orbital",                 amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "mechanics",                  amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "The work was",               amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "serialized",                 amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "in",                         amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Science Fiction World",      amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "in 2006",                    amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "published",                  amount: rAmount()),
-//        Tally(bid: 6, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "as a book",                  amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "in 2008",                    amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "and",                        amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "became",                     amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "one of",                     amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "the most ",                  amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "popular",                    amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "science fiction",            amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "novels",                     amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "in China",                   amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "It received",                amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "the Chinese",                amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Science",                    amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "Fiction",                    amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "Galaxy",                     amount: rAmount()),
-//        Tally(bid: 7, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Award",                      amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "in 2006",                    amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "A film",                     amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "adaptation",                 amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "of the ",                    amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "same name",                  amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "is scheduled",               amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "for release",                amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "in July",                    amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "2016",                       amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "An English",                 amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "translation",                amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "by Ken Liu",                 amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "was published",              amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "by Tor Books",               amount: rAmount()),
-//        Tally(bid: 8, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "in 2014",                    amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "It won",                     amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "the 2015",                   amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "Hugo",                       amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "Award",                      amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "for",                        amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "Best",                       amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "Novel",                      amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "and was",                    amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "nominated",                  amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "for the 2014",               amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "Nebula",                     amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Award",                      amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "for",                        amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "Best",                       amount: rAmount()),
-//        Tally(bid: 9, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Novel",                      amount: rAmount())
-//    ]
+    //    let tallyData = [
+    //        Tally(bid: 0, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "The Three-Body Problem",     amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "is a science",               amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "fiction",                    amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "novel",                      amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "by the Chinese",             amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "writer",                     amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "Liu Cixin",                  amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "It is the first",            amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "of a trilogy",               amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "titled",                     amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "Remembrance of Earth’s Past",amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "but",                        amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "Chinese readers",            amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "generally refer ",           amount: rAmount()),
+    //        Tally(bid: 0, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "to the series",              amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "by the title",               amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "of the first novel",         amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "The title",                  amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "refers to",                  amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "the three-body",             amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "problem",                    amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "in orbital",                 amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "mechanics",                  amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "The work was",               amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "serialized",                 amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "in",                         amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Science Fiction World",      amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "in 2006",                    amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "published",                  amount: rAmount()),
+    //        Tally(bid: 1, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "as a book",                  amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "in 2008",                    amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "and",                        amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "became",                     amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "one of",                     amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "the most ",                  amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "popular",                    amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "science fiction",            amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "novels",                     amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "in China",                   amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "It received",                amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "the Chinese",                amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Science",                    amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "Fiction",                    amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "Galaxy",                     amount: rAmount()),
+    //        Tally(bid: 2, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Award",                      amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "in 2006",                    amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "A film",                     amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "adaptation",                 amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "of the ",                    amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "same name",                  amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "is scheduled",               amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "for release",                amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "in July",                    amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "2016",                       amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "An English",                 amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "translation",                amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "by Ken Liu",                 amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "was published",              amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "by Tor Books",               amount: rAmount()),
+    //        Tally(bid: 3, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "in 2014",                    amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "It won",                     amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "the 2015",                   amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "Hugo",                       amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "Award",                      amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "for",                        amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "Best",                       amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "Novel",                      amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "and was",                    amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "nominated",                  amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "for the 2014",               amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "Nebula",                     amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Award",                      amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "for",                        amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "Best",                       amount: rAmount()),
+    //        Tally(bid: 4, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Novel",                      amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "The Three-Body Problem",     amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "is a science",               amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "fiction",                    amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "novel",                      amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "by the Chinese",             amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "writer",                     amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "Liu Cixin",                  amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "It is the first",            amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "of a trilogy",               amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "titled",                     amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "Remembrance of Earth’s Past",amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "but",                        amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "Chinese readers",            amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "generally refer ",           amount: rAmount()),
+    //        Tally(bid: 5, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "to the series",              amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "by the title",               amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "of the first novel",         amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "The title",                  amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "refers to",                  amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "the three-body",             amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "problem",                    amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "in orbital",                 amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "mechanics",                  amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "The work was",               amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "serialized",                 amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "in",                         amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Science Fiction World",      amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "in 2006",                    amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "published",                  amount: rAmount()),
+    //        Tally(bid: 6, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "as a book",                  amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "in 2008",                    amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "and",                        amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "became",                     amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "one of",                     amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "the most ",                  amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "popular",                    amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "science fiction",            amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "novels",                     amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "in China",                   amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "It received",                amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "the Chinese",                amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Science",                    amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "Fiction",                    amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "Galaxy",                     amount: rAmount()),
+    //        Tally(bid: 7, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Award",                      amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "in 2006",                    amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "A film",                     amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "adaptation",                 amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "of the ",                    amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "same name",                  amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "is scheduled",               amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "for release",                amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "in July",                    amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "2016",                       amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "An English",                 amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "translation",                amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "by Ken Liu",                 amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "was published",              amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "by Tor Books",               amount: rAmount()),
+    //        Tally(bid: 8, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "in 2014",                    amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 0,  time: "2015-11-20 07:31", brief: "It won",                     amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 1,  time: "2015-11-21 08:32", brief: "the 2015",                   amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 2,  time: "2015-11-22 09:27", brief: "Hugo",                       amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 3,  time: "2015-11-23 06:11", brief: "Award",                      amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 4,  time: "2015-11-24 13:56", brief: "for",                        amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 5,  time: "2015-11-25 12:29", brief: "Best",                       amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 6,  time: "2015-11-26 14:37", brief: "Novel",                      amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 7,  time: "2015-11-27 18:30", brief: "and was",                    amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 8,  time: "2015-11-28 22:10", brief: "nominated",                  amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 9,  time: "2015-11-29 23:33", brief: "for the 2014",               amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 10, time: "2015-11-30 19:17", brief: "Nebula",                     amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 11, time: "2015-12-01 08:25", brief: "Award",                      amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 12, time: "2015-12-02 09:30", brief: "for",                        amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 13, time: "2015-12-03 11:25", brief: "Best",                       amount: rAmount()),
+    //        Tally(bid: 9, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Novel",                      amount: rAmount())
+    //    ]
     
     func getBookTally(u_id: Int, b_id: Int, tableView: UITableView, activity: String){
         var tallys = [Tally]()
@@ -492,39 +534,39 @@ class TallyDatabase {
     
     /*
     func insertTally(){
-        let user_id = 22
-        
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        let user: PFObject
-        let userQuery = PFQuery(className: "_User")
-        userQuery.whereKey("u_id", equalTo: user_id)
-        do { user = try userQuery.findObjects()[0] }
-        catch {print("Master indicated me to do nothing."); return;}
-        
-        for tmp in tallyData {
-            let tally = PFObject(className: "Tally")
-            tally["t_id"]     = tmp.tid
-            tally["t_brief"]  = tmp.brief
-            tally["t_time"]   = dateFormatter.dateFromString(tmp.time)
-            tally["t_type"]   = rTallyType()
-            tally["b_id"]     = tmp.bid
-            tally["u_id"]     = user_id
-            tally["t_amount"] = tmp.amount
-            
-            let book: PFObject
-            let bookQuery = PFQuery(className: "Book")
-            bookQuery.whereKey("b_id", equalTo: tmp.bid)
-            do { book = try bookQuery.findObjects()[0] }
-            catch {print("Master indicated me to do nothing."); return;}
-            tally["book"]     = book
-            tally["user"]     = user
-            
-            tally.saveInBackgroundWithBlock { (success, error) -> Void in
-                if error == nil {print("Well done bro! Amazing!")}
-                else            {print("You suck.")}
-            }
-        }
+    let user_id = 22
+    
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+    let user: PFObject
+    let userQuery = PFQuery(className: "_User")
+    userQuery.whereKey("u_id", equalTo: user_id)
+    do { user = try userQuery.findObjects()[0] }
+    catch {print("Master indicated me to do nothing."); return;}
+    
+    for tmp in tallyData {
+    let tally = PFObject(className: "Tally")
+    tally["t_id"]     = tmp.tid
+    tally["t_brief"]  = tmp.brief
+    tally["t_time"]   = dateFormatter.dateFromString(tmp.time)
+    tally["t_type"]   = rTallyType()
+    tally["b_id"]     = tmp.bid
+    tally["u_id"]     = user_id
+    tally["t_amount"] = tmp.amount
+    
+    let book: PFObject
+    let bookQuery = PFQuery(className: "Book")
+    bookQuery.whereKey("b_id", equalTo: tmp.bid)
+    do { book = try bookQuery.findObjects()[0] }
+    catch {print("Master indicated me to do nothing."); return;}
+    tally["book"]     = book
+    tally["user"]     = user
+    
+    tally.saveInBackgroundWithBlock { (success, error) -> Void in
+    if error == nil {print("Well done bro! Amazing!")}
+    else            {print("You suck.")}
+    }
+    }
     }
     */
     
@@ -593,7 +635,7 @@ struct Person {
         }
         return false
     }
-
+    
 }
 
 struct Category {

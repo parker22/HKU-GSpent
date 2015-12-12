@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 let USER_ID = 22 // this HERO is Laurence
 
@@ -20,7 +21,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var bookSelectedName: UILabel!
     @IBOutlet weak var bookSelectedPart: UILabel!
     
-    static var books  = [Book]()
+    static var books  = [PFObject]()
     static var tallys = [Tally]()
     var bookSelected: Book!
     var dataRepository = DataRepository()
@@ -67,11 +68,57 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         case self.bookSelectTableView:
             let cellIdentifier = "bookINPTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookINPTableViewCell
-            let book = PersonalTallyViewController.books[indexPath.row]
-            cell.bookIcon.image = book.icon
-            cell.bookName.text  = book.name
-            cell.bookPart.text  = self.dataRepository.getPartStr(book.part)
-            cell.bookID.text    = String(book.bid)
+            let book = PersonalTallyViewController.books[indexPath.row] as PFObject
+//            cell.bookIcon.image =
+            cell.bookName.text  = book["b_name"]! as? String
+            var pPart_Str = [String]()
+            print(book.objectId)
+            print(book["b_participant"])
+            for pPart in book["b_participant"] as! [PFObject]{
+                print(pPart["username"])
+                pPart_Str.append(pPart["username"] as! String)
+            }
+            
+            cell.bookPart.text = Utility.getStrMates(pPart_Str)
+//            print((book["b_participant"]).description)
+//
+//            for pItem in book["b_participant"] as! [PFUser]{
+//                p_ids.append(String(pItem))}
+//            //                    b_part = p_ids.joinWithSeparator(";")
+//            
+//
+//            cell.bookPart.text  = self.dataRepository.getPartStr(book["b_participant"]["username"] as! String)
+//            cell.bookID.text    = String(book.bid)
+            
+//            cell.bookPart.text = p_ids.description
+            
+            
+            
+//            
+//            let query = PFQuery(className:"Book")
+//            query.getObjectInBackgroundWithId(book.objectId!) {
+//                (testObject: PFObject?, error: NSError?) -> Void in
+//                if error == nil && testObject != nil  else {
+//                    print(error)
+//                }
+//            }
+            
+            
+                    let userImageFile = book["b_icon"] as! PFFile
+                    userImageFile.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        if error == nil {
+                            if let imageData = imageData {
+                                let image = UIImage(data:imageData)
+                                cell.bookIcon.image = image
+                            }
+                        }
+                    }
+                    
+                    
+            
+            
+            
             return cell
             
         case self.bookTallyTableView:
@@ -96,7 +143,8 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             self.bookSelected.part = book.bookPart.text!
             refreshBookSelected()
             bookSelectTableViewHide()
-            self.dataRepository.getBookTally(USER_ID, b_id: Int(book.bookID.text!)!, tableView: bookTallyTableView, activity: "PersonalTally")
+            let bookObject = PersonalTallyViewController.books[indexPath.row] as PFObject
+            self.dataRepository.getBookTally(USER_ID, b_id: bookObject["b_id"] as! Int, tableView: bookTallyTableView, activity: "PersonalTally")
             //bookTallyTableView.reloadData()
         }
     }

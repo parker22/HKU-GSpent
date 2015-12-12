@@ -24,6 +24,7 @@ class SpentBookSelectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -35,7 +36,15 @@ class SpentBookSelectionTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue()) {
+            //This code will run in the main thread:
+            var frame:CGRect = self.view.frame
+            
+            self.view.frame = CGRectMake(0,frame.size.height-self.tableView.contentSize.height,0,self.tableView.contentSize.height)
+        }
+    }
+
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -23,7 +23,7 @@ class bookPopoverViewController: UITableViewController{
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let vc = SettlementViewController()
+//        let vc = SettlementViewController()
 //        self.presentViewController(vc, animated: true, completion: nil)
     }
 

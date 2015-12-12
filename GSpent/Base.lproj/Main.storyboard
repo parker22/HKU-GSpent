@@ -44,11 +44,11 @@
                                 <rect key="frame" x="20" y="126" width="60" height="46"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="JKC-J5-nWv"/>
-                                    <constraint firstAttribute="height" constant="46" id="bZi-9y-rFr"/>
+                                    <constraint firstAttribute="width" constant="60" id="Jg1-f6-CBw"/>
+                                    <constraint firstAttribute="height" constant="46" id="Xy0-74-npr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ihw-Ja-Vgr">
@@ -83,7 +83,7 @@
                                                         <constraint firstAttribute="height" constant="15" id="84a-Rw-y7J"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -113,6 +113,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-1q-5TJ">
+                                <rect key="frame" x="177" y="611" width="60" height="30"/>
+                                <state key="normal" title="选择账本"/>
+                                <connections>
+                                    <segue destination="SDA-vS-U6T" kind="presentation" identifier="spentBookSelectionIdentifier" modalPresentationStyle="pageSheet" id="MQb-Ks-AKj"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmS-Rb-MEi">
                                 <rect key="frame" x="192" y="649" width="30" height="30"/>
                                 <animations/>
@@ -133,20 +140,19 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="top" secondItem="rTY-zK-thb" secondAttribute="bottom" constant="8" id="2uM-Vq-ek5"/>
-                            <constraint firstItem="bFz-1q-5TJ" firstAttribute="top" secondItem="ihw-Ja-Vgr" secondAttribute="bottom" constant="8" symbolic="YES" id="6i4-AZ-YdL"/>
-                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="top" secondItem="l2P-0A-hbc" secondAttribute="bottom" constant="8" symbolic="YES" id="6xo-P9-Pow"/>
-                            <constraint firstItem="JZ6-Gh-Tuh" firstAttribute="top" secondItem="ihw-Ja-Vgr" secondAttribute="bottom" constant="84" id="BmJ-xq-JIS"/>
-                            <constraint firstItem="l2P-0A-hbc" firstAttribute="trailing" secondItem="ihw-Ja-Vgr" secondAttribute="trailing" id="DyD-MF-Ug3"/>
-                            <constraint firstItem="rTY-zK-thb" firstAttribute="leading" secondItem="ihw-Ja-Vgr" secondAttribute="leading" id="E4p-kN-HB0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ihw-Ja-Vgr" secondAttribute="trailing" id="TzP-X3-Con"/>
-                            <constraint firstItem="rTY-zK-thb" firstAttribute="top" secondItem="2bW-TS-tqK" secondAttribute="bottom" constant="8" symbolic="YES" id="ceh-A3-QEq"/>
-                            <constraint firstItem="nmS-Rb-MEi" firstAttribute="baseline" secondItem="bFz-1q-5TJ" secondAttribute="baseline" constant="38" id="hPH-7K-QFH"/>
-                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="leading" secondItem="0Gx-DI-a9h" secondAttribute="leadingMargin" id="kFe-Vi-ygn"/>
-                            <constraint firstItem="l2P-0A-hbc" firstAttribute="top" secondItem="rTY-zK-thb" secondAttribute="top" id="lNN-tM-0jA"/>
-                            <constraint firstItem="l2P-0A-hbc" firstAttribute="leading" secondItem="rTY-zK-thb" secondAttribute="trailing" constant="8" symbolic="YES" id="sab-dT-7rh"/>
-                            <constraint firstItem="nmS-Rb-MEi" firstAttribute="centerX" secondItem="l2P-0A-hbc" secondAttribute="centerX" constant="-34" id="shF-PN-bza"/>
-                            <constraint firstItem="bFz-1q-5TJ" firstAttribute="centerX" secondItem="ihw-Ja-Vgr" secondAttribute="centerX" id="zBd-Ko-goX"/>
+                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="leading" secondItem="rTY-zK-thb" secondAttribute="leading" id="IK8-2L-0RR"/>
+                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="top" secondItem="l2P-0A-hbc" secondAttribute="bottom" constant="8" symbolic="YES" id="JkE-ep-EE4"/>
+                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="centerX" secondItem="bFz-1q-5TJ" secondAttribute="centerX" id="NoZ-wk-QMS"/>
+                            <constraint firstItem="rTY-zK-thb" firstAttribute="top" secondItem="l2P-0A-hbc" secondAttribute="top" id="QZJ-qJ-x4g"/>
+                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="leading" secondItem="0Gx-DI-a9h" secondAttribute="leadingMargin" id="VGt-GN-I6t"/>
+                            <constraint firstItem="l2P-0A-hbc" firstAttribute="trailing" secondItem="ihw-Ja-Vgr" secondAttribute="trailing" id="fs6-lW-N8v"/>
+                            <constraint firstItem="l2P-0A-hbc" firstAttribute="leading" secondItem="rTY-zK-thb" secondAttribute="trailing" constant="8" symbolic="YES" id="iLz-Nh-H8n"/>
+                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="top" secondItem="rTY-zK-thb" secondAttribute="bottom" constant="8" symbolic="YES" id="ltt-hE-BCb"/>
+                            <constraint firstItem="JZ6-Gh-Tuh" firstAttribute="top" secondItem="nmS-Rb-MEi" secondAttribute="bottom" constant="8" symbolic="YES" id="tHB-ot-7Ok"/>
+                            <constraint firstItem="nmS-Rb-MEi" firstAttribute="centerX" secondItem="bFz-1q-5TJ" secondAttribute="centerX" id="tKA-wG-BAr"/>
+                            <constraint firstItem="nmS-Rb-MEi" firstAttribute="top" secondItem="bFz-1q-5TJ" secondAttribute="bottom" constant="8" symbolic="YES" id="tOE-hf-uPz"/>
+                            <constraint firstItem="rTY-zK-thb" firstAttribute="top" secondItem="2bW-TS-tqK" secondAttribute="bottom" constant="8" symbolic="YES" id="v1T-3D-EDj"/>
+                            <constraint firstItem="l2P-0A-hbc" firstAttribute="trailing" secondItem="0Gx-DI-a9h" secondAttribute="trailingMargin" id="wEB-Vm-XZh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="记一笔" id="xXc-ro-r2A">
@@ -202,7 +208,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpentBookSelectionCellIdentifier" id="wh7-RD-yCj">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wh7-RD-yCj" id="v1H-87-BeI">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -218,10 +224,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="选择账本" id="zxn-9c-kEn"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAb-4c-afo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="593" y="2525"/>
+            <point key="canvasLocation" x="593" y="2725"/>
         </scene>
         <!--Spent Datetime Picker View Controller-->
         <scene sceneID="YgK-U4-eof">
