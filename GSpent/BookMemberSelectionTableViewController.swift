@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 protocol sendBookMemberBack
 {
@@ -17,7 +18,10 @@ class BookMemberSelectionTableViewController: UITableViewController {
     var mDelegate:sendBookMemberBack?
     var selectedMemberIDs = [Int]()
     
-    let p_ids = [Int]([1,3,5,6,7,66,323,21])
+    var p_ids = [Int]()
+    var allUsers:[PFObject]=[]
+    var allUsersNames:[String]=[]
+    var allUsersAvatars:[UIImage]=[]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,17 @@ class BookMemberSelectionTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        for var i=0;i<50;i++ {
+            p_ids.append(i)
+        }
+        
+        let query = PFQuery(className: "_User")
+        query.whereKey("u_id", containedIn: p_ids)
+        do { allUsers += try query.findObjects() }
+        catch {print("Master indicated me to do nothing.")}
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

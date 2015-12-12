@@ -15,6 +15,7 @@
 		1A7846271C0D8E6400A6B416 /* BookTallyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */; };
 		1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846301C0E934A00A6B416 /* DataRepository.swift */; };
 		291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291153E21C102ED800937D03 /* SettlementViewController.swift */; };
+		291633C81C1C94EA00B6F330 /* SelectionSingleMemberTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291633C71C1C94EA00B6F330 /* SelectionSingleMemberTVCell.swift */; };
 		29617F091C19986500709171 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F081C19986500709171 /* NameCell.swift */; };
 		29617F0B1C19991400709171 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F0A1C19991400709171 /* RecordCell.swift */; };
 		29617F101C199E1B00709171 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29617F0C1C199E1B00709171 /* libWeChatSDK.a */; };
@@ -88,6 +89,7 @@
 		1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTallyTableViewCell.xib; sourceTree = "<group>"; };
 		1A7846301C0E934A00A6B416 /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		291153E21C102ED800937D03 /* SettlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettlementViewController.swift; sourceTree = "<group>"; };
+		291633C71C1C94EA00B6F330 /* SelectionSingleMemberTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSingleMemberTVCell.swift; sourceTree = "<group>"; };
 		29617F081C19986500709171 /* NameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameCell.swift; sourceTree = "<group>"; };
 		29617F0A1C19991400709171 /* RecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 		29617F0C1C199E1B00709171 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				498D3E021C09EC330013E1EA /* Books.storyboard */,
+				291633C71C1C94EA00B6F330 /* SelectionSingleMemberTVCell.swift */,
 				492EAD011C0D9A1800FB69D8 /* UI */,
 				1A26AACF1C0F2CCC00329C3A /* NewBookViewController.swift */,
 				49B3721D1C0E16A700315A5D /* BookDetailViewController.swift */,
@@ -508,6 +511,7 @@
 				498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */,
 				492904621C0B247800DADCC7 /* bookTableViewCell.swift in Sources */,
 				4974DC371C166B9000F6B239 /* TakePicViewController.swift in Sources */,
+				291633C81C1C94EA00B6F330 /* SelectionSingleMemberTVCell.swift in Sources */,
 				491263E61C10AD5100E12FDD /* bookPopoverViewController.swift in Sources */,
 				29617F091C19986500709171 /* NameCell.swift in Sources */,
 				29617F0B1C19991400709171 /* RecordCell.swift in Sources */,

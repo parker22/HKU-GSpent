@@ -11,8 +11,8 @@ import Parse
 
 class NewBookViewController: UIViewController,sendBookMemberBack {
     
-    var members:[Int]=[]
-    var membersID = Dictionary<String, String>()
+    //var members:[Int]=[]
+    var participantsObjects:[PFObject]=[]
     
     @IBOutlet weak var selectBookMemberBtn: UIButton!
 
@@ -31,20 +31,13 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     @IBAction func submitNewBook(sender: AnyObject) {
         //do some thing
         var newBook = PFObject(className:"Book")
-//        var participantsObject:[PFObject]=[{"__type":"Pointer","className":"_User","objectId":"DfOI3qgAh9"},{"__type":"Pointer","className":"_User","objectId":"ZaN8ROytUA"}]
         
         newBook["b_average"] = 1000
         newBook["u_id"] = 9996
-        //newBook["ACL"] = "Public Read + Write"//ACL
         newBook["b_icon"] = PFFile(data:UIImagePNGRepresentation(UIImage(named: "bookAvatarDefault")!)!)//File
-        if members.count == 0{
+        if participantsObjects.count == 0{
             //popup a window : please select member
             let alertController = UIAlertController(title: "No Member", message: "You didn't select a single member, please specify at least one member", preferredStyle: .Alert)
-//            
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
-//                print("you have pressed the Cancel button");
-//            }
-//            alertController.addAction(cancelAction)
             
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
                 print("you have pressed OK button");
@@ -52,13 +45,11 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
             alertController.addAction(OKAction)
             
             self.presentViewController(alertController, animated: true, completion:nil)
-            //return
+            return
         }
         
-        
-        
-        newBook["b_name"]="HKU CS 3"
-        newBook["b_participant"] = [PFObject]()//Array {"objectId":"DfOI3qgAh9"}
+        newBook["b_name"]="HKU CS 4"
+        newBook["b_participant"] = participantsObjects
         newBook["b_id"]=1000
         
         newBook.saveInBackgroundWithBlock {
@@ -99,6 +90,11 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     func sendMemberToPreviousVC(selectedMemberIDs: [Int]) {
         selectBookMemberBtn.setTitle("已选择成员"+selectedMemberIDs.description, forState: UIControlState.Normal)
         print(selectedMemberIDs)
+        
+        let query = PFQuery(className: "_User")
+        query.whereKey("u_id", containedIn: selectedMemberIDs)
+        do { participantsObjects += try query.findObjects() }
+        catch {print("didnt find object")}
     }
     
     
