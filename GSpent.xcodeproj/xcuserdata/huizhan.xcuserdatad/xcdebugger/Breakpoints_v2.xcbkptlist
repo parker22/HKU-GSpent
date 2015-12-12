@@ -24,12 +24,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GSpent/DataRepository.swift"
-            timestampString = "471288584.616397"
+            timestampString = "471608728.591181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "getUserBookList(_:)"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
+            landmarkName = "getBookTally(_:b_id:tableView:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
