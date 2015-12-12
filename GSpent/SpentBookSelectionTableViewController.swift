@@ -19,7 +19,7 @@ class SpentBookSelectionTableViewController: UITableViewController {
     var selectedBookId :Int?
     
     
-    let b_ids = [Int]([1,3,5,6,7])
+    let b_ids = [Int]([1,3,5,6,9])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +76,8 @@ class SpentBookSelectionTableViewController: UITableViewController {
     
     func sendBookToPreviousVC(bookId: Int){
         self.mDelegate?.sendBookToPreviousVC(bookId)
-        
     }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

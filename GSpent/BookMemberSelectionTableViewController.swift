@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import Parse
 
 protocol sendBookMemberBack
 {
-    func sendMemberToPreviousVC(selectedMemberIDs: [Int])
+    func sendMemberToPreviousVC(selectedMembers: [PFObject])
     
 }
 class BookMemberSelectionTableViewController: UITableViewController {
     var mDelegate:sendBookMemberBack?
     var selectedMemberIDs = [Int]()
+    let USER_NUMBER=50
     
-    let p_ids = [Int]([1,3,5,6,7,66,323,21])
+//    var p_ids = [Int]()
+    var allUsers=[PFObject]()
+    var allUsersNames:[String]=[]
+    var allUsersAvatars:[UIImage]=[]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +32,39 @@ class BookMemberSelectionTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+//        for var i=0;i<USER_NUMBER;i++ {
+//            p_ids.append(i)
+//        }
+        
+        let query = PFQuery(className: "_User")
+//        query.whereKey("u_id", containedIn: p_ids)
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil{
+                self.allUsers = objects!
+                self.tableView.reloadData()
+            }
+            else{
+                print("Error: \(error!)")
+            }
+        }
+//        do { allUsers += try query.findObjects() }
+//        catch {print("Master indicated me to do nothing.")}
+//        
+//        for var i=0;i<USER_NUMBER;i++ {
+//            allUsersNames[i]=allUsers[i]["username"] as! String
+//            
+//            let userImageFile = allUsers[i]["image"] as! PFFile
+//            userImageFile.getDataInBackgroundWithBlock {
+//                (imageData: NSData?, error: NSError?) -> Void in
+//                if error == nil {
+//                    if let imageData = imageData {
+//                        self.allUsersAvatars[i] = UIImage(data:imageData)!
+//                    }
+//                }
+//            }
+//        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,16 +83,33 @@ class BookMemberSelectionTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return p_ids.count
+        return allUsers.count
     }
     
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("BookMemberSelectionCellIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("BookMemberSelectionCellIdentifier", forIndexPath: indexPath) as! SelectionSingleMemberTVCell
         
         //         Configure the cell...
-        cell.textLabel?.text = p_ids[indexPath.row].description
+        let user = allUsers[indexPath.row]
+        cell.NameLabel.text = user["username"] as? String
+        if user["u_icon"] != nil{
+            let userImageFile = user["u_icon"] as! PFFile
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data: imageData)
+                        cell.MemberAvatar.image = image
+                    }
+                }
+            }
+
+        }
+        
+//        cell.MemberAvatar.image=allUsersAvatars[indexPath.row]
+        
         self.tableView.sizeToFit()
         return cell
     }
@@ -63,17 +118,14 @@ class BookMemberSelectionTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if (cell?.accessoryType == UITableViewCellAccessoryType.Checkmark){
-            self.selectedMemberIDs = self.selectedMemberIDs.filter(){$0 != p_ids[indexPath.row]}
+            self.selectedMemberIDs = self.selectedMemberIDs.filter(){$0 != indexPath.row}
             cell!.accessoryType = UITableViewCellAccessoryType.None
             
         }else{
             cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
-            print(p_ids[indexPath.row])
-            self.selectedMemberIDs.append(p_ids[indexPath.row])
+            self.selectedMemberIDs.append(indexPath.row)
             
         }
-        print(selectedMemberIDs)
-        
         
 //
     }
@@ -81,13 +133,18 @@ class BookMemberSelectionTableViewController: UITableViewController {
     
     
     @IBAction func submitBookMember(sender: AnyObject) {
-        sendMemberToPreviousVC(selectedMemberIDs)
+        var members = [PFObject]()
+        for id in selectedMemberIDs{
+            members.append(allUsers[id])
+        }
+        print(members)
+        sendMemberToPreviousVC(members)
         navigationController?.popViewControllerAnimated(true)
     }
     
     
-    func sendMemberToPreviousVC(selectedMemberIDs: [Int]){
-        self.mDelegate?.sendMemberToPreviousVC(selectedMemberIDs)
+    func sendMemberToPreviousVC(selectedMembers: [PFObject]){
+        self.mDelegate?.sendMemberToPreviousVC(selectedMembers)
         
     }
 

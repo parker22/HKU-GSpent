@@ -9,9 +9,16 @@
 import UIKit
 import MobileCoreServices
 
+protocol sendPictureBack
+{
+    func sendpictureToPreviousVC(spentPic: UIImage)
+}
+
 class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var mDelegate: sendPictureBack?
     
     @IBOutlet weak var imageView: UIImageView!
+    var spentImage: UIImage?
     var newMedia: Bool?
     // 初始化图片选择控制器
     let imagePickerController: UIImagePickerController = UIImagePickerController()
@@ -21,6 +28,7 @@ class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.imageView.frame = CGRectMake(100, 100, 128, 128)
+        imageView.image = spentImage
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +89,6 @@ class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, 
             } else if mediaType==(kUTTypeMovie as String) {
                 // Code to support video here
             }
-            
         }
     }
     
@@ -104,9 +111,12 @@ class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    
-    
+    @IBAction func determinePhoto(sender: AnyObject) {
+        if(imageView.image != nil){
+            self.mDelegate?.sendpictureToPreviousVC(imageView.image!)
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
     
 //    
 //    
@@ -149,7 +159,7 @@ class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, 
 //            
 //            let cancelAction: UIAlertAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
 //            alertController.addAction(cancelAction)
-//            
+//
 //            presentViewController(alertController, animated: true, completion: nil)
 //            
 //        }else{
