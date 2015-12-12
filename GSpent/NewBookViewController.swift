@@ -31,8 +31,10 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     @IBAction func submitNewBook(sender: AnyObject) {
         //do some thing
         var newBook = PFObject(className:"Book")
-        newBook["b_average"] = 1337
-        newBook["u_id"] = 25
+//        var participantsObject:[PFObject]=[{"__type":"Pointer","className":"_User","objectId":"DfOI3qgAh9"},{"__type":"Pointer","className":"_User","objectId":"ZaN8ROytUA"}]
+        
+        newBook["b_average"] = 1000
+        newBook["u_id"] = 9996
         //newBook["ACL"] = "Public Read + Write"//ACL
         newBook["b_icon"] = PFFile(data:UIImagePNGRepresentation(UIImage(named: "bookAvatarDefault")!)!)//File
         if members.count == 0{
@@ -50,16 +52,20 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
             alertController.addAction(OKAction)
             
             self.presentViewController(alertController, animated: true, completion:nil)
-            return
+            //return
         }
-        newBook["b_name"]="HKU CS"
+        
+        
+        
+        newBook["b_name"]="HKU CS 3"
         newBook["b_participant"] = [PFObject]()//Array {"objectId":"DfOI3qgAh9"}
-        newBook["b_id"]=9
+        newBook["b_id"]=1000
         
         newBook.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-                 self.dismissViewControllerAnimated(true, completion: nil);// The object has been saved.
+                print("uploaded successfully");
+                self.dismissViewControllerAnimated(true, completion: nil);// The object has been saved.
             } else {
                 // There was a problem, check error.description
             }
