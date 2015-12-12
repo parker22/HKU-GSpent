@@ -515,6 +515,7 @@
                                 <rect key="frame" x="270" y="115" width="60" height="30"/>
                                 <state key="normal" title="选择成员"/>
                                 <connections>
+                                    <action selector="chooseMembers:" destination="q1b-Nd-GbE" eventType="touchUpInside" id="NbD-66-Lil"/>
                                     <segue destination="0tg-r6-pX6" kind="show" identifier="bookMemberSelectionIdentifier" id="vnU-Vv-93x"/>
                                 </connections>
                             </button>
@@ -583,7 +584,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asU-BI-OxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3567" y="-143"/>
+            <point key="canvasLocation" x="3419" y="-90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="STF-z4-hSc">
