@@ -101,6 +101,8 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     @IBAction func submitNewSpent(sender: AnyObject) {
+        if !Utility.hasCurrentUser {return}
+        
         if(book == nil) {
             let alert = UIAlertController(title: "Choose a book", message: "Please choose a book before submit your spent.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
@@ -115,9 +117,10 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
             return
         }
         
-        brief = brief == "" ? "No event." : brief
-        userId = USER_ID
-        time = time == nil ? NSDate() : time
+        brief  = brief == "" ? "No event." : brief
+        user   = Utility.currentUser
+        userId = user["u_id"].integerValue
+        time   = time == nil ? NSDate() : time
         amount = spendAmount.text! == "" ? amount : Double(spendAmount.text!)
         
         let userQuery = PFQuery(className: "_User")

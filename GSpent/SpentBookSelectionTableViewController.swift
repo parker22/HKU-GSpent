@@ -25,7 +25,8 @@ class SpentBookSelectionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataRepository.getBooks(USER_ID, tableView: addSpentSelectBookList, activity: "AddSpent")
+        if !Utility.hasCurrentUser {return}
+        dataRepository.getBooks(Utility.currentUser, tableView: addSpentSelectBookList, activity: "AddSpent")
         self.addSpentSelectBookList.registerNib(UINib(nibName: "BookINPTableViewCell", bundle: nil),
             forCellReuseIdentifier: "bookINPTableViewCell")
         

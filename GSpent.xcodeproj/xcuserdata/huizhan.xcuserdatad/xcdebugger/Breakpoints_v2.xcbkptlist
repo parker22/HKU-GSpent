@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GSpent/DataRepository.swift"
-            timestampString = "471687671.266954"
+            timestampString = "471699217.186739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "479"
-            endingLineNumber = "479"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "TallyDatabase"
             landmarkType = "3">
          </BreakpointContent>
@@ -56,7 +56,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GSpent/DataRepository.swift"
-            timestampString = "471681758.511649"
+            timestampString = "471699217.186739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "192"
@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GSpent/DataRepository.swift"
-            timestampString = "471681758.511649"
+            timestampString = "471699217.186739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "getUserBookList(_:tableView:activity:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -95,6 +95,70 @@
             endingLineNumber = "94"
             landmarkName = "addSpentDescription(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GSpent/DataRepository.swift"
+            timestampString = "471699555.346707"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "500"
+            endingLineNumber = "500"
+            landmarkName = "getBookTally(_:b_id:tableView:activity:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GSpent/DataRepository.swift"
+            timestampString = "471699747.580565"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "523"
+            endingLineNumber = "523"
+            landmarkName = "getBookTally(_:b_id:tableView:activity:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GSpent.TallyDatabase.(getBookTally (GSpent.TallyDatabase) -&gt; (__ObjC.PFUser, b_id : Swift.Int, tableView : __ObjC.UITableView, activity : Swift.String) -&gt; ()).(closure #1)"
+                  moduleName = "GSpent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huizhan/Curme/Project/HKU-GSpent/GSpent/DataRepository.swift"
+                  timestampString = "471699675.884745"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "525"
+                  endingLineNumber = "525"
+                  offsetFromSymbolStart = "5132">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GSpent.TallyDatabase.(getBookTally (GSpent.TallyDatabase) -&gt; (__ObjC.PFUser, b_id : Swift.Int, tableView : __ObjC.UITableView, activity : Swift.String) -&gt; ()).(closure #1)"
+                  moduleName = "GSpent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huizhan/Curme/Project/HKU-GSpent/GSpent/DataRepository.swift"
+                  timestampString = "471699675.885138"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "525"
+                  endingLineNumber = "525"
+                  offsetFromSymbolStart = "5410">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
