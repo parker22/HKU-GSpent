@@ -15,7 +15,7 @@
                 <tabBarController id="49e-Tb-3d3" customClass="TabViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg" shadowImage="59BEB6AB-CE2F-4125-95E7-AA58CD79F18A" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" shadowImage="D49FFAE4-C295-45D1-8156-240EE9BDB123" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <animations/>
@@ -310,8 +310,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yOZ-IQ-MwD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="barTintColor" red="0.97254901960784312" green="0.58431372549019611" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.49803921568627452" green="0.78823529411764703" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -408,7 +408,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="59BEB6AB-CE2F-4125-95E7-AA58CD79F18A" width="375" height="6">
+        <image name="D49FFAE4-C295-45D1-8156-240EE9BDB123" width="375" height="6">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
