@@ -33,8 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
         // ...
         
-        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
-            handleShortcutItem(shortcutItem)
+        if #available(iOS 9.0, *) {
+            if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+                handleShortcutItem(shortcutItem)
+            }
+        } else {
+            // Fallback on earlier versions
         }
         return true
     }
@@ -84,10 +88,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    @available(iOS 9.0, *)
     func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
         handleShortcutItem(shortcutItem)
     }
     
+    @available(iOS 9.0, *)
     private func handleShortcutItem(shortcutItem: UIApplicationShortcutItem) {
         if let rootViewController = window?.rootViewController {
             rootViewController.dismissViewControllerAnimated(false, completion: nil)
