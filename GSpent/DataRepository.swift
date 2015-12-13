@@ -237,7 +237,7 @@ class BookDatabase {
     
     func getBookPFObjects(user: PFUser, tableView: UITableView, activity: String){
         let bookQuery = PFQuery(className: "Book")
-        print([user])
+//        print([user])
         bookQuery.whereKey("b_participant", containsAllObjectsInArray: [user])
         bookQuery.includeKey("b_participant")
         bookQuery.findObjectsInBackgroundWithBlock {
@@ -249,7 +249,7 @@ class BookDatabase {
                 switch(activity){
                 case "BookList":
                     BookTableViewController.bookData = objects!
-                    print(objects)
+//                    print(objects)
                     tableView.reloadData()
                     break
                 default: break;
@@ -502,7 +502,7 @@ class TallyDatabase {
     func getBookTally(u_id: Int, b_id: Int, tableView: UITableView, activity: String){
         var tallys = [Tally]()
         let tallyQuery = PFQuery(className: "Tally")
-        tallyQuery.whereKey("u_id", equalTo: u_id)
+        if u_id != -1 {tallyQuery.whereKey("u_id", equalTo: u_id)}
         if b_id != -1 {tallyQuery.whereKey("b_id", equalTo: b_id)}
         
         tallyQuery.findObjectsInBackgroundWithBlock {
@@ -534,6 +534,44 @@ class TallyDatabase {
         }
     }
     
+    
+    func getBookDetailTally(user: PFUser, book: PFObject, tableView: UITableView, activity: String){
+        let tallyQuery = PFQuery(className: "Tally")
+//        tallyQuery.whereKey("user", equalTo: user)
+        tallyQuery.whereKey("book", equalTo: book)
+        
+        tallyQuery.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // Do something with the found objects
+                if let objects = objects {
+//                    let dateFormatter = NSDateFormatter()
+//                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+//                    
+//                    for tItem in objects {
+//                        let bid     = tItem["b_id"].integerValue
+//                        let tid     = tItem["t_id"].integerValue
+//                        let uid     = tItem["u_id"].integerValue
+//                        let time    = dateFormatter.stringFromDate(tItem["t_time"] as! NSDate)
+//                        let brief   = tItem["t_brief"] as! String
+//                        let amount  = tItem["t_amount"].doubleValue
+//                        tallys.append(Tally(bid: bid, uid: uid, tid: tid, time: time, brief: brief, amount: amount))
+//                    }
+                    
+                    switch(activity){
+                    case "getBookDetailTally":
+                        BookDetailViewController.tallys = objects
+                        tableView.reloadData()
+                        
+                        break
+                    default: break;
+                    }
+                }
+            }
+            else { print("Error: \(error!) \(error!.userInfo)") }
+        }
+    }
     /*
     func insertTally(){
     let user_id = 22
