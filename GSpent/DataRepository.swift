@@ -225,6 +225,7 @@ class BookDatabase {
                     allBook["b_participant"] = [allUser]
                     PersonalTallyViewController.books = [PFObject]()
                     PersonalTallyViewController.books += [allBook]
+                    print(object!["u_books"])
                     PersonalTallyViewController.books += object!["u_books"] as! [PFObject]
                     tableView.reloadData()
                     break
@@ -520,7 +521,7 @@ class TallyDatabase {
                     
                     for tItem in objects {
                         let bid     = tItem["b_id"].integerValue
-                        let tid     = tItem["t_id"].integerValue
+                        let tid     = 001//tItem["t_id"].integerValue
                         let uid     = tItem["u_id"].integerValue
                         let time    = dateFormatter.stringFromDate(tItem["t_time"] as! NSDate)
                         let brief   = tItem["t_brief"] as! String

@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+var tmpBid = 2000
+
 class NewBookViewController: UIViewController,sendBookMemberBack {
     
     //var members:[Int]=[]
@@ -67,7 +69,7 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
         newBook["b_name"]=self.newBookNameTF.text
         self.participantsObjects.append(Utility.currentUser)
         newBook["b_participant"] = participantsObjects
-        newBook["b_id"]=1000
+        newBook["b_id"] = tmpBid++
         
         newBook.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in

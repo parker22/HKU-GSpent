@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="128" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TmC-GH-5yU" id="fyp-tj-kXc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="房昱炜生日pa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irj-iz-IVz">
@@ -112,6 +112,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="eUB-hG-05H">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="RefreshBookList:" destination="HkR-Da-ooL" eventType="valueChanged" id="LhT-MT-uom"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <outlet property="bookListTV" destination="Tqg-jg-PLd" id="Mxd-af-ETw"/>
                     </connections>
@@ -161,7 +167,7 @@
                                         <rect key="frame" x="0.0" y="40" width="150" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I8P-1X-S7z" id="Ap7-yW-km2">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="分享账单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gct-UD-18i">
@@ -587,7 +593,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9qo-Zj-5FB" id="dcA-cC-SI8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="94"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xyb-0q-hdw">
@@ -674,10 +680,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettlementNameList" id="eCb-fV-isR" customClass="NameCell" customModule="GSpent" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eCb-fV-isR" id="B8K-2d-SQ0">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfl-Ji-KJy">
@@ -701,10 +707,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettlementSingleOweRecord" id="ahl-Sf-MUn" customClass="RecordCell" customModule="GSpent" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="158" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ahl-Sf-MUn" id="FFQ-rz-edm">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLf-dg-9na">

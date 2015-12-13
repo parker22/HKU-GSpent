@@ -13,6 +13,11 @@ import UIKit
 class BookTableViewController: UITableViewController,RefreshBookTableViewControllerDelegate {
     
     
+    @IBAction func RefreshBookList(sender: AnyObject) {
+        self.initData()
+        self.bookListTV.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
     @IBOutlet var bookListTV: UITableView!
     var books = [Book]()
     static var bookData = [PFObject]()
@@ -21,6 +26,8 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
     var dataRepository = DataRepository()
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+
         Utility.mDelegate = self
         self.initData()
 //        books = self.dataRepository.getBooks()
@@ -32,6 +39,14 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+//    func refresh(sender:AnyObject)
+//    {
+//        // Updating your data here...
+//        
+//        self.bookListTV.reloadData()
+//        self.refreshControl?.endRefreshing()
+//    }
     
     override func viewWillAppear(animated: Bool) {
         let selectedIndex = self.tableView.indexPathForSelectedRow

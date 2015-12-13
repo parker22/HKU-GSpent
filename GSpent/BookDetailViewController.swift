@@ -32,6 +32,7 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bookTotalAmountLbl.text = BookDetailViewController.totalAmount.description
         bookMemberCV.delegate = self
         bookMemberCV.dataSource = self
         bookTallyTV.delegate = self
