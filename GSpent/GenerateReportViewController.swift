@@ -13,9 +13,9 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
     @IBOutlet var outputValue: UILabel!
     
     @IBOutlet weak var settleTV: UITableView!
-    @IBAction func genetation(sender: AnyObject) {
+    @IBAction func back(sender: AnyObject) {
         //outputValue.text=relationships.toString()
-        
+        self.dismissViewControllerAnimated(true, completion: nil);
     }
     let relationships=AllOweingRelationships.init()
     

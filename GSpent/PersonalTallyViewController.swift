@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-let USER_ID = 22 // this HERO is Laurence
+//let USER_ID = 22 // this HERO is Laurence
 
 class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -54,10 +54,12 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func initData(){
-        self.dataRepository.getBooks(USER_ID, tableView: bookSelectTableView, activity: "PersonalTally")
-        self.dataRepository.getBookTally(USER_ID, b_id: -1, tableView: bookTallyTableView, activity: "PersonalTally")
         self.bookSelected = dataRepository.bookDatabase.bookData[0]
         bookSelected.part = self.dataRepository.getPartStr(bookSelected.part)
+        
+        if !Utility.hasCurrentUser {return}
+        self.dataRepository.getBooks(Utility.currentUser, tableView: bookSelectTableView, activity: "PersonalTally")
+        self.dataRepository.getBookTally(Utility.currentUser, b_id: -1, tableView: bookTallyTableView, activity: "PersonalTally")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,6 +109,7 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == self.bookSelectTableView {
+            if !Utility.hasCurrentUser {return}
             let book = tableView.cellForRowAtIndexPath(indexPath) as! BookINPTableViewCell
             self.bookSelected.icon = book.bookIcon.image
             self.bookSelected.name = book.bookName.text!
@@ -114,18 +117,19 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             refreshBookSelected()
             bookSelectTableViewHide()
             let bookObject = PersonalTallyViewController.books[indexPath.row] as PFObject
-            self.dataRepository.getBookTally(USER_ID, b_id: bookObject["b_id"] as! Int, tableView: bookTallyTableView, activity: "PersonalTally")
+            self.dataRepository.getBookTally(Utility.currentUser, b_id: bookObject["b_id"] as! Int, tableView: bookTallyTableView, activity: "PersonalTally")
             //bookTallyTableView.reloadData()
         }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches as Set<UITouch>, withEvent: event)
+        if !Utility.hasCurrentUser {return}
         if let touch: UITouch = touches.first! {
             let nodeTouched = touch.view
             if nodeTouched == self.bookSelectedView {
                 if self.bookSelectTableView.hidden {
-                    self.dataRepository.getBooks(USER_ID, tableView: bookSelectTableView, activity: "PersonalTally")
+                    self.dataRepository.getBooks(Utility.currentUser, tableView: bookSelectTableView, activity: "PersonalTally")
                     //bookSelectTableView.reloadData()
                     bookSelectTableViewShow()}
                 else {bookSelectTableViewHide()}
