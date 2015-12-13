@@ -26,9 +26,10 @@ class SpentBookSelectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if !Utility.hasCurrentUser {return}
-        dataRepository.getBooks(Utility.currentUser, tableView: addSpentSelectBookList, activity: "AddSpent")
         self.addSpentSelectBookList.registerNib(UINib(nibName: "BookINPTableViewCell", bundle: nil),
             forCellReuseIdentifier: "bookINPTableViewCell")
+        dataRepository.getBooks(Utility.currentUser, tableView: addSpentSelectBookList, activity: "AddSpent")
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,15 +42,15 @@ class SpentBookSelectionTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewWillAppear(animated: Bool) {
-        dispatch_async(dispatch_get_main_queue()) {
-            //This code will run in the main thread:
-            var frame:CGRect = self.view.frame
-            
-            self.view.frame = CGRectMake(0,frame.size.height-self.tableView.contentSize.height,0,self.tableView.contentSize.height)
-        }
-    }
-
+//    override func viewWillAppear(animated: Bool) {
+//        dispatch_async(dispatch_get_main_queue()) {
+//            //This code will run in the main thread:
+//            let frame:CGRect = self.view.frame
+//            
+//            self.view.frame = CGRectMake(0,frame.size.height-self.tableView.contentSize.height,0,self.tableView.contentSize.height)
+//        }
+//    }
+//    
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -72,7 +73,7 @@ class SpentBookSelectionTableViewController: UITableViewController {
         for pPart in book["b_participant"] as! [PFObject]{pPart_Str.append(pPart["username"] as! String)}
         
         cell.bookPart.text = Utility.getStrMates(pPart_Str)
-
+        
         let userImageFile = book["b_icon"] as! PFFile
         userImageFile.getDataInBackgroundWithBlock {
             (imageData: NSData?, error: NSError?) -> Void in

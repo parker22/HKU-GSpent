@@ -9,7 +9,7 @@
 import UIKit
 
 class BookINPTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var bookIcon: UIImageView!
     @IBOutlet weak var bookName: UILabel!
     @IBOutlet weak var bookPart: UILabel!
@@ -21,10 +21,10 @@ class BookINPTableViewCell: UITableViewCell {
         bookIcon.layer.cornerRadius = bookIcon.frame.size.width/3
         bookIcon.layer.masksToBounds = true
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 class NameCell: UITableViewCell {
-
+    
     @IBOutlet weak var NameLabel: UILabel!
     
 }

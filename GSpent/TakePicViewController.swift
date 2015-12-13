@@ -131,7 +131,7 @@ class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, 
 //        self.imagePickerController.delegate = self
 //        // 设置是否可以管理已经存在的图片或者视频
 //        self.imagePickerController.allowsEditing = true
-//        
+//
 //        // 判断是否支持相机
 //        if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
 //            let alertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)

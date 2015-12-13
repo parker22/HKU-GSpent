@@ -41,11 +41,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="HKD$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTY-zK-thb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HKD$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTY-zK-thb">
                                 <rect key="frame" x="20" y="126" width="60" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="2lg-nM-W6j"/>
-                                    <constraint firstAttribute="height" constant="46" id="vqF-o7-ACy"/>
+                                    <constraint firstAttribute="height" constant="40" id="vqF-o7-ACy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,7 +101,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="l2P-0A-hbc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="l2P-0A-hbc">
                                 <rect key="frame" x="88" y="126" width="306" height="40"/>
                                 <color key="textColor" red="0.043137254899999998" green="0.68235294120000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -136,10 +136,10 @@
                             <constraint firstItem="bFz-1q-5TJ" firstAttribute="top" secondItem="2bW-TS-tqK" secondAttribute="bottom" constant="18" id="IsT-cH-Gud"/>
                             <constraint firstItem="ihw-Ja-Vgr" firstAttribute="leading" secondItem="rTY-zK-thb" secondAttribute="leading" id="KZf-Be-QsA"/>
                             <constraint firstItem="l2P-0A-hbc" firstAttribute="leading" secondItem="rTY-zK-thb" secondAttribute="trailing" constant="8" symbolic="YES" id="M2X-9H-63w"/>
-                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="top" secondItem="l2P-0A-hbc" secondAttribute="bottom" constant="8" symbolic="YES" id="OH9-v5-1Bo"/>
+                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="top" secondItem="l2P-0A-hbc" secondAttribute="bottom" constant="14" id="OH9-v5-1Bo"/>
                             <constraint firstItem="JZ6-Gh-Tuh" firstAttribute="top" secondItem="ihw-Ja-Vgr" secondAttribute="bottom" constant="30" id="Sj2-Ls-JU9"/>
                             <constraint firstItem="l2P-0A-hbc" firstAttribute="trailing" secondItem="ihw-Ja-Vgr" secondAttribute="trailing" id="ZLV-DJ-k07"/>
-                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="top" secondItem="rTY-zK-thb" secondAttribute="bottom" constant="8" symbolic="YES" id="Zw6-ZQ-FFO"/>
+                            <constraint firstItem="ihw-Ja-Vgr" firstAttribute="top" secondItem="rTY-zK-thb" secondAttribute="bottom" constant="14" id="Zw6-ZQ-FFO"/>
                             <constraint firstItem="nmS-Rb-MEi" firstAttribute="centerX" secondItem="ihw-Ja-Vgr" secondAttribute="centerX" id="bgH-cU-nHf"/>
                             <constraint firstItem="JZ6-Gh-Tuh" firstAttribute="top" secondItem="nmS-Rb-MEi" secondAttribute="bottom" constant="33" id="f3F-Or-0KR"/>
                             <constraint firstItem="bFz-1q-5TJ" firstAttribute="trailing" secondItem="nmS-Rb-MEi" secondAttribute="trailing" id="g2n-tY-UCg"/>
@@ -201,10 +201,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookINPTableViewCell" rowHeight="60" id="wh7-RD-yCj" customClass="BookINPTableViewCell" customModule="GSpent" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wh7-RD-yCj" id="v1H-87-BeI">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -215,7 +215,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Select target book" id="zxn-9c-kEn"/>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="addSpentSelectBookList" destination="JZJ-Wz-EDr" id="x0i-cv-EQU"/>
                     </connections>

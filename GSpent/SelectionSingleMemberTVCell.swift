@@ -9,7 +9,8 @@
 import UIKit
 
 class SelectionSingleMemberTVCell: UITableViewCell {
-
+    
     @IBOutlet weak var MemberAvatar: UIImageView!
     @IBOutlet weak var NameLabel: UILabel!
-}
+    
+   }

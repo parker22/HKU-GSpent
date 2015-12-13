@@ -9,12 +9,12 @@
 import UIKit
 
 class spentDescriptionTextFieldView: UIView {
-
+    
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
-        // Drawing code
+    // Drawing code
     }
     */
     
@@ -61,5 +61,5 @@ class spentDescriptionTextFieldView: UIView {
         // 3. Setup view from .xib file
         xibSetup()
     }
-
+    
 }

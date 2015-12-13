@@ -34,7 +34,7 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
         let message =  WXMediaMessage()
         
         //发送的图片
-       
+        
         
         
         let view = self.settleTV
@@ -42,7 +42,7 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
         let context:CGContextRef = UIGraphicsGetCurrentContext()!
         let previousFrame:CGRect = view.frame
         view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.contentSize.width, view.contentSize.height)
-       view.layer.renderInContext(context)
+        view.layer.renderInContext(context)
         view.frame = previousFrame;
         let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
@@ -61,7 +61,7 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
         UIGraphicsBeginImageContext(CGSizeMake(width, height))
         image.drawInRect(CGRectMake(0, 0, width, height))
         message.setThumbImage(UIGraphicsGetImageFromCurrentImageContext())
-            ()
+        ()
         
         let req =  SendMessageToWXReq()
         req.text = "您的账单"
@@ -92,7 +92,7 @@ class GenerateReportViewController: UIViewController,UITableViewDelegate,UITable
             returnableCell = cell
         }
         else {
-           let cell:RecordCell = tableView.dequeueReusableCellWithIdentifier("SettlementSingleOweRecord")! as! RecordCell
+            let cell:RecordCell = tableView.dequeueReusableCellWithIdentifier("SettlementSingleOweRecord")! as! RecordCell
             var certainPerson:String
             certainPerson=relationships.allDebtors()[indexPath.section]
             let records:[OweRecord]=relationships.recordsRelatedToCertainDebtor(who: certainPerson)

@@ -15,7 +15,7 @@ class bookMemberCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         self.bookMemberAvatar.layer.cornerRadius = self.bookMemberAvatar.frame.size.width/2
         self.bookMemberAvatar.clipsToBounds = true
-                self.bookMemberAvatar.layer.borderWidth = 2
-                self.bookMemberAvatar.layer.borderColor = UIColor.grayColor().CGColor
+        self.bookMemberAvatar.layer.borderWidth = 2
+        self.bookMemberAvatar.layer.borderColor = UIColor.grayColor().CGColor
     }
 }

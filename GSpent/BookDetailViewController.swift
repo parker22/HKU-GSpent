@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class BookDetailViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
-
+    
     
     @IBOutlet weak var bookMemberCV: UICollectionView!
     @IBOutlet weak var bookMemberSelected: UIImageView!
@@ -45,12 +45,12 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
         self.dataRepository.tallyDatabase.getBookDetailTally(Utility.currentUser, book: book, tableView: self.bookTallyTV, activity: "getBookDetailTally")
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return members.count
     }
@@ -74,7 +74,6 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let tally = BookDetailViewController.tallys[indexPath.row]
-        print(tally)
         let cell:bookDetailTallyTableViewCell = bookTallyTV.dequeueReusableCellWithIdentifier(bookTallyCellIdentifier, forIndexPath: indexPath) as! bookDetailTallyTableViewCell
         cell.bookTallyAvatarIV.image = members[indexPath.row].avatar
         cell.bookTallyDescriptionLbl.text = tally["t_brief"] as? String
@@ -109,15 +108,15 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

@@ -17,7 +17,7 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     var participantsObjects = [PFObject]()
     
     @IBOutlet weak var selectBookMemberBtn: UIButton!
-
+    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var selectParticipants: UIButton!
     @IBOutlet weak var newBookNameTF: UITextField!
@@ -37,9 +37,9 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     
     @IBAction func submitNewBook(sender: AnyObject) {
         //do some thing
-        var newBook = PFObject(className:"Book")
+        let newBook = PFObject(className:"Book")
         
-//        newBook["b_average"] = 1000
+        //        newBook["b_average"] = 1000
         newBook["u_id"] = 9996
         newBook["b_icon"] = PFFile(data:UIImagePNGRepresentation(UIImage(named: "bookAvatarDefault")!)!)//File
         if participantsObjects.count == 0{
@@ -87,7 +87,7 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     
     @IBAction func cancelAddBook(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil);
-
+        
     }
     
     
@@ -96,7 +96,7 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        
         if segue.identifier == "bookMemberSelectionIdentifier" {
             let memberSelectionViewController = segue.destinationViewController as! BookMemberSelectionTableViewController
             memberSelectionViewController.mDelegate = self
@@ -111,10 +111,10 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
         selectBookMemberBtn.setTitle("Participants Selected", forState: UIControlState.Normal)
         print(selectedMembers)
         
-//        let query = PFQuery(className: "_User")
-//        query.whereKey("u_id", containedIn: selectedMemberIDs)
-//        do { participantsObjects += try query.findObjects() }
-//        catch {print("didnt find object")}
+        //        let query = PFQuery(className: "_User")
+        //        query.whereKey("u_id", containedIn: selectedMemberIDs)
+        //        do { participantsObjects += try query.findObjects() }
+        //        catch {print("didnt find object")}
         participantsObjects = selectedMembers
     }
     

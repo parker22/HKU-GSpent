@@ -20,7 +20,7 @@ class SpentDatetimePickerViewController: UIViewController {
     
     @IBOutlet weak var datetimePicker: UIDatePicker!
     @IBOutlet weak var pickerDetermine: UIButton!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class SpentDatetimePickerViewController: UIViewController {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        var strDate = dateFormatter.stringFromDate(datetimePicker.date)
+        //        var strDate = dateFormatter.stringFromDate(datetimePicker.date)
         sendDateToPreviousVC(datetimePicker.date)
     }
     

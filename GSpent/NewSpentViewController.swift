@@ -32,7 +32,7 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     var time:    NSDate!
     var typeId:  Int!
     var amount:  Double!
-
+    
     
     let spentCategoryCellIdentifier = "spentCategoryCellIdentifier"
     

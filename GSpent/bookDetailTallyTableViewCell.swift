@@ -9,7 +9,7 @@
 import UIKit
 
 class bookDetailTallyTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var bookTallyAmountLbl: UILabel!
     @IBOutlet weak var bookTallyDescriptionLbl: UILabel!
     @IBOutlet weak var bookTallyAvatarIV: UIImageView!
@@ -20,11 +20,11 @@ class bookDetailTallyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

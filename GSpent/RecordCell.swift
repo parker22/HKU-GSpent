@@ -9,6 +9,6 @@
 import UIKit
 
 class RecordCell: UITableViewCell {
-
+    
     @IBOutlet weak var recordLabel: UILabel!
 }
