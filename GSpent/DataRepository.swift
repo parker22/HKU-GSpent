@@ -139,20 +139,20 @@ class PersonDatabase {
 
 class CategoryDatabase {
     let categoryData=[
-        Category(name: "交通", cid: 1, icon: UIImage(named: "transportation")!),
-        Category(name: "购物", cid: 2, icon: UIImage(named: "shopping")!),
-        Category(name: "娱乐", cid: 3, icon: UIImage(named: "movie")!),
-        Category(name: "健身", cid: 4, icon: UIImage(named: "fitness")!),
-        Category(name: "餐饮", cid: 5, icon: UIImage(named: "food")!),
-        Category(name: "酒店", cid: 6, icon: UIImage(named: "hotel")!),
-        Category(name: "房租", cid: 7, icon: UIImage(named: "rent")!),
-        Category(name: "宝贝", cid: 8, icon: UIImage(named: "baby")!),
-        Category(name: "宠物", cid: 9, icon: UIImage(named: "pet")!),
-        Category(name: "修车", cid: 10, icon: UIImage(named: "auto_repair")!),
-        Category(name: "教育", cid: 11, icon: UIImage(named: "education")!),
-        Category(name: "酒吧", cid: 12, icon: UIImage(named: "bar")!),
-        Category(name: "医疗", cid: 13, icon: UIImage(named: "doctor")!),
-        Category(name: "停车", cid: 14, icon: UIImage(named: "parking")!),
+        Category(name: "Tran", cid: 1, icon: UIImage(named: "transportation")!),
+        Category(name: "Shop", cid: 2, icon: UIImage(named: "shopping")!),
+        Category(name: "Film", cid: 3, icon: UIImage(named: "movie")!),
+        Category(name: "Fit",  cid: 4, icon: UIImage(named: "fitness")!),
+        Category(name: "Food", cid: 5, icon: UIImage(named: "food")!),
+        Category(name: "Inn",  cid: 6, icon: UIImage(named: "hotel")!),
+        Category(name: "Rent", cid: 7, icon: UIImage(named: "rent")!),
+        Category(name: "Baby", cid: 8, icon: UIImage(named: "baby")!),
+        Category(name: "Pet",  cid: 9, icon: UIImage(named: "pet")!),
+        Category(name: "Mend", cid: 10, icon: UIImage(named: "auto_repair")!),
+        Category(name: "Edu",  cid: 11, icon: UIImage(named: "education")!),
+        Category(name: "Pub",  cid: 12, icon: UIImage(named: "bar")!),
+        Category(name: "Drug", cid: 13, icon: UIImage(named: "doctor")!),
+        Category(name: "Park", cid: 14, icon: UIImage(named: "parking")!),
     ]
     func getCategory() -> [Category]{
         return self.categoryData

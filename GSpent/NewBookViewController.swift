@@ -16,11 +16,15 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     
     @IBOutlet weak var selectBookMemberBtn: UIButton!
 
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var selectParticipants: UIButton!
     @IBOutlet weak var newBookNameTF: UITextField!
     @IBOutlet weak var cancelAddBook: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Utility.addButtonStyle(selectParticipants, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
+        Utility.addButtonStyle(submitButton, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
         // Do any additional setup after loading the view.
     }
     
@@ -102,7 +106,7 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     
     
     func sendMemberToPreviousVC(selectedMembers: [PFObject]) {
-        selectBookMemberBtn.setTitle("已选择成员", forState: UIControlState.Normal)
+        selectBookMemberBtn.setTitle("Participants Selected", forState: UIControlState.Normal)
         print(selectedMembers)
         
 //        let query = PFQuery(className: "_User")

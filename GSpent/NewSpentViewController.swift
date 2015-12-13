@@ -16,6 +16,8 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     @IBOutlet weak var cancelAddSpent: UIBarButtonItem!
     @IBOutlet weak var spentCategoryCV: UICollectionView!
     @IBOutlet weak var spendAmount: UITextField!
+    @IBOutlet weak var addSpentConfirm: UIButton!
+    @IBOutlet weak var inputAmount: UIView!
     
     var categories = [Category]()
     var dataRepository = DataRepository()
@@ -42,6 +44,9 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
         categories = self.dataRepository.getCategory()
         brief  = ""
         amount = 0.00
+        Utility.addButtonStyle(addSpentConfirm, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
+        Utility.addButtonStyle(spentBookSelectionBtn, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
+        //Utility.addBorder(inputAmount, border: 2, radius: 5, color: Utility.colorWithHexString(colorPrimary[4]))
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,12 +68,15 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.spentCategoryCV.cellForItemAtIndexPath(indexPath)?.backgroundColor = UIColor.greenColor()
+        let cell = self.spentCategoryCV.cellForItemAtIndexPath(indexPath) as! spentCategoryCollectionViewCell
+        Utility.addBorder(cell.categoryIcon, border: 3, radius: 30, color: Utility.colorWithHexString(colorPrimary[4]))
         self.typeId = indexPath.item+1
+        
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath){
-        self.spentCategoryCV.cellForItemAtIndexPath(indexPath)?.backgroundColor = UIColor.whiteColor()
+        let cell = self.spentCategoryCV.cellForItemAtIndexPath(indexPath) as! spentCategoryCollectionViewCell
+        Utility.addBorder(cell.categoryIcon, border: 3, radius: 30, color: UIColor.clearColor())
     }
     
     @IBAction func addSpentDescription(sender: AnyObject) {

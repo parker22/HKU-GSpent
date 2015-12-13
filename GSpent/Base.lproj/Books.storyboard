@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="128" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TmC-GH-5yU" id="fyp-tj-kXc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="房昱炜生日pa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irj-iz-IVz">
@@ -143,11 +143,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2a0-EU-5MV" id="OVM-Gb-anp">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="39.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="修改成员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M9u-go-ZhW">
-                                                    <rect key="frame" x="15" y="0.0" width="120" height="39.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="120" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,7 +161,7 @@
                                         <rect key="frame" x="0.0" y="40" width="150" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I8P-1X-S7z" id="Ap7-yW-km2">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="分享账单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gct-UD-18i">
@@ -360,7 +360,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E64-ag-qak" id="f6m-WH-GAB">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="给老板买的300年燕京纯生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV0-yc-eDJ">
@@ -507,14 +507,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a43-UH-XWf">
-                                <rect key="frame" x="20" y="238" width="98" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cH8-SJ-bmh">
-                                <rect key="frame" x="236" y="391" width="129" height="30"/>
+                                <rect key="frame" x="20" y="391" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8yY-Qv-Xf5"/>
+                                </constraints>
                                 <state key="normal" title="Select Participants"/>
                                 <connections>
                                     <action selector="chooseMembers:" destination="q1b-Nd-GbE" eventType="touchUpInside" id="NbD-66-Lil"/>
@@ -522,25 +519,36 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cse-Ir-My5">
-                                <rect key="frame" x="276" y="429" width="49" height="30"/>
+                                <rect key="frame" x="20" y="439" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jnE-r1-89j"/>
+                                </constraints>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitNewBook:" destination="q1b-Nd-GbE" eventType="touchUpInside" id="iNz-M5-XQe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a43-UH-XWf">
+                                <rect key="frame" x="20" y="238" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cse-Ir-My5" firstAttribute="bottom" secondItem="7Tz-Tm-M2X" secondAttribute="top" constant="-92" id="3qV-Zs-OeJ"/>
+                            <constraint firstItem="cse-Ir-My5" firstAttribute="leading" secondItem="cH8-SJ-bmh" secondAttribute="leading" id="4IH-ak-LyY"/>
                             <constraint firstItem="MgT-Lz-cUb" firstAttribute="top" secondItem="eIJ-h2-xbP" secondAttribute="bottom" constant="170" id="Cea-11-j8j"/>
                             <constraint firstItem="a43-UH-XWf" firstAttribute="top" secondItem="eIJ-h2-xbP" secondAttribute="bottom" constant="174" id="GCj-a9-wNi"/>
-                            <constraint firstItem="MgT-Lz-cUb" firstAttribute="trailing" secondItem="kHO-zj-Arf" secondAttribute="trailingMargin" id="Hke-5K-Rng"/>
-                            <constraint firstItem="cse-Ir-My5" firstAttribute="centerX" secondItem="kHO-zj-Arf" secondAttribute="centerX" id="Y1M-ry-CHm"/>
+                            <constraint firstItem="cse-Ir-My5" firstAttribute="top" secondItem="cH8-SJ-bmh" secondAttribute="bottom" constant="8" symbolic="YES" id="Hrz-Dt-GaE"/>
+                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="trailing" secondItem="cse-Ir-My5" secondAttribute="trailing" id="LEk-wG-t6X"/>
+                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="leading" secondItem="a43-UH-XWf" secondAttribute="leading" id="N98-Zd-K2L"/>
+                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="trailing" secondItem="kHO-zj-Arf" secondAttribute="trailingMargin" id="Vbe-q1-iCL"/>
                             <constraint firstItem="MgT-Lz-cUb" firstAttribute="centerY" secondItem="a43-UH-XWf" secondAttribute="centerY" id="YRd-1W-J52"/>
+                            <constraint firstItem="7Tz-Tm-M2X" firstAttribute="top" secondItem="cse-Ir-My5" secondAttribute="bottom" constant="72" id="bet-pO-V6k"/>
                             <constraint firstItem="MgT-Lz-cUb" firstAttribute="leading" secondItem="a43-UH-XWf" secondAttribute="trailing" constant="8" symbolic="YES" id="hYL-RZ-25J"/>
-                            <constraint firstItem="cse-Ir-My5" firstAttribute="top" secondItem="cH8-SJ-bmh" secondAttribute="bottom" constant="8" symbolic="YES" id="lB9-CE-Rl9"/>
-                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="centerX" secondItem="cse-Ir-My5" secondAttribute="centerX" id="nca-Cn-Rc7"/>
-                            <constraint firstItem="a43-UH-XWf" firstAttribute="leading" secondItem="kHO-zj-Arf" secondAttribute="leadingMargin" id="teO-3u-4f5"/>
+                            <constraint firstItem="cse-Ir-My5" firstAttribute="leading" secondItem="kHO-zj-Arf" secondAttribute="leadingMargin" id="nJs-qb-lRb"/>
+                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="trailing" secondItem="MgT-Lz-cUb" secondAttribute="trailing" id="zP6-Tz-dc6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Book" id="bCv-PZ-Mti"/>
@@ -548,6 +556,8 @@
                     <connections>
                         <outlet property="newBookNameTF" destination="MgT-Lz-cUb" id="kdr-qF-aZw"/>
                         <outlet property="selectBookMemberBtn" destination="cH8-SJ-bmh" id="KbC-vJ-OH9"/>
+                        <outlet property="selectParticipants" destination="cH8-SJ-bmh" id="0gg-Ua-mAC"/>
+                        <outlet property="submitButton" destination="cse-Ir-My5" id="ldb-UQ-yhc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFW-6W-Kjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -567,7 +577,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9qo-Zj-5FB" id="dcA-cC-SI8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="94"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xyb-0q-hdw">
@@ -608,6 +618,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Participants" id="bek-gx-AHJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="sWW-Hl-Df0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="submitBookMember:" destination="0tg-r6-pX6" id="ME4-jo-F8B"/>
                             </connections>
@@ -617,6 +628,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asU-BI-OxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2064" y="-364"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="STF-z4-hSc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ESJ-4V-7lh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MJN-IB-eDh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="q1b-Nd-GbE" kind="relationship" relationship="rootViewController" id="WOM-MG-k7k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tJS-ql-eJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="766" y="-364"/>
         </scene>
         <!--Settlement-->
         <scene sceneID="HF5-9d-0XU">
@@ -638,7 +667,7 @@
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eCb-fV-isR" id="B8K-2d-SQ0">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfl-Ji-KJy">
@@ -665,7 +694,7 @@
                                         <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ahl-Sf-MUn" id="FFQ-rz-edm">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLf-dg-9na">
@@ -701,11 +730,13 @@
                     <navigationItem key="navigationItem" title="Settlement" id="JdU-ev-Ol0">
                         <barButtonItem key="backBarButtonItem" title="Book Detail" id="yj4-ug-lOZ"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cMD-R5-XWV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="back:" destination="orQ-wt-42B" id="g4w-Ml-fER"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="PI0-WU-96e">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="share:" destination="orQ-wt-42B" id="OZ9-OI-Gc6"/>
                             </connections>
@@ -717,7 +748,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0CV-gJ-D4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2745" y="-314"/>
+            <point key="canvasLocation" x="2721" y="-364"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bc9-hr-0dZ">
@@ -749,4 +780,7 @@
         <image name="tabbar_books" width="23" height="25"/>
         <image name="tabbar_books_selected" width="24" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="31m-a7-AOL"/>
+    </inferredMetricsTieBreakers>
 </document>
