@@ -53,7 +53,7 @@ class TabViewController: RaisedTabBarController {
 //        if (ifHide){ extraButtonSetShow() }
 //        else       { extraButtonSetHide() }
         performSegueWithIdentifier("showNewSpentSegue", sender: self)
-        print("Raised button tapped")
+//        print("Raised button tapped")
     }
 
 //    func addBook (sender: UIButton!){

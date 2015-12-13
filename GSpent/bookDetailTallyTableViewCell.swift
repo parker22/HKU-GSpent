@@ -10,9 +10,9 @@ import UIKit
 
 class bookDetailTallyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var bookTallyAmountLbl: UILabel!
     @IBOutlet weak var bookTallyDescriptionLbl: UILabel!
     @IBOutlet weak var bookTallyAvatarIV: UIImageView!
-    @IBOutlet weak var bookTallyAmoutLbl: NSLayoutConstraint!
     @IBOutlet weak var bookTallyDatetimeLbl: UILabel!
     
     
