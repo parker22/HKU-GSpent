@@ -504,14 +504,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a43-UH-XWf">
-                                <rect key="frame" x="20" y="238" width="98" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cH8-SJ-bmh">
-                                <rect key="frame" x="236" y="391" width="129" height="30"/>
+                                <rect key="frame" x="20" y="391" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8yY-Qv-Xf5"/>
+                                </constraints>
                                 <state key="normal" title="Select Participants"/>
                                 <connections>
                                     <action selector="chooseMembers:" destination="q1b-Nd-GbE" eventType="touchUpInside" id="NbD-66-Lil"/>
@@ -519,25 +516,36 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cse-Ir-My5">
-                                <rect key="frame" x="276" y="429" width="49" height="30"/>
+                                <rect key="frame" x="20" y="439" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jnE-r1-89j"/>
+                                </constraints>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitNewBook:" destination="q1b-Nd-GbE" eventType="touchUpInside" id="iNz-M5-XQe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a43-UH-XWf">
+                                <rect key="frame" x="20" y="238" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cse-Ir-My5" firstAttribute="bottom" secondItem="7Tz-Tm-M2X" secondAttribute="top" constant="-92" id="3qV-Zs-OeJ"/>
+                            <constraint firstItem="cse-Ir-My5" firstAttribute="leading" secondItem="cH8-SJ-bmh" secondAttribute="leading" id="4IH-ak-LyY"/>
                             <constraint firstItem="MgT-Lz-cUb" firstAttribute="top" secondItem="eIJ-h2-xbP" secondAttribute="bottom" constant="170" id="Cea-11-j8j"/>
                             <constraint firstItem="a43-UH-XWf" firstAttribute="top" secondItem="eIJ-h2-xbP" secondAttribute="bottom" constant="174" id="GCj-a9-wNi"/>
-                            <constraint firstItem="MgT-Lz-cUb" firstAttribute="trailing" secondItem="kHO-zj-Arf" secondAttribute="trailingMargin" id="Hke-5K-Rng"/>
-                            <constraint firstItem="cse-Ir-My5" firstAttribute="centerX" secondItem="kHO-zj-Arf" secondAttribute="centerX" id="Y1M-ry-CHm"/>
+                            <constraint firstItem="cse-Ir-My5" firstAttribute="top" secondItem="cH8-SJ-bmh" secondAttribute="bottom" constant="8" symbolic="YES" id="Hrz-Dt-GaE"/>
+                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="trailing" secondItem="cse-Ir-My5" secondAttribute="trailing" id="LEk-wG-t6X"/>
+                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="leading" secondItem="a43-UH-XWf" secondAttribute="leading" id="N98-Zd-K2L"/>
+                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="trailing" secondItem="kHO-zj-Arf" secondAttribute="trailingMargin" id="Vbe-q1-iCL"/>
                             <constraint firstItem="MgT-Lz-cUb" firstAttribute="centerY" secondItem="a43-UH-XWf" secondAttribute="centerY" id="YRd-1W-J52"/>
+                            <constraint firstItem="7Tz-Tm-M2X" firstAttribute="top" secondItem="cse-Ir-My5" secondAttribute="bottom" constant="72" id="bet-pO-V6k"/>
                             <constraint firstItem="MgT-Lz-cUb" firstAttribute="leading" secondItem="a43-UH-XWf" secondAttribute="trailing" constant="8" symbolic="YES" id="hYL-RZ-25J"/>
-                            <constraint firstItem="cse-Ir-My5" firstAttribute="top" secondItem="cH8-SJ-bmh" secondAttribute="bottom" constant="8" symbolic="YES" id="lB9-CE-Rl9"/>
-                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="centerX" secondItem="cse-Ir-My5" secondAttribute="centerX" id="nca-Cn-Rc7"/>
-                            <constraint firstItem="a43-UH-XWf" firstAttribute="leading" secondItem="kHO-zj-Arf" secondAttribute="leadingMargin" id="teO-3u-4f5"/>
+                            <constraint firstItem="cse-Ir-My5" firstAttribute="leading" secondItem="kHO-zj-Arf" secondAttribute="leadingMargin" id="nJs-qb-lRb"/>
+                            <constraint firstItem="cH8-SJ-bmh" firstAttribute="trailing" secondItem="MgT-Lz-cUb" secondAttribute="trailing" id="zP6-Tz-dc6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Book" id="bCv-PZ-Mti"/>
@@ -545,11 +553,13 @@
                     <connections>
                         <outlet property="newBookNameTF" destination="MgT-Lz-cUb" id="kdr-qF-aZw"/>
                         <outlet property="selectBookMemberBtn" destination="cH8-SJ-bmh" id="KbC-vJ-OH9"/>
+                        <outlet property="selectParticipants" destination="cH8-SJ-bmh" id="0gg-Ua-mAC"/>
+                        <outlet property="submitButton" destination="cse-Ir-My5" id="ldb-UQ-yhc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFW-6W-Kjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1358" y="6"/>
+            <point key="canvasLocation" x="1422" y="-364"/>
         </scene>
         <!--Select Participants-->
         <scene sceneID="Apb-EM-z8G">
@@ -735,7 +745,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0CV-gJ-D4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2745" y="-314"/>
+            <point key="canvasLocation" x="2721" y="-364"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bc9-hr-0dZ">
