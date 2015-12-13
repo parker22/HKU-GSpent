@@ -13,7 +13,7 @@
                 <tabBarController id="49e-Tb-3d3" customClass="TabViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg" shadowImage="F35CF1CF-8A01-4CA5-91B9-82DB4FAF6419" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" shadowImage="D49FFAE4-C295-45D1-8156-240EE9BDB123" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -147,12 +147,12 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="camera" id="m1I-BQ-KSn">
+                            <barButtonItem image="navbar_spent_camera" id="m1I-BQ-KSn">
                                 <connections>
                                     <segue destination="DvQ-FZ-1NX" kind="show" identifier="spentPictureAttachIdentifier" id="48x-xV-RPa"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="datetime" id="DfB-yf-3Xh">
+                            <barButtonItem image="navbar_spent_datetime" id="DfB-yf-3Xh">
                                 <connections>
                                     <action selector="addSpentDatetime:" destination="NyR-zA-5Rx" id="LSh-oC-KLE"/>
                                     <segue destination="S6K-tI-Mgk" kind="popoverPresentation" identifier="spentDatetimePopoverIdentifier" popoverAnchorBarButtonItem="DfB-yf-3Xh" id="xdQ-l2-kaJ">
@@ -160,7 +160,7 @@
                                     </segue>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="compose" id="OaH-cv-Tez">
+                            <barButtonItem image="navbar_spent_description" id="OaH-cv-Tez">
                                 <connections>
                                     <action selector="addSpentDescription:" destination="NyR-zA-5Rx" id="eAY-VP-NLq"/>
                                 </connections>
@@ -194,7 +194,7 @@
                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wh7-RD-yCj" id="v1H-87-BeI">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -273,7 +273,7 @@
         <scene sceneID="sg1-TH-Kju">
             <objects>
                 <viewControllerPlaceholder storyboardName="PersonalTally" id="s5u-Io-2MI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="an9-BB-XI6"/>
+                    <tabBarItem key="tabBarItem" title="Tally" image="tabbar_tallys" id="an9-BB-XI6"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUc-YM-57r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -288,7 +288,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yOZ-IQ-MwD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.97254901960784312" green="0.58431372549019611" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.49803921568627452" green="0.78823529411764703" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -365,7 +366,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="F35CF1CF-8A01-4CA5-91B9-82DB4FAF6419" width="375" height="6">
+        <image name="D49FFAE4-C295-45D1-8156-240EE9BDB123" width="375" height="6">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -566,9 +567,11 @@ AMIA2QDbAN0spyysLLcswCzTLNcs4izrLPAs+Cz7LQAtDy0TLRotIi0vLTQtNi04LT0tRS1ILU0tVS1Y
 LWotbS1yAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAALXQ
 </mutableData>
         </image>
-        <image name="datetime" width="22" height="22"/>
+        <image name="navbar_spent_camera" width="24" height="21"/>
+        <image name="navbar_spent_datetime" width="23" height="22"/>
+        <image name="navbar_spent_description" width="22" height="22"/>
         <image name="tab_books" width="32" height="32"/>
         <image name="tab_books_seleceted" width="32" height="32"/>
-        <image name="tabbar_bg" width="375" height="49"/>
+        <image name="tabbar_tallys" width="26" height="25"/>
     </resources>
 </document>
