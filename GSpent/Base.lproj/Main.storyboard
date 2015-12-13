@@ -185,13 +185,13 @@
         <scene sceneID="v4p-0x-Tor">
             <objects>
                 <tableViewController id="SDA-vS-U6T" customClass="SpentBookSelectionTableViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JZJ-Wz-EDr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="JZJ-Wz-EDr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpentBookSelectionCellIdentifier" id="wh7-RD-yCj">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookINPTableViewCell" rowHeight="60" id="wh7-RD-yCj" customClass="BookINPTableViewCell" customModule="GSpent" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wh7-RD-yCj" id="v1H-87-BeI">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -206,6 +206,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="选择账本" id="zxn-9c-kEn"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="addSpentSelectBookList" destination="JZJ-Wz-EDr" id="x0i-cv-EQU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAb-4c-afo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

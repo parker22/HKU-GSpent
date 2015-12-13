@@ -221,6 +221,10 @@ class BookDatabase {
                     PersonalTallyViewController.books = object!["u_books"] as! [PFObject]
                     tableView.reloadData()
                     break
+                case "AddSpent" :
+                    SpentBookSelectionTableViewController.books = object!["u_books"] as! [PFObject]
+                    tableView.reloadData()
+                    break
                 default: break;
                 }
             }

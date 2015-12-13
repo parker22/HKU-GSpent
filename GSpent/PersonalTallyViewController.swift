@@ -69,7 +69,6 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             let cellIdentifier = "bookINPTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookINPTableViewCell
             let book = PersonalTallyViewController.books[indexPath.row] as PFObject
-//            cell.bookIcon.image =
             cell.bookName.text  = book["b_name"]! as? String
             var pPart_Str = [String]()
             print(book.objectId)
