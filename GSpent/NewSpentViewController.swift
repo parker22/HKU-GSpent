@@ -63,12 +63,14 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.spentCategoryCV.cellForItemAtIndexPath(indexPath)?.backgroundColor = UIColor.greenColor()
+        let cell = self.spentCategoryCV.cellForItemAtIndexPath(indexPath) as! spentCategoryCollectionViewCell
+        Utility.addBorder(cell.categoryIcon, border: 3, radius: 30, color: UIColor.orangeColor())
         self.typeId = indexPath.item+1
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath){
-        self.spentCategoryCV.cellForItemAtIndexPath(indexPath)?.backgroundColor = UIColor.whiteColor()
+        let cell = self.spentCategoryCV.cellForItemAtIndexPath(indexPath) as! spentCategoryCollectionViewCell
+        Utility.addBorder(cell.categoryIcon, border: 3, radius: 30, color: UIColor.clearColor())
     }
     
     @IBAction func addSpentDescription(sender: AnyObject) {
