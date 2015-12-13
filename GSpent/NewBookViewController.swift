@@ -12,7 +12,7 @@ import Parse
 class NewBookViewController: UIViewController,sendBookMemberBack {
     
     //var members:[Int]=[]
-    var participantsObjects:[PFObject]=[]
+    var participantsObjects = [PFObject]()
     
     @IBOutlet weak var selectBookMemberBtn: UIButton!
 
@@ -61,6 +61,7 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
             return
         }
         newBook["b_name"]=self.newBookNameTF.text
+        self.participantsObjects.append(Utility.currentUser)
         newBook["b_participant"] = participantsObjects
         newBook["b_id"]=1000
         

@@ -91,6 +91,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imgBookAvatar" destination="wxm-o6-u6j" id="Xo3-Qn-wtd"/>
+                                    <outlet property="lblBookAmount" destination="hsS-WB-m4t" id="Jo7-mI-DHN"/>
                                     <outlet property="lblBookLastUp" destination="WcA-EE-JLS" id="UMR-xs-qSe"/>
                                     <outlet property="lblBookMates" destination="6Gl-2P-wK1" id="1Oc-ZB-eXM"/>
                                     <outlet property="lblBookName" destination="irj-iz-IVz" id="Cwr-4m-LZX"/>
@@ -435,6 +436,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nZx-ob-YOP">
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Wb6-bd-DLb">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="DOG-Ce-iDd" kind="popoverPresentation" identifier="bookPopoverIdentifier" popoverAnchorBarButtonItem="Wb6-bd-DLb" id="kkF-Z3-iqX">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -472,6 +474,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y0B-gK-Rtb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.30196078431372547" green="0.83137254901960778" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -485,7 +488,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zmh-BP-RoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766" y="-1077"/>
+            <point key="canvasLocation" x="668" y="-1077"/>
         </scene>
         <!--Add Book-->
         <scene sceneID="tO0-Sc-zVO">
@@ -502,7 +505,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MgT-Lz-cUb">
                                 <rect key="frame" x="126" y="234" width="454" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a43-UH-XWf">
                                 <rect key="frame" x="20" y="238" width="98" height="21"/>
@@ -549,7 +552,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFW-6W-Kjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1358" y="6"/>
+            <point key="canvasLocation" x="1386" y="-268"/>
         </scene>
         <!--Select Participants-->
         <scene sceneID="Apb-EM-z8G">
@@ -725,7 +728,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WUE-46-WlN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.30196078430000001" green="0.83137254900000002" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

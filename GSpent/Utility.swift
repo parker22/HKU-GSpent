@@ -86,7 +86,7 @@ class Utility{
     
     
     
-    func colorWithHexString (hex:String) -> UIColor {
+    class func colorWithHexString (hex:String) -> UIColor {
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
         
         if (cString.hasPrefix("#")) {

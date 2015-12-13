@@ -16,6 +16,8 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
     @IBOutlet var bookListTV: UITableView!
     var books = [Book]()
     static var bookData = [PFObject]()
+    static var relationData = [PFObject]()
+    
     var dataRepository = DataRepository()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +71,11 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
         let cell = tableView.dequeueReusableCellWithIdentifier("bookListTblViewCell", forIndexPath: indexPath) as! bookTableViewCell
 //        let book = books[indexPath.row]
         let book = BookTableViewController.bookData[indexPath.row]
-        
+        for relation in BookTableViewController.relationData{
+            if (relation["b_id"] as? String == book.objectId){
+                cell.lblBookAmount.text = relation["amount_due"].doubleValue.description
+            }
+        }
 //        let query = PFQuery(className:"TestObject")
 //        query.getObjectInBackgroundWithId("m7lhJgzeop") {
 //            (testObject: PFObject?, error: NSError?) -> Void in
