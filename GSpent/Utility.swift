@@ -84,9 +84,14 @@ class Utility{
         view.layer.masksToBounds = true
     }
     
+    class func addButtonStyle(view: UIButton, border: CGFloat, radius: CGFloat, textColor: UIColor, borderColor: UIColor){
+        Utility.addBorder(view, border: border, radius: radius, color: borderColor)
+        view.setTitleColor(textColor, forState: UIControlState.Normal)
+        view.titleLabel!.font      = UIFont.boldSystemFontOfSize(16.0)
+    }
     
     
-    func colorWithHexString (hex:String) -> UIColor {
+    class func colorWithHexString (hex:String) -> UIColor {
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
         
         if (cString.hasPrefix("#")) {
