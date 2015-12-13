@@ -36,46 +36,35 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         spentCategoryCV.delegate = self
         spentCategoryCV.dataSource = self
         spentCategoryCV.allowsSelection = true
         categories = self.dataRepository.getCategory()
-        brief = ""
+        brief  = ""
         amount = 0.00
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        super.didReceiveMemoryWarning()}
     
     @IBAction func cancelAddSpent(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil);
-        
-    }
+        self.dismissViewControllerAnimated(true, completion: nil)}
     
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
-    }
+        return categories.count}
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = spentCategoryCV.dequeueReusableCellWithReuseIdentifier(spentCategoryCellIdentifier, forIndexPath: indexPath) as! spentCategoryCollectionViewCell
         cell.categoryIcon.image = categories[indexPath.row].icon
-        cell.categoryName.text = categories[indexPath.row].name
-        
+        cell.categoryName.text  = categories[indexPath.row].name
         return cell
     }
     
-    
-    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.spentCategoryCV.cellForItemAtIndexPath(indexPath)?.backgroundColor = UIColor.greenColor()
-        typeId = indexPath.item+1
+        self.typeId = indexPath.item+1
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath){
@@ -112,7 +101,7 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     @IBAction func submitNewSpent(sender: AnyObject) {
-        if(bookId == nil) {
+        if(book == nil) {
             let alert = UIAlertController(title: "Choose a book", message: "Please choose a book before submit your spent.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -134,11 +123,6 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
         let userQuery = PFQuery(className: "_User")
         userQuery.whereKey("u_id", equalTo: userId)
         do { user = try userQuery.findObjects()[0] }
-        catch {print("Master indicated me to do nothing.")}
-        
-        let bookQuery = PFQuery(className: "Book")
-        bookQuery.whereKey("b_id", equalTo: bookId)
-        do { book = try bookQuery.findObjects()[0] }
         catch {print("Master indicated me to do nothing.")}
         
         dataRepository.addSpent(brief, user: user, u_id: userId, book: book, b_id: bookId, t_pic: picture, t_time: time, t_type: typeId, t_amount: amount)
@@ -180,10 +164,10 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
         }
     }
     
-    func sendBookToPreviousVC(selectedBookID: Int) {
-        print(selectedBookID)
-        self.bookId = selectedBookID
-        spentBookSelectionBtn.setTitle("已选择账本: "+String(selectedBookID), forState: UIControlState.Normal)
+    func sendBookToPreviousVC(selectedBook: PFObject) {
+        self.book = selectedBook
+        self.bookId = self.book["b_id"].integerValue
+        spentBookSelectionBtn.setTitle("已选择账本: "+String(self.bookId), forState: UIControlState.Normal)
     }
     
     func sendDateToPreviousVC(date: NSDate){

@@ -11,17 +11,15 @@ import Parse
 
 protocol sendSpentBookBack
 {
-    func sendBookToPreviousVC(selectedBookID: Int)
+    func sendBookToPreviousVC(selectedBook: PFObject)
     
 }
 
 class SpentBookSelectionTableViewController: UITableViewController {
     var mDelegate:sendSpentBookBack?
-    var selectedBookId :Int?
+    var selectedBook :PFObject?
     @IBOutlet var addSpentSelectBookList: UITableView!
     
-    
-    let b_ids = [Int]([1,3,5,6,9])
     static var books  = [PFObject]()
     let dataRepository = DataRepository()
     
@@ -70,12 +68,7 @@ class SpentBookSelectionTableViewController: UITableViewController {
         let book = SpentBookSelectionTableViewController.books[indexPath.row] as PFObject
         cell.bookName.text  = book["b_name"]! as? String
         var pPart_Str = [String]()
-        print(book.objectId)
-        print(book["b_participant"])
-        for pPart in book["b_participant"] as! [PFObject]{
-            print(pPart["username"])
-            pPart_Str.append(pPart["username"] as! String)
-        }
+        for pPart in book["b_participant"] as! [PFObject]{pPart_Str.append(pPart["username"] as! String)}
         
         cell.bookPart.text = Utility.getStrMates(pPart_Str)
 
@@ -95,14 +88,14 @@ class SpentBookSelectionTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.selectedBookId = b_ids[indexPath.row]
-        sendBookToPreviousVC(selectedBookId!)
+        self.selectedBook = SpentBookSelectionTableViewController.books[indexPath.row]
+        sendBookToPreviousVC(selectedBook!)
         
         navigationController?.popViewControllerAnimated(true)
     }
     
-    func sendBookToPreviousVC(bookId: Int){
-        self.mDelegate?.sendBookToPreviousVC(bookId)
+    func sendBookToPreviousVC(book: PFObject){
+        self.mDelegate?.sendBookToPreviousVC(book)
     }
     
     /*
