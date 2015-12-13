@@ -72,7 +72,7 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     @IBAction func addSpentDescription(sender: AnyObject) {
-        let alertController = UIAlertController(title: "钱是怎么花的?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Spent brief", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addTextFieldWithConfigurationHandler {
             (textField: UITextField!) -> Void in
@@ -80,17 +80,17 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
             textField.autoresizingMask = UIViewAutoresizing.FlexibleHeight
             textField.font = UIFont.systemFontOfSize(20)
             textField.text = self.brief
-            textField.placeholder = "怎么花的..."
+            textField.placeholder = "Spent item1, item2 ..."
         }
         
-        let okAction = UIAlertAction(title: "写好了", style: UIAlertActionStyle.Default) {
+        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
             (action: UIAlertAction!) -> Void in
             let textBox = (alertController.textFields?.first)! as UITextField
             print(textBox.text)
             self.brief = textBox.text
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         self.presentViewController(alertController, animated: true, completion:{})
@@ -167,7 +167,7 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     func sendBookToPreviousVC(selectedBook: PFObject) {
         self.book = selectedBook
         self.bookId = self.book["b_id"].integerValue
-        spentBookSelectionBtn.setTitle("已选择账本: "+String(self.bookId), forState: UIControlState.Normal)
+        spentBookSelectionBtn.setTitle("Target Book: "+String(self.book["b_name"]), forState: UIControlState.Normal)
     }
     
     func sendDateToPreviousVC(date: NSDate){
