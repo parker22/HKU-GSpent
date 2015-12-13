@@ -25,15 +25,15 @@ class DataRepository {
     }
     
     // used in Tally: to get book list by user ID
-    func getBooks(u_id: Int, tableView: UITableView, activity: String){
-        self.bookDatabase.getUserBookList(u_id, tableView: tableView, activity: activity)}
+    func getBooks(user: PFUser, tableView: UITableView, activity: String){
+        self.bookDatabase.getUserBookList(user, tableView: tableView, activity: activity)}
     
     // used in Tally: parse u_id list to participent description string
     func getPersons() -> [Person]{return self.personDatabase.getPersons()}
     
     // used in Tally: to get tally by user ID and book ID
-    func getBookTally(u_id: Int, b_id: Int, tableView: UITableView, activity: String){
-        self.tallyDatabase.getBookTally(u_id, b_id: b_id, tableView: tableView, activity: activity)}
+    func getBookTally(user: PFUser, b_id: Int, tableView: UITableView, activity: String){
+        self.tallyDatabase.getBookTally(user, b_id: b_id, tableView: tableView, activity: activity)}
     
     // used in Tally: to convert participant string
     func getPartStr(raw_s: String) -> String { return self.personDatabase.getPartStr(raw_s) }
@@ -188,9 +188,10 @@ class BookDatabase {
     ]
     let bookIDs = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     
-    func getUserBookList(u_id: Int, tableView: UITableView, activity: String){
+    func getUserBookList(user: PFUser, tableView: UITableView, activity: String){
         let userQuery = PFQuery(className: "_User")
-        userQuery.whereKey("u_id", equalTo: u_id)
+        print(user.objectId)
+        userQuery.whereKey("objectId", equalTo: user.objectId!)
         userQuery.includeKey("u_books")
         userQuery.includeKey("u_books.b_participant")
         
@@ -493,10 +494,10 @@ class TallyDatabase {
     //        Tally(bid: 9, uid: 22, tid: 14, time: "2015-12-04 16:43", brief: "Novel",                      amount: rAmount())
     //    ]
     
-    func getBookTally(u_id: Int, b_id: Int, tableView: UITableView, activity: String){
+    func getBookTally(user: PFUser, b_id: Int, tableView: UITableView, activity: String){
         var tallys = [Tally]()
         let tallyQuery = PFQuery(className: "Tally")
-        if u_id != -1 {tallyQuery.whereKey("u_id", equalTo: u_id)}
+        if user["u_id"].integerValue != -1 {tallyQuery.whereKey("user", equalTo: user)}
         if b_id != -1 {tallyQuery.whereKey("b_id", equalTo: b_id)}
         
         tallyQuery.findObjectsInBackgroundWithBlock {
