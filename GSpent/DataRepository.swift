@@ -252,8 +252,17 @@ class BookDatabase {
             if error == nil {
                 switch(activity){
                 case "BookList":
-                    BookTableViewController.bookData = objects!
-                    tableView.reloadData()
+                    let relationQuery = PFQuery(className: "User_Book_Relation")
+                    relationQuery.whereKey("u_id", equalTo: user.objectId!)
+                    relationQuery.findObjectsInBackgroundWithBlock({
+                        (relations: [PFObject]?, error: NSError?) -> Void in
+                        if error == nil {
+                            BookTableViewController.bookData = objects!
+                            BookTableViewController.relationData = relations!
+                            tableView.reloadData()
+                        }
+                        
+                    })
                     break
                 default: break;}
             } else { print("Error: \(error!) \(error!.userInfo)") }

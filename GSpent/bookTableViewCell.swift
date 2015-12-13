@@ -16,6 +16,7 @@ class bookTableViewCell: UITableViewCell {
     @IBOutlet var lblBookMates: UILabel!
     @IBOutlet var lblBookName: UILabel!
     
+    @IBOutlet weak var lblBookAmount: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
