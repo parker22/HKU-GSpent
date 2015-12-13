@@ -31,6 +31,12 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        let selectedIndex = self.tableView.indexPathForSelectedRow
+        if (selectedIndex != nil) {
+        self.bookListTV.deselectRowAtIndexPath(selectedIndex!, animated: animated)
+        }
+    }
     
      func initData(){
         if Utility.hasCurrentUser{

@@ -102,6 +102,8 @@ class BookMemberSelectionTableViewController: UITableViewController {
                     if let imageData = imageData {
                         let image = UIImage(data: imageData)
                         cell.MemberAvatar.image = image
+                        cell.MemberAvatar.layer.cornerRadius = cell.MemberAvatar.frame.size.width/3
+                        cell.MemberAvatar.layer.masksToBounds = true
                     }
                 }
             }

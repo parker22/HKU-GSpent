@@ -160,12 +160,12 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="camera" id="m1I-BQ-KSn">
+                            <barButtonItem image="navbar_spent_camera" id="m1I-BQ-KSn">
                                 <connections>
                                     <segue destination="DvQ-FZ-1NX" kind="show" identifier="spentPictureAttachIdentifier" id="48x-xV-RPa"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="datetime" id="DfB-yf-3Xh">
+                            <barButtonItem image="navbar_spent_datetime" id="DfB-yf-3Xh">
                                 <connections>
                                     <action selector="addSpentDatetime:" destination="NyR-zA-5Rx" id="LSh-oC-KLE"/>
                                     <segue destination="S6K-tI-Mgk" kind="popoverPresentation" identifier="spentDatetimePopoverIdentifier" popoverAnchorBarButtonItem="DfB-yf-3Xh" id="xdQ-l2-kaJ">
@@ -173,7 +173,7 @@
                                     </segue>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="compose" id="OaH-cv-Tez">
+                            <barButtonItem image="navbar_spent_description" id="OaH-cv-Tez">
                                 <connections>
                                     <action selector="addSpentDescription:" destination="NyR-zA-5Rx" id="eAY-VP-NLq"/>
                                 </connections>
@@ -295,7 +295,7 @@
         <scene sceneID="sg1-TH-Kju">
             <objects>
                 <viewControllerPlaceholder storyboardName="PersonalTally" id="s5u-Io-2MI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="an9-BB-XI6"/>
+                    <tabBarItem key="tabBarItem" title="Tally" image="tabbar_tallys" id="an9-BB-XI6"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUc-YM-57r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -609,9 +609,11 @@ AMIA2QDbAN0spyysLLcswCzTLNcs4izrLPAs+Cz7LQAtDy0TLRotIi0vLTQtNi04LT0tRS1ILU0tVS1Y
 LWotbS1yAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAALXQ
 </mutableData>
         </image>
-        <image name="datetime" width="22" height="22"/>
+        <image name="navbar_spent_camera" width="24" height="21"/>
+        <image name="navbar_spent_datetime" width="23" height="22"/>
+        <image name="navbar_spent_description" width="22" height="22"/>
         <image name="tab_books" width="32" height="32"/>
         <image name="tab_books_seleceted" width="32" height="32"/>
-        <image name="tabbar_bg" width="375" height="49"/>
+        <image name="tabbar_tallys" width="26" height="25"/>
     </resources>
 </document>
