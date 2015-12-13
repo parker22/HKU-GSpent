@@ -68,7 +68,8 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 print("uploaded successfully");
-                self.dismissViewControllerAnimated(true, completion: nil);// The object has been saved.
+                self.navigationController?.popViewControllerAnimated(true)
+                self.dismissViewControllerAnimated(true, completion: nil)// The object has been saved.
             } else {
                 // There was a problem, check error.description
             }
