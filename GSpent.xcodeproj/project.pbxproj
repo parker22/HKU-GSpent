@@ -10,11 +10,11 @@
 		1A061C621C0D49AE00AE4E2C /* BookINPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A061C601C0D49AE00AE4E2C /* BookINPTableViewCell.swift */; };
 		1A061C631C0D49AE00AE4E2C /* BookINPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A061C611C0D49AE00AE4E2C /* BookINPTableViewCell.xib */; };
 		1A26AAD01C0F2CCC00329C3A /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A26AACF1C0F2CCC00329C3A /* NewBookViewController.swift */; };
-		1A7846231C0D844A00A6B416 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7846221C0D844A00A6B416 /* Assets.xcassets */; };
 		1A7846261C0D8E6400A6B416 /* BookTallyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846241C0D8E6400A6B416 /* BookTallyTableViewCell.swift */; };
 		1A7846271C0D8E6400A6B416 /* BookTallyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */; };
 		1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7846301C0E934A00A6B416 /* DataRepository.swift */; };
 		1A8709CC1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8709CB1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift */; };
+		1A8709CE1C1D5B2A00DC82A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8709CD1C1D5B2A00DC82A4 /* Assets.xcassets */; };
 		291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291153E21C102ED800937D03 /* SettlementViewController.swift */; };
 		291633C81C1C94EA00B6F330 /* SelectionSingleMemberTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291633C71C1C94EA00B6F330 /* SelectionSingleMemberTVCell.swift */; };
 		29617F091C19986500709171 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29617F081C19986500709171 /* NameCell.swift */; };
@@ -86,11 +86,11 @@
 		1A061C601C0D49AE00AE4E2C /* BookINPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookINPTableViewCell.swift; sourceTree = "<group>"; };
 		1A061C611C0D49AE00AE4E2C /* BookINPTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookINPTableViewCell.xib; sourceTree = "<group>"; };
 		1A26AACF1C0F2CCC00329C3A /* NewBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
-		1A7846221C0D844A00A6B416 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A7846241C0D8E6400A6B416 /* BookTallyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTallyTableViewCell.swift; sourceTree = "<group>"; };
 		1A7846251C0D8E6400A6B416 /* BookTallyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTallyTableViewCell.xib; sourceTree = "<group>"; };
 		1A7846301C0E934A00A6B416 /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		1A8709CB1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpentDatetimePickerViewController.swift; sourceTree = "<group>"; };
+		1A8709CD1C1D5B2A00DC82A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		291153E21C102ED800937D03 /* SettlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettlementViewController.swift; sourceTree = "<group>"; };
 		291633C71C1C94EA00B6F330 /* SelectionSingleMemberTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSingleMemberTVCell.swift; sourceTree = "<group>"; };
 		29617F081C19986500709171 /* NameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameCell.swift; sourceTree = "<group>"; };
@@ -301,6 +301,7 @@
 		498D3DCD1C09D3560013E1EA /* GSpent */ = {
 			isa = PBXGroup;
 			children = (
+				1A8709CD1C1D5B2A00DC82A4 /* Assets.xcassets */,
 				29617F0C1C199E1B00709171 /* libWeChatSDK.a */,
 				29617F0D1C199E1B00709171 /* WechatAuthSDK.h */,
 				29617F0E1C199E1B00709171 /* WXApi.h */,
@@ -317,7 +318,6 @@
 				498D3DDC1C09D3560013E1EA /* Info.plist */,
 				494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */,
 				494FD4F11C0AD65D002C2A12 /* TabViewController.swift */,
-				1A7846221C0D844A00A6B416 /* Assets.xcassets */,
 			);
 			path = GSpent;
 			sourceTree = "<group>";
@@ -472,8 +472,8 @@
 				1A061C631C0D49AE00AE4E2C /* BookINPTableViewCell.xib in Resources */,
 				49ADCFC71C197AAD00CA2494 /* Settlement.storyboard in Resources */,
 				498D3E041C09EC330013E1EA /* Books.storyboard in Resources */,
-				1A7846231C0D844A00A6B416 /* Assets.xcassets in Resources */,
 				498D3DD61C09D3560013E1EA /* Main.storyboard in Resources */,
+				1A8709CE1C1D5B2A00DC82A4 /* Assets.xcassets in Resources */,
 				1A7846271C0D8E6400A6B416 /* BookTallyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
