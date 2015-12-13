@@ -30,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="222" y="-258"/>
         </scene>
-        <!--记一笔-->
+        <!--Add Spent-->
         <scene sceneID="O5I-Fk-cRl">
             <objects>
                 <viewController id="NyR-zA-5Rx" customClass="NewSpentViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,15 +109,17 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmS-Rb-MEi">
-                                <rect key="frame" x="192" y="649" width="30" height="30"/>
-                                <state key="normal" title="提交"/>
+                                <rect key="frame" x="183" y="649" width="49" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitNewSpent:" destination="NyR-zA-5Rx" eventType="touchUpInside" id="4rj-ar-wkL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-1q-5TJ">
-                                <rect key="frame" x="177" y="82" width="60" height="30"/>
-                                <state key="normal" title="选择账本"/>
+                                <rect key="frame" x="144" y="82" width="127" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Select target book"/>
                                 <connections>
                                     <segue destination="SDA-vS-U6T" kind="show" identifier="spentBookSelectionIdentifier" id="MQb-Ks-AKj"/>
                                 </connections>
@@ -141,9 +143,9 @@
                             <constraint firstItem="ihw-Ja-Vgr" firstAttribute="centerX" secondItem="bFz-1q-5TJ" secondAttribute="centerX" id="v6T-YQ-moa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="记一笔" id="xXc-ro-r2A">
-                        <barButtonItem key="backBarButtonItem" title="取消" id="DuZ-ll-VfP"/>
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="1UC-7R-ab7">
+                    <navigationItem key="navigationItem" title="Add Spent" id="xXc-ro-r2A">
+                        <barButtonItem key="backBarButtonItem" title="cancel" id="DuZ-ll-VfP"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1UC-7R-ab7">
                             <connections>
                                 <action selector="cancelAddSpent:" destination="NyR-zA-5Rx" id="RAd-it-vFh"/>
                             </connections>
@@ -183,7 +185,7 @@
             </objects>
             <point key="canvasLocation" x="578" y="1690"/>
         </scene>
-        <!--选择账本-->
+        <!--Select target book-->
         <scene sceneID="v4p-0x-Tor">
             <objects>
                 <tableViewController id="SDA-vS-U6T" customClass="SpentBookSelectionTableViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
@@ -206,7 +208,7 @@
                             <outlet property="delegate" destination="SDA-vS-U6T" id="Elt-87-EWv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="选择账本" id="zxn-9c-kEn"/>
+                    <navigationItem key="navigationItem" title="Select target book" id="zxn-9c-kEn"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="addSpentSelectBookList" destination="JZJ-Wz-EDr" id="x0i-cv-EQU"/>
@@ -330,7 +332,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0x-YT-Nu7">
                                 <rect key="frame" x="212" y="463" width="175" height="40"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Pick from photo roll">
+                                <state key="normal" title="Photo roll">
                                     <color key="titleColor" red="1" green="0.59215686270000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -344,7 +346,7 @@
                                     <constraint firstAttribute="width" constant="175" id="vp3-TG-YZw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Take a new photo">
+                                <state key="normal" title="Take a photo">
                                     <color key="titleColor" red="1" green="0.59215686274509804" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -368,6 +370,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Receipt" id="S4C-LO-p2T">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="LYB-TW-cPD"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="nKO-mI-LVp">
                             <connections>
                                 <action selector="determinePhoto:" destination="DvQ-FZ-1NX" id="sEw-VV-oDs"/>
@@ -385,8 +388,8 @@
             <point key="canvasLocation" x="1164" y="1196"/>
         </scene>
     </scenes>
-    <resources>
         <image name="3262E56A-ACDF-47E7-B423-DD5630BD0A35" width="375" height="6">
+        <image name="A803FF2F-41EF-435F-BC36-1D15878DE4A9" width="375" height="6">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
