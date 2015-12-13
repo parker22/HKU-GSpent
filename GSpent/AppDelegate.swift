@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         WXApi.registerApp("wxa50e138039c93c79")
         
+        //将信号栏颜色设为白色
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+
         // ...
         
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {

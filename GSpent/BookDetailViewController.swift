@@ -7,20 +7,24 @@
 //
 
 import UIKit
+import Parse
 
 class BookDetailViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
 
     
     @IBOutlet weak var bookMemberCV: UICollectionView!
     @IBOutlet weak var bookMemberSelected: UIImageView!
-    
     @IBOutlet weak var bookTallyTV: UITableView!
     
+    
     var members = [Person]()
+    static var tallys = [PFObject]()
+    var book: PFObject!
     var dataRepository = DataRepository()
     
     let bookMemberCellIdentifier = "bookMemberCell"
     let bookTallyCellIdentifier = "bookTallyCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bookMemberCV.delegate = self
@@ -32,8 +36,7 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
         bookMemberSelected.layer.cornerRadius = bookMemberSelected.frame.size.width/2
         bookMemberSelected.clipsToBounds = true
         bookMemberSelected.image = members[0].avatar
-        
-
+        self.dataRepository.tallyDatabase.getBookDetailTally(Utility.currentUser, book: book, tableView: self.bookTallyTV, activity: "getBookDetailTally")
         
     }
 
@@ -64,13 +67,21 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let tally = BookDetailViewController.tallys[indexPath.row]
+        print(tally)
         let cell:bookDetailTallyTableViewCell = bookTallyTV.dequeueReusableCellWithIdentifier(bookTallyCellIdentifier, forIndexPath: indexPath) as! bookDetailTallyTableViewCell
         cell.bookTallyAvatarIV.image = members[indexPath.row].avatar
+        cell.bookTallyDescriptionLbl.text = tally["t_brief"] as? String
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let time = dateFormatter.stringFromDate(tally["t_time"] as! NSDate)
+        cell.bookTallyDatetimeLbl.text = time
+        cell.bookTallyAmountLbl.text = String(tally["t_amount"].doubleValue)
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return BookDetailViewController.tallys.count
     }
     
     

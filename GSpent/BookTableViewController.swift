@@ -62,7 +62,7 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
         //        let cell:bookTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("bookTableViewCell") as! bookTableViewCell
         let cell = tableView.dequeueReusableCellWithIdentifier("bookListTblViewCell", forIndexPath: indexPath) as! bookTableViewCell
 //        let book = books[indexPath.row]
-let book = BookTableViewController.bookData[indexPath.row]
+        let book = BookTableViewController.bookData[indexPath.row]
         
 //        let query = PFQuery(className:"TestObject")
 //        query.getObjectInBackgroundWithId("m7lhJgzeop") {
@@ -144,11 +144,17 @@ let book = BookTableViewController.bookData[indexPath.row]
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
+    
     */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        Get the new view controller using segue.destinationViewController.
+//        Pass the selected object to the new view controller.
+        if (segue.identifier=="showBookDetailIdentifier"){
+            let vc = segue.destinationViewController as! BookDetailViewController
+            let path = self.bookListTV.indexPathForSelectedRow?.row
+            vc.book = BookTableViewController.bookData[path!]
+    }
+    }
     func refreshBookTableViewController() {
         initData()
     }
