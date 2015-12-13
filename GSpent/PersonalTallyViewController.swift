@@ -20,11 +20,14 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var bookSelectedIcon: UIImageView!
     @IBOutlet weak var bookSelectedName: UILabel!
     @IBOutlet weak var bookSelectedPart: UILabel!
+    @IBOutlet weak var bookSelectionArrow: UIImageView!
     
     static var books  = [PFObject]()
     static var tallys = [Tally]()
     var bookSelected: Book!
     var dataRepository = DataRepository()
+    let arrowUp   = UIImage(named: "arrow_up")
+    let arrowDown = UIImage(named: "arrow_down")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,55 +72,23 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
             let cellIdentifier = "bookINPTableViewCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BookINPTableViewCell
             let book = PersonalTallyViewController.books[indexPath.row] as PFObject
+            
             cell.bookName.text  = book["b_name"]! as? String
             var pPart_Str = [String]()
-            print(book.objectId)
-            print(book["b_participant"])
-            for pPart in book["b_participant"] as! [PFObject]{
-                print(pPart["username"])
-                pPart_Str.append(pPart["username"] as! String)
-            }
+            for pPart in book["b_participant"] as! [PFObject]{pPart_Str.append(pPart["username"] as! String)}
             
             cell.bookPart.text = Utility.getStrMates(pPart_Str)
-//            print((book["b_participant"]).description)
-//
-//            for pItem in book["b_participant"] as! [PFUser]{
-//                p_ids.append(String(pItem))}
-//            //                    b_part = p_ids.joinWithSeparator(";")
-//            
-//
-//            cell.bookPart.text  = self.dataRepository.getPartStr(book["b_participant"]["username"] as! String)
-//            cell.bookID.text    = String(book.bid)
             
-//            cell.bookPart.text = p_ids.description
-            
-            
-            
-//            
-//            let query = PFQuery(className:"Book")
-//            query.getObjectInBackgroundWithId(book.objectId!) {
-//                (testObject: PFObject?, error: NSError?) -> Void in
-//                if error == nil && testObject != nil  else {
-//                    print(error)
-//                }
-//            }
-            
-            
-                    let userImageFile = book["b_icon"] as! PFFile
-                    userImageFile.getDataInBackgroundWithBlock {
-                        (imageData: NSData?, error: NSError?) -> Void in
-                        if error == nil {
-                            if let imageData = imageData {
-                                let image = UIImage(data:imageData)
-                                cell.bookIcon.image = image
-                            }
-                        }
+            let userImageFile = book["b_icon"] as! PFFile
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data:imageData)
+                        cell.bookIcon.image = image
                     }
-                    
-                    
-            
-            
-            
+                }
+            }
             return cell
             
         case self.bookTallyTableView:
@@ -162,8 +133,14 @@ class PersonalTallyViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    func bookSelectTableViewShow(){self.bookSelectTableView.hidden = false}
-    func bookSelectTableViewHide(){self.bookSelectTableView.hidden = true}
+    func bookSelectTableViewShow(){
+        self.bookSelectTableView.hidden = false
+        bookSelectionArrow.image = arrowUp
+    }
+    func bookSelectTableViewHide(){
+        self.bookSelectTableView.hidden = true
+        bookSelectionArrow.image = arrowDown
+    }
     
     func refreshBookSelected(){
         self.pageTitle.title = bookSelected.name + " Tally"

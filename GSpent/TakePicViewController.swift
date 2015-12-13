@@ -20,14 +20,20 @@ class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var imageView: UIImageView!
     var spentImage: UIImage?
     var newMedia: Bool?
+    @IBOutlet weak var takePhotoBtn: UIButton!
+    @IBOutlet weak var selectPhotoInRollBtn: UIButton!
     // 初始化图片选择控制器
     let imagePickerController: UIImagePickerController = UIImagePickerController()
     var isFullScreen: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Utility.addBorder(takePhotoBtn,         border: 2, radius: 5, color: UIColor.orangeColor())
+        Utility.addBorder(selectPhotoInRollBtn, border: 2, radius: 5, color: UIColor.orangeColor())
+        Utility.addBorder(imageView,            border: 2, radius: 5, color: UIColor.orangeColor())
+        
         // Do any additional setup after loading the view, typically from a nib.
-        self.imageView.frame = CGRectMake(100, 100, 128, 128)
+        //self.imageView.frame = CGRect(x: 264, y: 630, width: 50, height: 50)//CGRectMake(100, 100, 128, 128)
         imageView.image = spentImage
     }
     

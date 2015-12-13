@@ -125,11 +125,9 @@ class PersonDatabase {
         for tmp in peopleData {
             do {try PFUser.logInWithUsername(tmp.name, password:"666666")
                 if let currentUser = PFUser.currentUser(){
-                    print(currentUser["username"])
                     let books = bookDatabase.getBooks(currentUser["u_id"].integerValue)
-                    print(books)
                     currentUser["u_books"] = books
-                    do { try currentUser.save() }
+                    do    {try currentUser.save()}
                     catch {print("Master indicated me to do nothing.")}
                 }
                 PFUser.logOut()
@@ -218,7 +216,16 @@ class BookDatabase {
                 //                }
                 switch(activity){
                 case "PersonalTally" :
-                    PersonalTallyViewController.books = object!["u_books"] as! [PFObject]
+                    let allBook = PFObject(className: "Book")
+                    allBook["b_name"] = "All books"
+                    allBook["b_icon"] = PFFile(data:UIImagePNGRepresentation(UIImage(named: "bookIconSample00")!)!)
+                    allBook["b_id"]   = -1
+                    let allUser = PFUser()
+                    allUser["username"] = "All people"
+                    allBook["b_participant"] = [allUser]
+                    PersonalTallyViewController.books = [PFObject]()
+                    PersonalTallyViewController.books += [allBook]
+                    PersonalTallyViewController.books += object!["u_books"] as! [PFObject]
                     tableView.reloadData()
                     break
                 case "AddSpent" :
@@ -237,32 +244,20 @@ class BookDatabase {
     
     func getBookPFObjects(user: PFUser, tableView: UITableView, activity: String){
         let bookQuery = PFQuery(className: "Book")
-//        print([user])
         bookQuery.whereKey("b_participant", containsAllObjectsInArray: [user])
         bookQuery.includeKey("b_participant")
         bookQuery.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
-            
             if error == nil {
-                // Do something with the found objects
-                
                 switch(activity){
                 case "BookList":
                     BookTableViewController.bookData = objects!
-//                    print(objects)
                     tableView.reloadData()
                     break
-                default: break;
-                }
-            }
-            else {
-                
-                
-                print("Error: \(error!) \(error!.userInfo)") }
+                default: break;}
+            } else { print("Error: \(error!) \(error!.userInfo)") }
         }
     }
-    
-    
     
     func getBooks(p_id: Int) -> [PFObject]{
         var books = [PFObject]()
@@ -332,7 +327,6 @@ class BookDatabase {
             userQuery.whereKey("u_id", containedIn: p_ids)
             do { users += try userQuery.findObjects() }
             catch {print("Master indicated me to do nothing.")}
-            print(users)
             
             for user in users{
                 user["u_books"] = [PFObject]()
@@ -612,15 +606,15 @@ class TallyDatabase {
     
     func addTally(t_brief: String, user: PFObject, u_id: Int, book: PFObject, b_id: Int, t_pic: UIImage?, t_time: NSDate, t_type: Int, t_amount: Double){
         let tally = PFObject(className: "Tally")
-        tally["t_brief"] = t_brief
-        tally["user"]    = user
-        tally["u_id"]    = u_id
-        tally["book"]    = book
-        tally["b_id"]    = b_id
-        tally["t_time"]  = t_time
-        tally["t_type"]  = t_type
+        tally["t_brief"]  = t_brief
+        tally["user"]     = user
+        tally["u_id"]     = u_id
+        tally["book"]     = book
+        tally["b_id"]     = b_id
+        tally["t_time"]   = t_time
+        tally["t_type"]   = t_type
         tally["t_amount"] = t_amount
-        if let t_pic = t_pic { tally["t_pic"]   = PFFile(data:UIImagePNGRepresentation(t_pic)!) }
+        if let t_pic = t_pic { tally["t_pic"] = PFFile(data:UIImageJPEGRepresentation((t_pic), 0.5)!) }
         
         tally.saveInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {print("Well done bro! Amazing!")}

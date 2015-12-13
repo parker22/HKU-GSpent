@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YgH-zk-4SG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YgH-zk-4SG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--Second-->
+        <!--Tally -->
         <scene sceneID="df0-SM-Ag4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YgH-zk-4SG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Tally " image="tabbar_tallys" selectedImage="tabbar_tallys_selected" id="cPa-gy-q4n">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="65R-yP-vj2">
@@ -27,7 +33,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37L-4l-TrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1304" y="463"/>
+            <point key="canvasLocation" x="961" y="463"/>
         </scene>
         <!--All Tally-->
         <scene sceneID="mUe-d0-qtq">
@@ -69,6 +75,10 @@
                                         <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LsQ-OE-Knn">
+                                        <rect key="frame" x="377" y="22" width="15" height="15"/>
+                                        <animations/>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.83529411764705885" green="0.96470588235294119" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,7 +94,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6jo-5g-Oul" id="WJq-2e-LtG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -103,7 +113,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uZl-JM-i6C" id="OeV-Mq-N7t">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -124,6 +134,7 @@
                         <outlet property="bookSelectedName" destination="DKe-TV-DFK" id="DmH-aA-ooN"/>
                         <outlet property="bookSelectedPart" destination="4S5-kD-UPu" id="7n2-fp-I3G"/>
                         <outlet property="bookSelectedView" destination="2hi-rt-s8F" id="Dqh-je-0Jw"/>
+                        <outlet property="bookSelectionArrow" destination="LsQ-OE-Knn" id="1wi-uX-1Rm"/>
                         <outlet property="bookTallyTableView" destination="LH9-MB-8r9" id="PH5-i0-zhc"/>
                         <outlet property="pageTitle" destination="8pa-Bm-Snb" id="R3b-jt-JoP"/>
                     </connections>
@@ -149,9 +160,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5c-27-cNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1468" y="38"/>
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="tabbar_tallys" width="26" height="25"/>
+        <image name="tabbar_tallys_selected" width="25" height="25"/>
     </resources>
 </document>
