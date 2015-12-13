@@ -134,7 +134,7 @@
                 <viewControllerPlaceholder storyboardName="Settlement" id="BWb-Tl-Duj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfB-UN-W1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2720.5" y="-824"/>
+            <point key="canvasLocation" x="2344.5" y="-1758"/>
         </scene>
         <!--Book Popover View Controller-->
         <scene sceneID="hFj-Jo-41N">
@@ -195,7 +195,7 @@
                                         <animations/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="orQ-wt-42B" kind="show" id="a1e-OB-4QB"/>
+                                            <segue destination="ysl-y1-owF" kind="presentation" id="a1e-OB-4QB"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -258,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tf-p6-XtA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078" y="-1526"/>
+            <point key="canvasLocation" x="1878" y="-1677"/>
         </scene>
         <!--Book Detail View Controller-->
         <scene sceneID="zlU-zT-znW">
@@ -496,7 +496,7 @@
                     <tabBarItem key="tabBarItem" title="Books" image="tabbar_books" selectedImage="tabbar_books_selected" id="rKf-9s-U8w">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="1" green="0.5490196078431373" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.30196078431372547" green="0.83137254901960778" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="Color">
                                 <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -592,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFW-6W-Kjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410" y="-364"/>
+            <point key="canvasLocation" x="1358" y="6"/>
         </scene>
         <!--Select Participants-->
         <scene sceneID="Apb-EM-z8G">
@@ -611,7 +611,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="93.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xyb-0q-hdw">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xyb-0q-hdw">
                                             <rect key="frame" x="31" y="9" width="75" height="75"/>
                                             <animations/>
                                             <constraints>
@@ -622,7 +622,7 @@
                                             <rect key="frame" x="91" y="10" width="501" height="72"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="501" id="yqM-sJ-CHN"/>
+                                                <constraint firstAttribute="width" constant="451" id="yqM-sJ-CHN"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -631,10 +631,10 @@
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="Xyb-0q-hdw" firstAttribute="leading" secondItem="dcA-cC-SI8" secondAttribute="leadingMargin" id="00s-QZ-ruc"/>
-                                        <constraint firstItem="Xyb-0q-hdw" firstAttribute="top" secondItem="dcA-cC-SI8" secondAttribute="topMargin" constant="2" id="3WT-i3-rJI"/>
-                                        <constraint firstItem="amj-NQ-fkB" firstAttribute="top" secondItem="dcA-cC-SI8" secondAttribute="topMargin" constant="2" id="Ybi-yf-9W2"/>
-                                        <constraint firstItem="amj-NQ-fkB" firstAttribute="centerY" secondItem="Xyb-0q-hdw" secondAttribute="centerY" constant="-1.5" id="dkc-aW-FFf"/>
+                                        <constraint firstItem="Xyb-0q-hdw" firstAttribute="leading" secondItem="dcA-cC-SI8" secondAttribute="leadingMargin" constant="23" id="00s-QZ-ruc"/>
+                                        <constraint firstItem="Xyb-0q-hdw" firstAttribute="top" secondItem="dcA-cC-SI8" secondAttribute="topMargin" constant="1" id="3WT-i3-rJI"/>
+                                        <constraint firstItem="amj-NQ-fkB" firstAttribute="top" secondItem="dcA-cC-SI8" secondAttribute="topMargin" constant="3" id="Ybi-yf-9W2"/>
+                                        <constraint firstItem="amj-NQ-fkB" firstAttribute="centerY" secondItem="Xyb-0q-hdw" secondAttribute="centerY" constant="0.5" id="dkc-aW-FFf"/>
                                         <constraint firstItem="amj-NQ-fkB" firstAttribute="leading" secondItem="Xyb-0q-hdw" secondAttribute="trailing" constant="8" id="sGi-XH-ter"/>
                                         <constraint firstItem="amj-NQ-fkB" firstAttribute="centerY" secondItem="dcA-cC-SI8" secondAttribute="centerY" id="sev-Ai-hAc"/>
                                     </constraints>
@@ -700,10 +700,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettlementNameList" id="eCb-fV-isR" customClass="NameCell" customModule="GSpent" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eCb-fV-isR" id="B8K-2d-SQ0">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfl-Ji-KJy">
@@ -730,10 +730,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettlementSingleOweRecord" id="ahl-Sf-MUn" customClass="RecordCell" customModule="GSpent" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ahl-Sf-MUn" id="FFQ-rz-edm">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLf-dg-9na">
@@ -764,10 +764,10 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ck6-yd-OKj" secondAttribute="trailing" id="81V-lb-hP0"/>
-                            <constraint firstItem="Ck6-yd-OKj" firstAttribute="top" secondItem="ldk-we-zPh" secondAttribute="bottom" id="FYn-U6-nOs"/>
-                            <constraint firstItem="Ck6-yd-OKj" firstAttribute="bottom" secondItem="JUS-vx-J70" secondAttribute="top" id="V5z-3v-u64"/>
-                            <constraint firstItem="Ck6-yd-OKj" firstAttribute="leading" secondItem="All-SX-STH" secondAttribute="leading" id="X7A-ba-9Zy"/>
+                            <constraint firstAttribute="trailing" secondItem="Ck6-yd-OKj" secondAttribute="trailing" id="7sQ-En-zYd"/>
+                            <constraint firstItem="Ck6-yd-OKj" firstAttribute="top" secondItem="ldk-we-zPh" secondAttribute="bottom" constant="-64" id="EHo-5B-4Hu"/>
+                            <constraint firstItem="Ck6-yd-OKj" firstAttribute="bottom" secondItem="JUS-vx-J70" secondAttribute="top" id="M2B-zR-NIO"/>
+                            <constraint firstItem="Ck6-yd-OKj" firstAttribute="leading" secondItem="All-SX-STH" secondAttribute="leading" id="tbN-wD-N80"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settlement" id="OUm-uF-ChH">
@@ -783,33 +783,33 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="settleTV" destination="Ck6-yd-OKj" id="gtL-vR-pAE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0CV-gJ-D4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705" y="-1077"/>
+            <point key="canvasLocation" x="2745" y="-314"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="tap-HP-ZMJ">
+        <scene sceneID="Bc9-hr-0dZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YMC-ms-DHn" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ysl-y1-owF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vMQ-cJ-xu0">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WUE-46-WlN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="orQ-wt-42B" kind="relationship" relationship="rootViewController" id="eAW-10-PZ2"/>
+                        <segue destination="orQ-wt-42B" kind="relationship" relationship="rootViewController" id="adO-kx-P7X"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s1P-aX-CKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="745-c3-ZMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705" y="-364"/>
+            <point key="canvasLocation" x="2721" y="-1077"/>
         </scene>
     </scenes>
     <resources>
@@ -817,8 +817,4 @@
         <image name="tabbar_books" width="23" height="25"/>
         <image name="tabbar_books_selected" width="24" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="WOM-MG-k7k"/>
-        <segue reference="eAW-10-PZ2"/>
-    </inferredMetricsTieBreakers>
 </document>

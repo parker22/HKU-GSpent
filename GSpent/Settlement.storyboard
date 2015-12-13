@@ -65,16 +65,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHO-yN-IIl">
                                 <rect key="frame" x="20" y="50" width="75" height="30"/>
                                 <state key="normal" title="生成清算表"/>
-                                <connections>
-                                    <action selector="genetation:" destination="PUy-p7-phj" eventType="touchUpInside" id="u10-nE-OE3"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY6-fT-re5">
                                 <rect key="frame" x="550" y="50" width="30" height="30"/>
                                 <state key="normal" title="分享"/>
-                                <connections>
-                                    <action selector="share:" destination="PUy-p7-phj" eventType="touchUpInside" id="FIi-OJ-63f"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrv-Ue-rsZ">
                                 <rect key="frame" x="20" y="105" width="560" height="63"/>
