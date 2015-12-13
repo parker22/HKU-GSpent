@@ -15,7 +15,7 @@
                 <tabBarController id="49e-Tb-3d3" customClass="TabViewController" customModule="GSpent" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" shadowImage="A803FF2F-41EF-435F-BC36-1D15878DE4A9" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" shadowImage="3262E56A-ACDF-47E7-B423-DD5630BD0A35" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -237,9 +237,8 @@
                                 </date>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0f1-KI-cI4">
-                                <rect key="frame" x="283" y="242" width="35" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Okay"/>
+                                <rect key="frame" x="278" y="242" width="45" height="30"/>
+                                <state key="normal" title="选好了"/>
                                 <connections>
                                     <action selector="determineTime:" destination="S6K-tI-Mgk" eventType="touchUpInside" id="Kft-QA-JYf"/>
                                 </connections>
@@ -389,7 +388,7 @@
             <point key="canvasLocation" x="1164" y="1196"/>
         </scene>
     </scenes>
-    <resources>
+        <image name="3262E56A-ACDF-47E7-B423-DD5630BD0A35" width="375" height="6">
         <image name="A803FF2F-41EF-435F-BC36-1D15878DE4A9" width="375" height="6">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
