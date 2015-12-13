@@ -17,6 +17,7 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     @IBOutlet weak var spentCategoryCV: UICollectionView!
     @IBOutlet weak var spendAmount: UITextField!
     @IBOutlet weak var addSpentConfirm: UIButton!
+    @IBOutlet weak var inputAmount: UIView!
     
     var categories = [Category]()
     var dataRepository = DataRepository()
@@ -45,6 +46,7 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
         amount = 0.00
         Utility.addButtonStyle(addSpentConfirm, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
         Utility.addButtonStyle(spentBookSelectionBtn, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
+        Utility.addBorder(inputAmount, border: 2, radius: 5, color: Utility.colorWithHexString(colorPrimary[4]))
     }
     
     override func didReceiveMemoryWarning() {

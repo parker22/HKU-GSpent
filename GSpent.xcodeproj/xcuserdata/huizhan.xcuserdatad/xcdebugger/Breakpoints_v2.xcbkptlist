@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GSpent/NewSpentViewController.swift"
-            timestampString = "471705045.675703"
+            timestampString = "471707808.112219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "addSpentDescription(_:)"
             landmarkType = "5">
          </BreakpointContent>
