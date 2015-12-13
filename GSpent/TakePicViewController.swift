@@ -28,9 +28,9 @@ class TakePicViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utility.addBorder(takePhotoBtn,         border: 2, radius: 5, color: UIColor.orangeColor())
-        Utility.addBorder(selectPhotoInRollBtn, border: 2, radius: 5, color: UIColor.orangeColor())
-        Utility.addBorder(imageView,            border: 2, radius: 5, color: UIColor.orangeColor())
+        Utility.addButtonStyle(takePhotoBtn, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
+        Utility.addButtonStyle(selectPhotoInRollBtn, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
+        Utility.addBorder(imageView, border: 2, radius: 5, color: Utility.colorWithHexString(colorPrimary[4]))
         
         // Do any additional setup after loading the view, typically from a nib.
         //self.imageView.frame = CGRect(x: 264, y: 630, width: 50, height: 50)//CGRectMake(100, 100, 128, 128)
