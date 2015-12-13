@@ -190,7 +190,6 @@ class BookDatabase {
     
     func getUserBookList(user: PFUser, tableView: UITableView, activity: String){
         let userQuery = PFQuery(className: "_User")
-        print(user.objectId)
         userQuery.whereKey("objectId", equalTo: user.objectId!)
         userQuery.includeKey("u_books")
         userQuery.includeKey("u_books.b_participant")
@@ -259,6 +258,7 @@ class BookDatabase {
                         if error == nil {
                             BookTableViewController.bookData = objects!
                             BookTableViewController.relationData = relations!
+                            
                             tableView.reloadData()
                         }
                         
@@ -566,6 +566,11 @@ class TallyDatabase {
                     switch(activity){
                     case "getBookDetailTally":
                         BookDetailViewController.tallys = objects
+                        var ta = 0.0
+                        for object in objects{
+                            ta +=  object["t_amount"].doubleValue
+                        }
+                        BookDetailViewController.totalAmount = ta
                         tableView.reloadData()
                         
                         break

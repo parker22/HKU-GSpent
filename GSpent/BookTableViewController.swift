@@ -74,7 +74,7 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
         for relation in BookTableViewController.relationData{
             if (relation["b_id"] as? String == book.objectId){
                 cell.lblBookAmount.text = relation["amount_due"].doubleValue.description
-            }
+                            }
         }
 //        let query = PFQuery(className:"TestObject")
 //        query.getObjectInBackgroundWithId("m7lhJgzeop") {

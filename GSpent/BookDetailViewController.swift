@@ -16,6 +16,11 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
     @IBOutlet weak var bookMemberSelected: UIImageView!
     @IBOutlet weak var bookTallyTV: UITableView!
     
+    @IBOutlet weak var bookTotalAmountLbl: UILabel!
+    
+    
+    static var totalAmount:Double = 0.0
+    
     
     var members = [Person]()
     static var tallys = [PFObject]()
@@ -76,7 +81,11 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         let time = dateFormatter.stringFromDate(tally["t_time"] as! NSDate)
         cell.bookTallyDatetimeLbl.text = time
-        cell.bookTallyAmountLbl.text = String(tally["t_amount"].doubleValue)
+        let t_amount = tally["t_amount"].doubleValue
+        
+        self.bookTotalAmountLbl.text = BookDetailViewController.totalAmount.description
+        cell.bookTallyAmountLbl.text = String(t_amount)
+        
         return cell
     }
     

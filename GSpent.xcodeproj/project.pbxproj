@@ -39,6 +39,7 @@
 		491263E61C10AD5100E12FDD /* bookPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491263E51C10AD5100E12FDD /* bookPopoverViewController.swift */; };
 		49155AF91C1C2DA1005AFCDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155AF81C1C2DA1005AFCDF /* Constants.swift */; };
 		49155AFB1C1C7438005AFCDF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155AFA1C1C7438005AFCDF /* Utility.swift */; };
+		49155AFD1C1DB819005AFCDF /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155AFC1C1DB818005AFCDF /* TimeAgo.swift */; };
 		4919F0C21C0ACE5C0081E69F /* PersonalTally.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */; };
 		492904621C0B247800DADCC7 /* bookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904601C0B247800DADCC7 /* bookTableViewCell.swift */; };
 		492904641C0B284900DADCC7 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904551C0B145E00DADCC7 /* BookTableViewController.swift */; };
@@ -119,6 +120,7 @@
 		491263E51C10AD5100E12FDD /* bookPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookPopoverViewController.swift; sourceTree = "<group>"; };
 		49155AF81C1C2DA1005AFCDF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		49155AFA1C1C7438005AFCDF /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		49155AFC1C1DB818005AFCDF /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		4919F0C11C0ACE5C0081E69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PersonalTally.storyboard; sourceTree = "<group>"; };
 		492904551C0B145E00DADCC7 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		492904601C0B247800DADCC7 /* bookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookTableViewCell.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				4974DC361C166B9000F6B239 /* TakePicViewController.swift */,
 				49155AF81C1C2DA1005AFCDF /* Constants.swift */,
 				49155AFA1C1C7438005AFCDF /* Utility.swift */,
+				49155AFC1C1DB818005AFCDF /* TimeAgo.swift */,
 			);
 			name = Universal;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				1A8709CC1C1C629E00DC82A4 /* SpentDatetimePickerViewController.swift in Sources */,
 				1A7846261C0D8E6400A6B416 /* BookTallyTableViewCell.swift in Sources */,
 				498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */,
+				49155AFD1C1DB819005AFCDF /* TimeAgo.swift in Sources */,
 				498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */,
 				49CD51F11C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift in Sources */,
 				49ADCFC51C1979EF00CA2494 /* OweingData.swift in Sources */,
