@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
         WXApi.registerApp("wxa50e138039c93c79")
         
         //将信号栏颜色设为白色
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         // ...

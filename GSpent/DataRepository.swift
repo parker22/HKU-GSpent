@@ -225,7 +225,7 @@ class BookDatabase {
                     allBook["b_participant"] = [allUser]
                     PersonalTallyViewController.books = [PFObject]()
                     PersonalTallyViewController.books += [allBook]
-                    print(object!["u_books"])
+//                    print(object!["u_books"])
                     PersonalTallyViewController.books += object!["u_books"] as! [PFObject]
                     tableView.reloadData()
                     break
@@ -259,7 +259,6 @@ class BookDatabase {
                         if error == nil {
                             BookTableViewController.bookData = objects!
                             BookTableViewController.relationData = relations!
-                            
                             tableView.reloadData()
                         }
                         
@@ -507,7 +506,7 @@ class TallyDatabase {
     func getBookTally(user: PFUser, b_id: Int, tableView: UITableView, activity: String){
         var tallys = [Tally]()
         let tallyQuery = PFQuery(className: "Tally")
-        if user["u_id"].integerValue != -1 {tallyQuery.whereKey("user", equalTo: user)}
+        if (user["u_id"] != nil) && (user["u_id"].integerValue != -1) {tallyQuery.whereKey("user", equalTo: user)}
         if b_id != -1 {tallyQuery.whereKey("b_id", equalTo: b_id)}
         
         tallyQuery.findObjectsInBackgroundWithBlock {

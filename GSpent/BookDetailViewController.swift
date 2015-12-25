@@ -37,6 +37,11 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
         bookMemberCV.dataSource = self
         bookTallyTV.delegate = self
         bookTallyTV.dataSource = self
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        bookTallyTV.addSubview(refreshControl)
+        
         // Do any additional setup after loading the view.
         members = self.dataRepository.getPersons()
         bookMemberSelected.layer.cornerRadius = bookMemberSelected.frame.size.width/2
@@ -44,6 +49,12 @@ class BookDetailViewController: UIViewController,UICollectionViewDelegate,UIColl
         bookMemberSelected.image = members[0].avatar
         self.dataRepository.tallyDatabase.getBookDetailTally(Utility.currentUser, book: book, tableView: self.bookTallyTV, activity: "getBookDetailTally")
         
+    }
+    
+    func refresh(refreshControl: UIRefreshControl) {
+        // Do your job, when done:
+        self.dataRepository.tallyDatabase.getBookDetailTally(Utility.currentUser, book: book, tableView: self.bookTallyTV, activity: "getBookDetailTally")
+        refreshControl.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {

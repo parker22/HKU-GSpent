@@ -20,24 +20,26 @@ class Utility{
     static var currentUser = PFUser()
     static var hasCurrentUser = false
     static var mDelegate:RefreshBookTableViewControllerDelegate?
+    
+    
+    //Only for test
     class func getCurrentUser(){
-        
-        let query = PFQuery(className:"_User")
-        
-        query.getObjectInBackgroundWithId(UserIDs[myUserID]) {
-            (user1: PFObject?, error: NSError?) -> Void in
-            if error == nil && user1 != nil {
-                Utility.currentUser = user1 as! PFUser
-                print(currentUser.objectId)
-                hasCurrentUser = true
-                self.mDelegate?.refreshBookTableViewController()
-            } else {
-                print(error)
-            }
-        }
+        self.currentUser = PFUser.currentUser()!
+        hasCurrentUser = true
+//        let query = PFQuery(className:"_User")
+//        
+//        query.getObjectInBackgroundWithId(UserIDs[myUserID]) {
+//            (user1: PFObject?, error: NSError?) -> Void in
+//            if error == nil && user1 != nil {
+//                Utility.currentUser = user1 as! PFUser
+//                print(currentUser.objectId)
+//                hasCurrentUser = true
+//                self.mDelegate?.refreshBookTableViewController()
+//            } else {
+//                print(error)
+//            }
+//        }
     }
-    
-    
     
     
     

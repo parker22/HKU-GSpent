@@ -1,0 +1,87 @@
+
+/* Class = "UILabel"; text = "和 方老板, 詹辉..."; ObjectID = "6Gl-2P-wK1"; */
+"6Gl-2P-wK1.text" = "和 方老板, 詹辉...";
+
+/* Class = "UILabel"; text = "$"; ObjectID = "AEB-i0-TAW"; */
+"AEB-i0-TAW.text" = "$";
+
+/* Class = "UISearchBar"; placeholder = "搜索账本"; ObjectID = "DMK-LC-95J"; */
+"DMK-LC-95J.placeholder" = "搜索账本";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Dfl-Ji-KJy"; */
+"Dfl-Ji-KJy.text" = "Label";
+
+/* Class = "UILabel"; text = "341.91"; ObjectID = "Do9-1w-5Ug"; */
+"Do9-1w-5Ug.text" = "341.91";
+
+/* Class = "UILabel"; text = "分享账单"; ObjectID = "Gct-UD-18i"; */
+"Gct-UD-18i.text" = "分享账单";
+
+/* Class = "UILabel"; text = "所有人"; ObjectID = "Ghu-9g-XL0"; */
+"Ghu-9g-XL0.text" = "所有人";
+
+/* Class = "UINavigationItem"; title = "Settlement"; ObjectID = "JdU-ev-Ol0"; */
+"JdU-ev-Ol0.title" = "Settlement";
+
+/* Class = "UILabel"; text = "修改成员"; ObjectID = "M9u-go-ZhW"; */
+"M9u-go-ZhW.text" = "修改成员";
+
+/* Class = "UIBarButtonItem"; title = "Share"; ObjectID = "PI0-WU-96e"; */
+"PI0-WU-96e.title" = "Share";
+
+/* Class = "UILabel"; text = "最近更新：2015-12-31"; ObjectID = "WcA-EE-JLS"; */
+"WcA-EE-JLS.text" = "最近更新：2015-12-31";
+
+/* Class = "UIBarButtonItem"; title = "New Book"; ObjectID = "Yq3-Cq-TZl"; */
+"Yq3-Cq-TZl.title" = "New Book";
+
+/* Class = "UILabel"; text = "Book Name: "; ObjectID = "a43-UH-XWf"; */
+"a43-UH-XWf.text" = "Book Name: ";
+
+/* Class = "UILabel"; text = "给老板买的300年燕京纯生"; ObjectID = "aV0-yc-eDJ"; */
+"aV0-yc-eDJ.text" = "给老板买的300年燕京纯生";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "amj-NQ-fkB"; */
+"amj-NQ-fkB.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "New Book"; ObjectID = "bCv-PZ-Mti"; */
+"bCv-PZ-Mti.title" = "New Book";
+
+/* Class = "UINavigationItem"; title = "Select Participants"; ObjectID = "bek-gx-AHJ"; */
+"bek-gx-AHJ.title" = "Select Participants";
+
+/* Class = "UIButton"; normalTitle = "Select Participants"; ObjectID = "cH8-SJ-bmh"; */
+"cH8-SJ-bmh.normalTitle" = "Select Participants";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "cse-Ir-My5"; */
+"cse-Ir-My5.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "支出"; ObjectID = "fhi-eY-MlY"; */
+"fhi-eY-MlY.text" = "支出";
+
+/* Class = "UILabel"; text = "$ +120.23"; ObjectID = "hsS-WB-m4t"; */
+"hsS-WB-m4t.text" = "$ +120.23";
+
+/* Class = "UILabel"; text = "房昱炜生日pa"; ObjectID = "irj-iz-IVz"; */
+"irj-iz-IVz.text" = "房昱炜生日pa";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kLf-dg-9na"; */
+"kLf-dg-9na.text" = "Label";
+
+/* Class = "UILabel"; text = "201512.3"; ObjectID = "prL-DU-VRR"; */
+"prL-DU-VRR.text" = "201512.3";
+
+/* Class = "UIViewController"; title = "Add Book"; ObjectID = "q1b-Nd-GbE"; */
+"q1b-Nd-GbE.title" = "Add Book";
+
+/* Class = "UITabBarItem"; title = "Books"; ObjectID = "rKf-9s-U8w"; */
+"rKf-9s-U8w.title" = "Books";
+
+/* Class = "UINavigationItem"; title = "Books"; ObjectID = "sVy-II-T48"; */
+"sVy-II-T48.title" = "Books";
+
+/* Class = "UIBarButtonItem"; title = "Book Detail"; ObjectID = "yj4-ug-lOZ"; */
+"yj4-ug-lOZ.title" = "Book Detail";
+
+/* Class = "UILabel"; text = "2015/12/12 12:34"; ObjectID = "zDa-yX-506"; */
+"zDa-yX-506.text" = "2015/12/12 12:34";

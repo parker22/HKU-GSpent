@@ -8,7 +8,7 @@
 import Parse
 import UIKit
 
-class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIPopoverPresentationControllerDelegate,sendSpentBookBack,sendSpentDateBack,sendPictureBack{
+class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIPopoverPresentationControllerDelegate,UITextFieldDelegate ,sendSpentBookBack,sendSpentDateBack,sendPictureBack{
     
     
     @IBOutlet weak var spentBookSelectionBtn: UIButton!
@@ -42,6 +42,7 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
         spentCategoryCV.dataSource = self
         spentCategoryCV.allowsSelection = true
         categories = self.dataRepository.getCategory()
+        self.spendAmount.delegate = self
         brief  = ""
         amount = 0.00
         Utility.addButtonStyle(addSpentConfirm, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
@@ -192,6 +193,15 @@ class NewSpentViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }

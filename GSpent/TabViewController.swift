@@ -6,16 +6,18 @@
 //  Copyright © 2015年 LIU Jiahe. All rights reserved.
 //
 import UIKit
-
+import Parse
 class TabViewController: RaisedTabBarController {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utility.getCurrentUser()
-        self.insertEmptyTabItem("", atIndex: 1)
-        let img = UIImage(named: "tabbar_item_new_spent")
-        self.addRaisedButton(img, highlightImage: nil)
+        if(PFUser.currentUser() != nil){Utility.getCurrentUser()}
+        
+        
+        self.insertEmptyTabItem("", atIndex: 2)
+        let newSpentTabImg = UIImage(named: "tabbar_item_new_spent")
+        self.addRaisedButton(newSpentTabImg, highlightImage: nil)
         
         //        addBook = UIButton(frame: CGRect(x: 100, y: 630, width: 50, height: 50))
         //        addBook.setImage(UIImage(named: "bookIconSample00"), forState: UIControlState.Normal)
@@ -46,6 +48,14 @@ class TabViewController: RaisedTabBarController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        print(PFUser.currentUser())
+        if (PFUser.currentUser() == nil) {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("loginViewIdentifier") 
+                self.presentViewController(viewController, animated: true, completion: nil)
+            })
+        }
     }
     
     override func onRaisedButton(sender: UIButton!) {

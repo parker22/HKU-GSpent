@@ -13,23 +13,27 @@ import UIKit
 class BookTableViewController: UITableViewController,RefreshBookTableViewControllerDelegate {
     
     
-    @IBAction func RefreshBookList(sender: AnyObject) {
-        self.initData()
-        self.bookListTV.reloadData()
-        self.refreshControl?.endRefreshing()
-    }
     @IBOutlet var bookListTV: UITableView!
     var books = [Book]()
     static var bookData = [PFObject]()
     static var relationData = [PFObject]()
-    
     var dataRepository = DataRepository()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+//                let img = UIImage()
+//                self.navigationController?.navigationBar.shadowImage = img
+//        self.navigationController?.navigationBar.setBackgroundImage(img, forBarMetrics: UIBarMetrics.Default)
+//        self.navigationController?.navigationBar.barTintColor = Utility.colorWithHexString(colorPrimary[0])
         
+        //        self.navigationController?.navigationBar.setBackgroundImage(img, forBarMetrics: UIBarMetrics.Default)
         Utility.mDelegate = self
+        
         self.initData()
+        refreshControl!.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
+        self.bookListTV.addSubview(refreshControl!)
+        
         //        books = self.dataRepository.getBooks()
         
         // Uncomment the following line to preserve selection between presentations
@@ -40,15 +44,14 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    //    func refresh(sender:AnyObject)
-    //    {
-    //        // Updating your data here...
-    //
-    //        self.bookListTV.reloadData()
-    //        self.refreshControl?.endRefreshing()
-    //    }
+    func refreshData()
+    {
+        self.initData()
+        refreshControl?.endRefreshing()
+    }
     
     override func viewWillAppear(animated: Bool) {
+        refreshControl?.endRefreshing()
         let selectedIndex = self.tableView.indexPathForSelectedRow
         if (selectedIndex != nil) {
             self.bookListTV.deselectRowAtIndexPath(selectedIndex!, animated: animated)
@@ -58,7 +61,7 @@ class BookTableViewController: UITableViewController,RefreshBookTableViewControl
     func initData(){
         if Utility.hasCurrentUser{
             print(Utility.currentUser)
-            self.dataRepository.bookDatabase.getBookPFObjects(Utility.currentUser, tableView: self.bookListTV, activity: "BookList" )
+            self.dataRepository.bookDatabase.getBookPFObjects(Utility.currentUser, tableView: self.bookListTV, activity: "BookList")
         }
         
     }

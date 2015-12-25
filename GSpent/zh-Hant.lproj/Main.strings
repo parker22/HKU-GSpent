@@ -1,0 +1,42 @@
+
+/* Class = "UIButton"; normalTitle = "选好了"; ObjectID = "0f1-KI-cI4"; */
+"0f1-KI-cI4.normalTitle" = "选好了";
+
+/* Class = "UIButton"; normalTitle = "Take a photo"; ObjectID = "3lX-Tw-OsX"; */
+"3lX-Tw-OsX.normalTitle" = "Take a photo";
+
+/* Class = "UITabBarItem"; title = "Books"; ObjectID = "8yc-p1-Gci"; */
+"8yc-p1-Gci.title" = "Books";
+
+/* Class = "UIButton"; normalTitle = "Photo roll"; ObjectID = "C0x-YT-Nu7"; */
+"C0x-YT-Nu7.normalTitle" = "Photo roll";
+
+/* Class = "UIBarButtonItem"; title = "cancel"; ObjectID = "DuZ-ll-VfP"; */
+"DuZ-ll-VfP.title" = "cancel";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "LYB-TW-cPD"; */
+"LYB-TW-cPD.title" = "Cancel";
+
+/* Class = "UINavigationItem"; title = "Receipt"; ObjectID = "S4C-LO-p2T"; */
+"S4C-LO-p2T.title" = "Receipt";
+
+/* Class = "UITabBarItem"; title = "Tally"; ObjectID = "an9-BB-XI6"; */
+"an9-BB-XI6.title" = "Tally";
+
+/* Class = "UIButton"; normalTitle = "Select target book"; ObjectID = "bFz-1q-5TJ"; */
+"bFz-1q-5TJ.normalTitle" = "Select target book";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "l2P-0A-hbc"; */
+"l2P-0A-hbc.placeholder" = "0.00";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "nmS-Rb-MEi"; */
+"nmS-Rb-MEi.normalTitle" = "Confirm";
+
+/* Class = "UILabel"; text = "HKD$"; ObjectID = "rTY-zK-thb"; */
+"rTY-zK-thb.text" = "HKD$";
+
+/* Class = "UINavigationItem"; title = "Add Spent"; ObjectID = "xXc-ro-r2A"; */
+"xXc-ro-r2A.title" = "Add Spent";
+
+/* Class = "UINavigationItem"; title = "Select target book"; ObjectID = "zxn-9c-kEn"; */
+"zxn-9c-kEn.title" = "Select target book";

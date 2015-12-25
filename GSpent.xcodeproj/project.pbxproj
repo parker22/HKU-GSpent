@@ -41,6 +41,9 @@
 		49155AFB1C1C7438005AFCDF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155AFA1C1C7438005AFCDF /* Utility.swift */; };
 		49155AFD1C1DB819005AFCDF /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155AFC1C1DB818005AFCDF /* TimeAgo.swift */; };
 		4919F0C21C0ACE5C0081E69F /* PersonalTally.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919F0C01C0ACE5C0081E69F /* PersonalTally.storyboard */; };
+		492381041C205C4A0074E7A1 /* UserTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492381031C205C4A0074E7A1 /* UserTextField.swift */; };
+		492381061C206D870074E7A1 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492381051C206D870074E7A1 /* SlideMenuController.swift */; };
+		4923810B1C20901C0074E7A1 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4923810A1C20901C0074E7A1 /* Group.storyboard */; };
 		492904621C0B247800DADCC7 /* bookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904601C0B247800DADCC7 /* bookTableViewCell.swift */; };
 		492904641C0B284900DADCC7 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492904551C0B145E00DADCC7 /* BookTableViewController.swift */; };
 		494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */; };
@@ -54,6 +57,9 @@
 		498D3DF11C09D3560013E1EA /* GSpentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DF01C09D3560013E1EA /* GSpentUITests.swift */; };
 		498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */; };
 		498D3E041C09EC330013E1EA /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498D3E021C09EC330013E1EA /* Books.storyboard */; };
+		499D8D9A1C204396004EDD07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D8D991C204396004EDD07 /* LoginViewController.swift */; };
+		499D8D9C1C2043B2004EDD07 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D8D9B1C2043B2004EDD07 /* SignUpViewController.swift */; };
+		499D8D9E1C20443F004EDD07 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D8D9D1C20443F004EDD07 /* ResetPasswordViewController.swift */; };
 		49ADCFC31C1979CB00CA2494 /* GenerateReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ADCFC21C1979CB00CA2494 /* GenerateReportViewController.swift */; };
 		49ADCFC51C1979EF00CA2494 /* OweingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ADCFC41C1979EF00CA2494 /* OweingData.swift */; };
 		49ADCFC71C197AAD00CA2494 /* Settlement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49ADCFC61C197AAD00CA2494 /* Settlement.storyboard */; };
@@ -122,11 +128,22 @@
 		49155AFA1C1C7438005AFCDF /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		49155AFC1C1DB818005AFCDF /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		4919F0C11C0ACE5C0081E69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PersonalTally.storyboard; sourceTree = "<group>"; };
+		492381031C205C4A0074E7A1 /* UserTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTextField.swift; path = "Views/Universal/UI Components/UserTextField.swift"; sourceTree = "<group>"; };
+		492381051C206D870074E7A1 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = "Views/Universal/UI Components/SlideMenuController.swift"; sourceTree = "<group>"; };
+		492381091C208A110074E7A1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4923810A1C20901C0074E7A1 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Group.storyboard; path = Controllers/Group/Group.storyboard; sourceTree = "<group>"; };
 		492904551C0B145E00DADCC7 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		492904601C0B247800DADCC7 /* bookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookTableViewCell.swift; sourceTree = "<group>"; };
 		494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaisedTabBarController.swift; sourceTree = "<group>"; };
 		494FD4F11C0AD65D002C2A12 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		4974DC361C166B9000F6B239 /* TakePicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePicViewController.swift; sourceTree = "<group>"; };
+		4986A0811C1F26870001AA3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Books.strings"; sourceTree = "<group>"; };
+		4986A0821C1F26870001AA3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PersonalTally.strings"; sourceTree = "<group>"; };
+		4986A0841C1F26870001AA3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4986A0851C1F26940001AA3B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Books.strings"; sourceTree = "<group>"; };
+		4986A0861C1F26940001AA3B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/PersonalTally.strings"; sourceTree = "<group>"; };
+		4986A0871C1F26940001AA3B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		4986A0881C1F26940001AA3B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		498D3DCB1C09D3560013E1EA /* GSpent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSpent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		498D3DCE1C09D3560013E1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		498D3DD21C09D3560013E1EA /* PersonalTallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTallyViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +158,9 @@
 		498D3DF21C09D3560013E1EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		498D3DFE1C09D8810013E1EA /* NewSpentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSpentViewController.swift; sourceTree = "<group>"; };
 		498D3E031C09EC330013E1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Books.storyboard; sourceTree = "<group>"; };
+		499D8D991C204396004EDD07 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/User/LoginViewController.swift; sourceTree = "<group>"; };
+		499D8D9B1C2043B2004EDD07 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controllers/User/SignUpViewController.swift; sourceTree = "<group>"; };
+		499D8D9D1C20443F004EDD07 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = Controllers/User/ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		49ADCFC21C1979CB00CA2494 /* GenerateReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateReportViewController.swift; sourceTree = "<group>"; };
 		49ADCFC41C1979EF00CA2494 /* OweingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OweingData.swift; sourceTree = "<group>"; };
 		49ADCFC61C197AAD00CA2494 /* Settlement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settlement.storyboard; sourceTree = "<group>"; };
@@ -238,6 +258,41 @@
 			path = GSpent;
 			sourceTree = "<group>";
 		};
+		491933051C1E98C8004BA4FD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				492381071C20882F0074E7A1 /* Group */,
+				499D8D981C204343004EDD07 /* User */,
+				494FD4F11C0AD65D002C2A12 /* TabViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		491933061C1E9916004BA4FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				491933071C1E991E004BA4FD /* Universal */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		491933071C1E991E004BA4FD /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */,
+				492381031C205C4A0074E7A1 /* UserTextField.swift */,
+				492381051C206D870074E7A1 /* SlideMenuController.swift */,
+			);
+			name = Universal;
+			sourceTree = "<group>";
+		};
+		492381071C20882F0074E7A1 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
 		4929045D1C0B234800DADCC7 /* Books */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +359,8 @@
 		498D3DCD1C09D3560013E1EA /* GSpent */ = {
 			isa = PBXGroup;
 			children = (
+				491933061C1E9916004BA4FD /* Views */,
+				491933051C1E98C8004BA4FD /* Controllers */,
 				1A8709CD1C1D5B2A00DC82A4 /* Assets.xcassets */,
 				29617F0C1C199E1B00709171 /* libWeChatSDK.a */,
 				29617F0D1C199E1B00709171 /* WechatAuthSDK.h */,
@@ -317,10 +374,9 @@
 				498D3DCE1C09D3560013E1EA /* AppDelegate.swift */,
 				1A7846301C0E934A00A6B416 /* DataRepository.swift */,
 				498D3DD41C09D3560013E1EA /* Main.storyboard */,
+				4923810A1C20901C0074E7A1 /* Group.storyboard */,
 				498D3DD91C09D3560013E1EA /* LaunchScreen.storyboard */,
 				498D3DDC1C09D3560013E1EA /* Info.plist */,
-				494FD4EF1C0AD4A2002C2A12 /* RaisedTabBarController.swift */,
-				494FD4F11C0AD65D002C2A12 /* TabViewController.swift */,
 			);
 			path = GSpent;
 			sourceTree = "<group>";
@@ -341,6 +397,16 @@
 				498D3DF21C09D3560013E1EA /* Info.plist */,
 			);
 			path = GSpentUITests;
+			sourceTree = "<group>";
+		};
+		499D8D981C204343004EDD07 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				499D8D991C204396004EDD07 /* LoginViewController.swift */,
+				499D8D9B1C2043B2004EDD07 /* SignUpViewController.swift */,
+				499D8D9D1C20443F004EDD07 /* ResetPasswordViewController.swift */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		49CD51EE1C1591C700B9FB13 /* Spent */ = {
@@ -432,7 +498,7 @@
 				TargetAttributes = {
 					498D3DCA1C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = HNWACE57P8;
+						DevelopmentTeam = 4B48NYP867;
 					};
 					498D3DE01C09D3560013E1EA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -473,6 +539,7 @@
 				4919F0C21C0ACE5C0081E69F /* PersonalTally.storyboard in Resources */,
 				498D3DDB1C09D3560013E1EA /* LaunchScreen.storyboard in Resources */,
 				1A061C631C0D49AE00AE4E2C /* BookINPTableViewCell.xib in Resources */,
+				4923810B1C20901C0074E7A1 /* Group.storyboard in Resources */,
 				49ADCFC71C197AAD00CA2494 /* Settlement.storyboard in Resources */,
 				498D3E041C09EC330013E1EA /* Books.storyboard in Resources */,
 				498D3DD61C09D3560013E1EA /* Main.storyboard in Resources */,
@@ -503,8 +570,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A26AAD01C0F2CCC00329C3A /* NewBookViewController.swift in Sources */,
+				492381061C206D870074E7A1 /* SlideMenuController.swift in Sources */,
 				49ADCFC31C1979CB00CA2494 /* GenerateReportViewController.swift in Sources */,
 				492904641C0B284900DADCC7 /* BookTableViewController.swift in Sources */,
+				499D8D9E1C20443F004EDD07 /* ResetPasswordViewController.swift in Sources */,
 				1A7846311C0E934A00A6B416 /* DataRepository.swift in Sources */,
 				1A061C621C0D49AE00AE4E2C /* BookINPTableViewCell.swift in Sources */,
 				494FD4F21C0AD65D002C2A12 /* TabViewController.swift in Sources */,
@@ -512,9 +581,11 @@
 				49155AF91C1C2DA1005AFCDF /* Constants.swift in Sources */,
 				49CD51F51C15BBD700B9FB13 /* spentDescriptionTextFieldView.swift in Sources */,
 				49C383A11C1892F1006A44BF /* bookDetailTallyTableViewCell.swift in Sources */,
+				499D8D9C1C2043B2004EDD07 /* SignUpViewController.swift in Sources */,
 				49C3839F1C18867E006A44BF /* BookMemberSelectionTableViewController.swift in Sources */,
 				494FD4F01C0AD4A2002C2A12 /* RaisedTabBarController.swift in Sources */,
 				291153E41C102ED800937D03 /* SettlementViewController.swift in Sources */,
+				499D8D9A1C204396004EDD07 /* LoginViewController.swift in Sources */,
 				49B3721E1C0E16A700315A5D /* BookDetailViewController.swift in Sources */,
 				49C3839D1C185870006A44BF /* SpentBookSelectionTableViewController.swift in Sources */,
 				498D3DD31C09D3560013E1EA /* PersonalTallyViewController.swift in Sources */,
@@ -529,6 +600,7 @@
 				1A7846261C0D8E6400A6B416 /* BookTallyTableViewCell.swift in Sources */,
 				498D3DCF1C09D3560013E1EA /* AppDelegate.swift in Sources */,
 				49155AFD1C1DB819005AFCDF /* TimeAgo.swift in Sources */,
+				492381041C205C4A0074E7A1 /* UserTextField.swift in Sources */,
 				498D3DFF1C09D8810013E1EA /* NewSpentViewController.swift in Sources */,
 				49CD51F11C1591F300B9FB13 /* spentCategoryCollectionViewCell.swift in Sources */,
 				49ADCFC51C1979EF00CA2494 /* OweingData.swift in Sources */,
@@ -571,6 +643,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4919F0C11C0ACE5C0081E69F /* Base */,
+				4986A0821C1F26870001AA3B /* zh-Hans */,
+				4986A0861C1F26940001AA3B /* zh-Hant */,
 			);
 			name = PersonalTally.storyboard;
 			sourceTree = "<group>";
@@ -579,6 +653,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				498D3DD51C09D3560013E1EA /* Base */,
+				4986A0871C1F26940001AA3B /* zh-Hant */,
+				492381091C208A110074E7A1 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -587,6 +663,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				498D3DDA1C09D3560013E1EA /* Base */,
+				4986A0841C1F26870001AA3B /* zh-Hans */,
+				4986A0881C1F26940001AA3B /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -595,6 +673,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				498D3E031C09EC330013E1EA /* Base */,
+				4986A0811C1F26870001AA3B /* zh-Hans */,
+				4986A0851C1F26940001AA3B /* zh-Hant */,
 			);
 			name = Books.storyboard;
 			sourceTree = "<group>";
@@ -703,7 +783,7 @@
 					"$(PROJECT_DIR)/GSpent",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.app.gspent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = ./GSpent/Header.h;
@@ -728,7 +808,7 @@
 					"$(PROJECT_DIR)/GSpent",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.gspent1;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jiaheliu.app.gspent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = ./GSpent/Header.h;

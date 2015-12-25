@@ -1,0 +1,54 @@
+
+/* Class = "UIButton"; normalTitle = "选好了"; ObjectID = "0f1-KI-cI4"; */
+"0f1-KI-cI4.normalTitle" = "选好了";
+
+/* Class = "UIButton"; normalTitle = "Take a photo"; ObjectID = "3lX-Tw-OsX"; */
+"3lX-Tw-OsX.normalTitle" = "拍照";
+
+/* Class = "UITabBarItem"; title = "Books"; ObjectID = "8yc-p1-Gci"; */
+"8yc-p1-Gci.title" = "账本";
+
+/* Class = "UIButton"; normalTitle = "Photo roll"; ObjectID = "C0x-YT-Nu7"; */
+"C0x-YT-Nu7.normalTitle" = "相册";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Dg9-tH-nWD"; */
+"Dg9-tH-nWD.placeholder" = "用户名";
+
+/* Class = "UIBarButtonItem"; title = "cancel"; ObjectID = "DuZ-ll-VfP"; */
+"DuZ-ll-VfP.title" = "取消";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "LYB-TW-cPD"; */
+"LYB-TW-cPD.title" = "取消";
+
+/* Class = "UINavigationItem"; title = "Receipt"; ObjectID = "S4C-LO-p2T"; */
+"S4C-LO-p2T.title" = "收据";
+
+/* Class = "UINavigationItem"; title = "GSpent"; ObjectID = "Z42-VW-sJr"; */
+"Z42-VW-sJr.title" = "集账本";
+
+/* Class = "UITabBarItem"; title = "Tally"; ObjectID = "an9-BB-XI6"; */
+"an9-BB-XI6.title" = "账目";
+
+/* Class = "UIButton"; normalTitle = "Select target book"; ObjectID = "bFz-1q-5TJ"; */
+"bFz-1q-5TJ.normalTitle" = "选择记入的账本";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "l2P-0A-hbc"; */
+"l2P-0A-hbc.placeholder" = "0.00";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "nmS-Rb-MEi"; */
+"nmS-Rb-MEi.normalTitle" = "确认";
+
+/* Class = "UIButton"; normalTitle = "Create"; ObjectID = "osY-WS-yIR"; */
+"osY-WS-yIR.normalTitle" = "注册";
+
+/* Class = "UILabel"; text = "HKD$"; ObjectID = "rTY-zK-thb"; */
+"rTY-zK-thb.text" = "HKD$";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "uxg-CB-rhi"; */
+"uxg-CB-rhi.placeholder" = "密码";
+
+/* Class = "UINavigationItem"; title = "Add Spent"; ObjectID = "xXc-ro-r2A"; */
+"xXc-ro-r2A.title" = "记一笔";
+
+/* Class = "UINavigationItem"; title = "Select target book"; ObjectID = "zxn-9c-kEn"; */
+"zxn-9c-kEn.title" = "选择记入的账本";

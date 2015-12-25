@@ -11,7 +11,7 @@ import Parse
 
 var tmpBid = 2000
 
-class NewBookViewController: UIViewController,sendBookMemberBack {
+class NewBookViewController: UIViewController,sendBookMemberBack,UITextFieldDelegate {
     
     //var members:[Int]=[]
     var participantsObjects = [PFObject]()
@@ -25,6 +25,9 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.newBookNameTF.delegate = self
         Utility.addButtonStyle(selectParticipants, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
         Utility.addButtonStyle(submitButton, border: 2, radius: 5, textColor: Utility.colorWithHexString(colorPrimary[4]), borderColor: Utility.colorWithHexString(colorPrimary[4]))
         // Do any additional setup after loading the view.
@@ -116,6 +119,15 @@ class NewBookViewController: UIViewController,sendBookMemberBack {
         //        do { participantsObjects += try query.findObjects() }
         //        catch {print("didnt find object")}
         participantsObjects = selectedMembers
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     
